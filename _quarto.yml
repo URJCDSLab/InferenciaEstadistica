@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: doc
+  output-dir: docs
 
 book:
   title: "Inferencia Estadística"
@@ -24,7 +24,6 @@ format:
   html:
     theme: cerulean
     lang: es
-    css: styles.css
   pdf:
     documentclass: scrreprt
 
