@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,16 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -41,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -107,31 +83,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "Sín resultados",
+    "search-no-results-text": "Sin resultados",
     "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la busqueda",
-    "search-hide-matches-text": "Esconder resultados adicionales",
-    "search-more-match-text": "hay más resultados en este documento",
-    "search-more-matches-text": "más resultados en este documento",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
     "search-clear-button-title": "Borrar",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Eviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./anova.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -139,73 +123,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Inferencia Estadística</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Prefacio</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></a>
+  <a href="./eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./para.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimación y contraste paramétrico</span></a>
+  <a href="./para.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimación y contraste paramétrico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nopara.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Contraste no paramétrico</span></a>
+  <a href="./nopara.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Contraste no paramétrico</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./anova.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></a>
+  <a href="./anova.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conclusiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusiones</span></a>
+  <a href="./conclusiones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusiones</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Bibliografía</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliografía</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Indice de contenidos</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#modelo-con-un-factor" id="toc-modelo-con-un-factor" class="nav-link active" data-scroll-target="#modelo-con-un-factor"> <span class="header-section-number">5.1</span> Modelo con un factor</a></li>
-  <li><a href="#modelo-con-dos-factores-con-y-sin-interacción" id="toc-modelo-con-dos-factores-con-y-sin-interacción" class="nav-link" data-scroll-target="#modelo-con-dos-factores-con-y-sin-interacción"> <span class="header-section-number">5.2</span> Modelo con dos factores con y sin Interacción</a></li>
-  <li><a href="#comparaciones-múltiples" id="toc-comparaciones-múltiples" class="nav-link" data-scroll-target="#comparaciones-múltiples"> <span class="header-section-number">5.3</span> Comparaciones múltiples</a>
+  <li><a href="#modelo-con-un-factor" id="toc-modelo-con-un-factor" class="nav-link active" data-scroll-target="#modelo-con-un-factor"><span class="header-section-number">5.1</span> Modelo con un factor</a></li>
+  <li><a href="#modelo-con-dos-factores-con-y-sin-interacción" id="toc-modelo-con-dos-factores-con-y-sin-interacción" class="nav-link" data-scroll-target="#modelo-con-dos-factores-con-y-sin-interacción"><span class="header-section-number">5.2</span> Modelo con dos factores con y sin Interacción</a></li>
+  <li><a href="#comparaciones-múltiples" id="toc-comparaciones-múltiples" class="nav-link" data-scroll-target="#comparaciones-múltiples"><span class="header-section-number">5.3</span> Comparaciones múltiples</a>
   <ul class="collapse">
-  <li><a href="#método-de-bonferroni" id="toc-método-de-bonferroni" class="nav-link" data-scroll-target="#método-de-bonferroni"> <span class="header-section-number">5.3.1</span> Método de Bonferroni</a></li>
+  <li><a href="#método-de-bonferroni" id="toc-método-de-bonferroni" class="nav-link" data-scroll-target="#método-de-bonferroni"><span class="header-section-number">5.3.1</span> Método de Bonferroni</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -215,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-anova" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></span></h1>
+<h1 class="title"><span id="sec-anova" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></span></h1>
 </div>
 
 
@@ -223,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -239,18 +233,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Análisis de resultados</strong>: Si la prueba <span class="math inline">\(F\)</span> indica que hay diferencias significativas, se pueden realizar pruebas adicionales para identificar entre qué grupos existen estas diferencias.</p></li>
 </ol>
 <p>El ANOVA es una herramienta poderosa porque permite comparaciones múltiples mientras controla la tasa de error tipo I. Es ampliamente utilizado en experimentos donde se comparan tratamientos o condiciones en diferentes grupos o en diferentes momentos.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled" title="Distribución F">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Advertencia
+<div class="callout-title-container flex-fill">
+Distribución F
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body" title="Distribución F">
+<div class="callout-body-container callout-body">
 <p>La función de distribución F es una distribución de probabilidad que surge principalmente en el análisis de varianza (ANOVA) y en la prueba F de Fisher, utilizada para comparar dos varianzas de muestras independientes. Tal y como veremos en este capítulo, esta distribución es útil para determinar si la variabilidad entre los grupos es mayor que la variabilidad dentro de los grupos.</p>
 <p>La distribución F tiene dos parámetros de grados de libertad: uno para el numerador (<span class="math inline">\(df1\)</span>) y otro para el denominador (<span class="math inline">\(df2\)</span>).</p>
 <p>Vamos a visualizar la distribución F y calcular valores específicos usando <code>R</code>.</p>
@@ -333,8 +327,9 @@ Advertencia
 <li>Homogeneidad de varianzas: Las varianzas de las poblaciones son iguales.</li>
 <li>Independencia: Las observaciones son independientes entre sí.</li>
 </ul>
-<p>Escribimos el modelo como sigue: $$ Y_{ij} = + <em>i + </em>{ij}</p>
-<p>$$ Donde:</p>
+<p>Escribimos el modelo como sigue: <span class="math display">\[
+  Y_{ij} = \mu + \tau_i + \epsilon_{ij}
+\]</span> Donde:</p>
 <ul>
 <li><span class="math inline">\(Y_{ij}\)</span> es la observación <span class="math inline">\(j\)</span>-ésima del grupo <span class="math inline">\(i\)</span>-ésimo.</li>
 <li><span class="math inline">\(\mu\)</span> es la media general.</li>
@@ -346,18 +341,20 @@ Y_i=\mu+\tau_i
 <p>La Suma de las diferencias al cuadrado de cada dato respecto a la media general se calcula como sigue: <span class="math display">\[
     \text{SST} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{..})^2        
 \]</span> donde <span class="math inline">\(\bar{Y}_{..}\)</span> es la media general de todas las observaciones.</p>
-<p>Teniendo en cuenta que: $$ Y_{ij} - {Y}<em>{..}= Y_i + </em>{ij} - {Y}_{..}</p>
-<p>$$ Podemos descomponer la suma de cuadrados, como sigue:</p>
-<p>$$</p>
-<pre><code>\text{SST} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{..})^2=  \sum_{i=1}^{k} n_i (\bar{Y}_i - \bar{Y}_{..})^2+\sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_i)^2      </code></pre>
-<p>$$</p>
+<p>Teniendo en cuenta que: <span class="math display">\[
+Y_{ij} - \bar{Y}_{..}= Y_i  + \epsilon_{ij} - \bar{Y}_{..}
+\]</span> Podemos descomponer la suma de cuadrados, como sigue:</p>
+<p><span class="math display">\[
+    \text{SST} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{..})^2=  \sum_{i=1}^{k} n_i (\bar{Y}_i - \bar{Y}_{..})^2+\sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_i)^2      
+\]</span></p>
 <p>Donde: La varianza entre grupos se calcula como la suma de las diferencias al cuadrado de las medias de los grupos respecto a la media general, ponderada por el tamaño de los grupos: <span class="math display">\[
 \text{SSB} = \sum_{i=1}^{k} n_i (\bar{Y}_i - \bar{Y}_{..})^2
 \]</span> donde <span class="math inline">\(\bar{Y}_i\)</span> es la media del grupo <span class="math inline">\(i\)</span>.</p>
-<p>Además, la varianza dentro de los grupos, se calcula como la suma de las diferencias al cuadrado de cada dato respecto a la media de su grupo se obtiene como: $$ = <em>{i=1}^{k} </em>{j=1}^{n_i} (Y_{ij} - {Y}_i)^2</p>
-<p><span class="math display">\[ Esto es, se descompone la variabilidad total de los datos en dos componentes, SSB que refleja la diferencia de cada grupo respecto a la media global y SSW que refleja la variabilidad intrínseca dentro de cada grupo: \]</span></p>
-<p> = + </p>
-<p>$$</p>
+<p>Además, la varianza dentro de los grupos, se calcula como la suma de las diferencias al cuadrado de cada dato respecto a la media de su grupo se obtiene como: <span class="math display">\[
+\text{SSW} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_i)^2
+\]</span> Esto es, se descompone la variabilidad total de los datos en dos componentes, SSB que refleja la diferencia de cada grupo respecto a la media global y SSW que refleja la variabilidad intrínseca dentro de cada grupo: <span class="math display">\[
+\text{SST} = \text{SSB} + \text{SSW}
+\]</span></p>
 <p><strong>Cálculo del Estadístico F</strong>: <span class="math display">\[
 F = \frac{\text{Varianza Entre Grupos (MSB)}}{\text{Varianza Dentro de los Grupos (MSW)}}
 \]</span> Donde:</p>
@@ -365,8 +362,9 @@ F = \frac{\text{Varianza Entre Grupos (MSB)}}{\text{Varianza Dentro de los Grupo
 <li>MSB (Mean Square Between): Media cuadrática entre grupos.</li>
 <li>MSW (Mean Square Within): Media cuadrática dentro de los grupos.</li>
 </ul>
-<p>Esto es: $$ F=</p>
-<p>$$ donde:</p>
+<p>Esto es: <span class="math display">\[
+F=\frac{SSB/df_B}{SSW/df_W}
+\]</span> donde:</p>
 <ul>
 <li><span class="math inline">\(df_B=k-1\)</span> son los grados de libertad entre los grupos</li>
 <li><span class="math inline">\(df_W=N-k\)</span> son los grado sd elibertado dentro de los grupos, siendo <span class="math inline">\(N\)</span> el número total de observaciones.</li>
@@ -408,37 +406,38 @@ F = \frac{\text{Varianza Entre Grupos (MSB)}}{\text{Varianza Dentro de los Grupo
 </tr>
 </tbody>
 </table>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled" title="Para el futuro">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Precaución
+<div class="callout-title-container flex-fill">
+Para el futuro
 </div>
 </div>
-<div class="callout-body-container callout-body" title="Para el futuro">
+<div class="callout-body-container callout-body">
 <p>La proporción de variabilidad explicada por los grupos se calcula como: <span class="math display">\[
 R^2=1-SSW/SST
 \]</span> Este valor, será muy importante en la asignatura de <em>Regresión</em> del Grado en Ciencia e Ingeniería de Datos.</p>
 </div>
 </div>
 <p>El estadístico de prueba <span class="math inline">\(F \sim F_{df_B,df_W}\)</span> bajo la hipótesis nula de igualdad de medias.</p>
-<p>El <span class="math inline">\(p-valor\)</span> se obtiene a partir de la distribución <span class="math inline">\(F\)</span>, considerando los grados de libertad de los numeradores y denominadores. Esto es: $$ p-valor=P(F_{df_b,df_W}&gt;F_{muestral})</p>
-<p>$$</p>
+<p>El <span class="math inline">\(p-valor\)</span> se obtiene a partir de la distribución <span class="math inline">\(F\)</span>, considerando los grados de libertad de los numeradores y denominadores. Esto es: <span class="math display">\[
+p-valor=P(F_{df_b,df_W}&gt;F_{muestral})
+\]</span></p>
 <p>Como en otros contrastes, si el <span class="math inline">\(p-valor\)</span> p es menor que el nivel de significancia (<span class="math inline">\(\alpha\)</span>), se rechaza la hipótesis nula, concluyendo que al menos una de las medias de los grupos es diferente.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. ANOVA de un factor">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Tip
+<div class="callout-title-container flex-fill">
+Ejemplo. ANOVA de un factor
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body" title="Ejemplo. ANOVA de un factor">
+<div class="callout-body-container callout-body">
 <p>Vamos a realizar un ejemplo completo de ANOVA de un factor, donde calcularemos todos los pasos del contraste, incluidos el valor de F y el p-valor.</p>
 <p>Supongamos que tenemos tres tratamientos (A, B y C) y sus correspondientes muestras de datos son:</p>
 <ul>
@@ -463,16 +462,16 @@ Tip
 \]</span></p></li>
 </ul>
 <p>Calculamos la Suma de Cuadrados entre Grupos (SSB)</p>
-<p>$$</p>
-<p> = n_A ({Y}_A - {Y})^2 + n_B ({Y}_B - {Y})^2 + n_C ({Y}_C - {Y})^2</p>
-<p>$$ donde <span class="math inline">\(n_A = n_B = n_C = 5\)</span> (número de observaciones en cada grupo). Fíjate que el número de observaciones en cada grupo podría ser diferente. En este ejemplo, son iguales.</p>
-<p>$$</p>
-<p> = 5 (6.6 - 9.8)^2 + 5 (10.0 - 9.8)^2 + 5 (12.8 - 9.8)^2 =96.4</p>
-<p>$$</p>
+<p><span class="math display">\[
+\text{SSB} = n_A (\bar{Y}_A - \bar{Y})^2 + n_B (\bar{Y}_B - \bar{Y})^2 + n_C (\bar{Y}_C - \bar{Y})^2
+\]</span> donde <span class="math inline">\(n_A = n_B = n_C = 5\)</span> (número de observaciones en cada grupo). Fíjate que el número de observaciones en cada grupo podría ser diferente. En este ejemplo, son iguales.</p>
+<p><span class="math display">\[
+\text{SSB} = 5 (6.6 - 9.8)^2 + 5 (10.0 - 9.8)^2 + 5 (12.8 - 9.8)^2 =96.4
+\]</span></p>
 <p>A continuación calculamos la Suma de Cuadrados Dentro de los Grupos (SSW)</p>
-<p>$$</p>
-<p> = <em>{i=1}^{k} </em>{j=1}^{n_i} (Y_{ij} - {Y}_i)^2</p>
-<p>$$</p>
+<p><span class="math display">\[
+\text{SSW} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_i)^2
+\]</span></p>
 <p>Para cada grupo, calculamos la suma de las diferencias al cuadrado entre cada dato y la media del grupo:</p>
 <ul>
 <li><p>Grupo A: <span class="math display">\[
@@ -488,8 +487,9 @@ Tip
 <p>Entonces, la Suma de Cuadrados Dentro de los Grupos (SSW) es: <span class="math display">\[
 \text{SSW} = 9.2 + 10.0 + 14.8 = 34.0
 \]</span></p>
-<p>Tenemos, por tanto que la Suma Total de Cuadrados (SST) es: $$ = + = 96.4 + 34.0 = 130.4</p>
-<p>$$</p>
+<p>Tenemos, por tanto que la Suma Total de Cuadrados (SST) es: <span class="math display">\[
+\text{SST} = \text{SSB} + \text{SSW} = 96.4 + 34.0 = 130.4
+\]</span></p>
 <p>Para realizar el contraste, necesitamos calcular los Grados de Libertad del estadístico:</p>
 <ul>
 <li>Grados de libertad entre los grupos (<span class="math inline">\(\text{df}_B = k-1=3-1=2\)</span>):</li>
@@ -510,7 +510,7 @@ F = \frac{\text{MSB}}{\text{MSW}} = \frac{48.2}{2.8333} \approx 17.01
 <p>El p-valor se obtiene utilizando la distribución <span class="math inline">\(F\)</span> con <span class="math inline">\(\text{df}_B = 2\)</span> y <span class="math inline">\(\text{df}_W = 12\)</span>. Para este ejemplo, podemos utilizar software estadístico o tablas de distribución F.</p>
 <p>Usando R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">17.01</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">12</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">17.01</span>, <span class="at">df1 =</span> <span class="dv">2</span>, <span class="at">df2 =</span> <span class="dv">12</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0003143459</code></pre>
 </div>
@@ -586,12 +586,12 @@ F = \frac{\text{MSB}}{\text{MSW}} = \frac{48.2}{2.8333} \approx 17.01
 </tr>
 </tbody>
 </table>
-<p>Para estudiar la importancia de cada factor se calcula el estadístico <span class="math inline">\(F\)</span> particular para cada uno de ellos como sigue: $$ F_A= F_{m_A-1,N-m_A-m_B+1}</p>
-<p><span class="math display">\[ y \]</span></p>
-<p>F_B=F_{m_B-1,N-m_A-m_B+1}</p>
-<p>$$ A partir de estos estadísticos de prueba podemos contrastar las hipótesis nulas de no existencia de efectos asociados a los factores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> respectivamente.</p>
-<p><strong>Modelo con Interacción</strong>:</p>
-<p><span class="math display">\[ Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \epsilon_{ijk} \]</span></p>
+<p>Para estudiar la importancia de cada factor se calcula el estadístico <span class="math inline">\(F\)</span> particular para cada uno de ellos como sigue: <span class="math display">\[
+F_A=\frac{MSB_A}{MSW} \sim F_{m_A-1,N-m_A-m_B+1}
+\]</span> y <span class="math display">\[
+F_B=\frac{MSB_B}{MSW}\sim F_{m_B-1,N-m_A-m_B+1}
+\]</span> A partir de estos estadísticos de prueba podemos contrastar las hipótesis nulas de no existencia de efectos asociados a los factores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> respectivamente.</p>
+<p><strong>Modelo con Interacción</strong>: <span class="math display">\[ Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \epsilon_{ijk} \]</span></p>
 <p>Donde: <span class="math inline">\((\alpha\beta)_{ij}\)</span> representa el efecto de interacción entre el nivel <span class="math inline">\(i\)</span>-ésimo del factor A y el nivel <span class="math inline">\(j\)</span>-ésimo del factor B.</p>
 <p>En este caso, la tabla ANOVA añade el factor de interacción:</p>
 <table class="table">
@@ -643,38 +643,38 @@ F = \frac{\text{MSB}}{\text{MSW}} = \frac{48.2}{2.8333} \approx 17.01
 </tbody>
 </table>
 <p>Para estudiar la importancia de cada de la interacción se calculan el estadístico <span class="math inline">\(F\)</span> correspondiente:</p>
-<p>$$</p>
-<p>F_{AB}=F_{(m_A-1)<em>(m_B-1),N-m_A</em>m_B}</p>
-<p>$$</p>
+<p><span class="math display">\[
+F_{AB}=\frac{MSB_{AB}}{MSW}\sim F_{(m_A-1)*(m_B-1),N-m_A*m_B}
+\]</span></p>
 <p>A partir de este estadísticos de prueba podemos contrastar la hipótesis nula de no existencia de interacción entre los dos factores <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>. Si podemos rechazar esa hipótesis, es decir, si existe interacción entre los factores, entonces hemos terminado. Es decir, no podemos eliminar ningún factor del modelo. En cambio, si no rechazamos la hipótesis nula, es decir, si no existe interacción entre los factores, podemos eliminar dicho efecto (la interacción) del modelo y pasar a un modelos sin interacción como el anteriormente descrito.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. ANOVA de dos factores con interacción">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Tip
+<div class="callout-title-container flex-fill">
+Ejemplo. ANOVA de dos factores con interacción
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body" title="Ejemplo. ANOVA de dos factores con interacción">
+<div class="callout-body-container callout-body">
 <p>Supongamos que estamos estudiando el efecto de dos factores sobre el rendimiento de los estudiantes: el método de enseñanza (con dos niveles: Tradicional y Experimental) y el tipo de material de estudio (con tres niveles: Libro, Video, y Online). Queremos saber si estos factores, y su posible interacción, tienen un efecto significativo en el rendimiento.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rendimiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">88</span>, <span class="dv">90</span>, <span class="dv">83</span>, <span class="dv">87</span>, <span class="dv">85</span>, <span class="dv">86</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">84</span>, <span class="dv">88</span>, <span class="dv">87</span>,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">78</span>, <span class="dv">79</span>, <span class="dv">80</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">75</span>, <span class="dv">78</span>, <span class="dv">79</span>, <span class="dv">81</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">76</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">90</span>, <span class="dv">92</span>, <span class="dv">91</span>, <span class="dv">93</span>, <span class="dv">90</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">92</span>, <span class="dv">91</span>, <span class="dv">93</span>, <span class="dv">92</span>, <span class="dv">91</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>metodo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Tradicional"</span>, <span class="st">"Experimental"</span>), <span class="at">each=</span><span class="dv">18</span>))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>material <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Libro"</span>, <span class="st">"Video"</span>, <span class="st">"Online"</span>), <span class="at">each=</span><span class="dv">6</span>, <span class="at">times=</span><span class="dv">2</span>))</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un data frame</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(rendimiento, metodo, material)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar los datos</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"material"</span>, <span class="at">y =</span> <span class="st">"rendimiento"</span>, <span class="at">color =</span> <span class="st">"metodo"</span>,</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>),</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rendimiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">88</span>, <span class="dv">90</span>, <span class="dv">83</span>, <span class="dv">87</span>, <span class="dv">85</span>, <span class="dv">86</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">84</span>, <span class="dv">88</span>, <span class="dv">87</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">78</span>, <span class="dv">79</span>, <span class="dv">80</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">75</span>, <span class="dv">78</span>, <span class="dv">79</span>, <span class="dv">81</span>, <span class="dv">76</span>, <span class="dv">77</span>, <span class="dv">76</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">90</span>, <span class="dv">92</span>, <span class="dv">91</span>, <span class="dv">93</span>, <span class="dv">90</span>, <span class="dv">89</span>, <span class="dv">91</span>, <span class="dv">92</span>, <span class="dv">91</span>, <span class="dv">93</span>, <span class="dv">92</span>, <span class="dv">91</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>metodo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Tradicional"</span>, <span class="st">"Experimental"</span>), <span class="at">each=</span><span class="dv">18</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>material <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Libro"</span>, <span class="st">"Video"</span>, <span class="st">"Online"</span>), <span class="at">each=</span><span class="dv">6</span>, <span class="at">times=</span><span class="dv">2</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un data frame</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(rendimiento, metodo, material)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar los datos</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"material"</span>, <span class="at">y =</span> <span class="st">"rendimiento"</span>, <span class="at">color =</span> <span class="st">"metodo"</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -685,11 +685,11 @@ Tip
 </div>
 <p>Ahora que tenemos nuestros datos, vamos a realizar el ANOVA de dos factores con interacción.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores con interacción</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(rendimiento <span class="sc">~</span> metodo <span class="sc">*</span> material, <span class="at">data=</span>datos)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores con interacción</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(rendimiento <span class="sc">~</span> metodo <span class="sc">*</span> material, <span class="at">data=</span>datos)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 metodo           1   81.0    81.0   21.83 5.88e-05 ***
@@ -711,35 +711,36 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. ANOVA de dos factores no significativos">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Tip
+<div class="callout-title-container flex-fill">
+Ejemplo. ANOVA de dos factores no significativos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body" title="Ejemplo. ANOVA de dos factores no significativos">
+<div class="callout-body-container callout-body">
 <p>Supongamos que estamos estudiando el efecto del tipo de fertilizante (con dos niveles: <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>) y el tipo de riego (con tres niveles: Goteo, Aspersión, Manual) sobre el crecimiento de las plantas.</p>
-<p>En primer lugar observamos los datos: ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos simulados</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>crecimiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">24</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">32</span>, <span class="dv">33</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">28</span>, <span class="dv">30</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>fertilizante <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">each=</span><span class="dv">18</span>))</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>riego <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Goteo"</span>, <span class="st">"Aspersión"</span>, <span class="st">"Manual"</span>), <span class="at">each=</span><span class="dv">6</span>, <span class="at">times=</span><span class="dv">2</span>))</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un data frame</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(crecimiento, fertilizante, riego)</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar los datos</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"riego"</span>, <span class="at">y =</span> <span class="st">"crecimiento"</span>, <span class="at">color =</span> <span class="st">"fertilizante"</span>,</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>),</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>En primer lugar observamos los datos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos simulados</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>crecimiento <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">24</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">32</span>, <span class="dv">33</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">28</span>, <span class="dv">27</span>, <span class="dv">29</span>, <span class="dv">28</span>, <span class="dv">30</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>fertilizante <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">each=</span><span class="dv">18</span>))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>riego <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Goteo"</span>, <span class="st">"Aspersión"</span>, <span class="st">"Manual"</span>), <span class="at">each=</span><span class="dv">6</span>, <span class="at">times=</span><span class="dv">2</span>))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un data frame</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(crecimiento, fertilizante, riego)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar los datos</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"riego"</span>, <span class="at">y =</span> <span class="st">"crecimiento"</span>, <span class="at">color =</span> <span class="st">"fertilizante"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -748,15 +749,13 @@ Tip
 <p><img src="anova_files/figure-html/datos_anova2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-</div>
 <p>Realizamos el ANOVA de dos factores con interacción.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores con interacción</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(crecimiento <span class="sc">~</span> fertilizante <span class="sc">*</span> riego, <span class="at">data=</span>datos)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores con interacción</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(crecimiento <span class="sc">~</span> fertilizante <span class="sc">*</span> riego, <span class="at">data=</span>datos)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 fertilizante        1   36.0   36.00  12.000  0.00162 ** 
@@ -770,11 +769,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>El <span class="math inline">\(p-valor\)</span> asociado a la interaccióni es mayor que <span class="math inline">\(0.05\)</span> lo, lo que indica que la interacción entre el tipo de fertilizante y el tipo de riego no es significativa y debe de ser eliminada del modelo.</p>
 <p>Por tanto, obtenemos la tabla ANOVA para los dos factores sin interacción:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores sin interacción</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(crecimiento <span class="sc">~</span> fertilizante <span class="sc">+</span> riego, <span class="at">data=</span>datos)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores sin interacción</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(crecimiento <span class="sc">~</span> fertilizante <span class="sc">+</span> riego, <span class="at">data=</span>datos)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 fertilizante  1   36.0   36.00   3.084 0.0886 .
@@ -786,11 +785,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>Una vez eliminado el efecto de la interacción del modelo, podemos observar como ninguno de los dos factores para estadísticamente significativo, puesto que los <span class="math inline">\(p-valores\)</span> asociados son mayores que <span class="math inline">\(0.05\)</span>. Sin embargo, hemos de actuar con cautela. Veamos el modelo cuando se elimina el factor menos significativo <code>riego</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de un factor</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(crecimiento <span class="sc">~</span> fertilizante, <span class="at">data=</span>datos)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de un factor</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(crecimiento <span class="sc">~</span> fertilizante, <span class="at">data=</span>datos)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)  
 fertilizante  1     36   36.00   3.247 0.0804 .
@@ -800,35 +799,39 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <p>Al nivel de significancia estadística de <span class="math inline">\(0.05\)</span> podríamos decir que el factor <code>fertilizante</code> no es estadísticamente significativo y que ninguno de los dos factores influye en el crecimiento de las planteas.</p>
-<p>Ahora bien, si tuvieras que elegir un método de riego y un fertilizando, ¿cuál recomendarías al cliente? ¿por qué? :::</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<p>Ahora bien, si tuvieras que elegir un método de riego y un fertilizando, ¿cuál recomendarías al cliente? ¿por qué?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. ANOVA de dos factores sin interacción">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Tip
+<div class="callout-title-container flex-fill">
+Ejemplo. ANOVA de dos factores sin interacción
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body" title="Ejemplo. ANOVA de dos factores sin interacción">
+<div class="callout-body-container callout-body">
 <p>Supongamos que estamos estudiando del tiempo de estudio y del tipo de dieta en el rendimiento académico de un grupo de estudiantes. El tiempo de estudio tiene <span class="math inline">\(3\)</span> niveles (Alto, Medio y Bajo). El tipo de dieta tiene <span class="math inline">\(3\)</span> niveles (Normal, Vegana y Vegetariana).</p>
-<p>En primer lugar observamos los datos: ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tiempo_estudio =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"1. Alto"</span>, <span class="st">"2. Medio"</span>, <span class="st">"3. Bajo"</span>), <span class="at">each =</span> <span class="dv">9</span>)),</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tipo_dieta =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Vegetariana"</span>, <span class="st">"Normal"</span>, <span class="st">"Vegana"</span>), <span class="at">times =</span> <span class="dv">9</span>)),</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rendimiento =</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">71</span>, <span class="dv">90</span>, <span class="dv">75</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">91</span>, <span class="dv">100</span>, <span class="dv">98</span>, <span class="co"># Datos para Nivel1 de Factor1</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                <span class="dv">60</span>, <span class="dv">83</span>, <span class="dv">70</span>, <span class="dv">54</span>, <span class="dv">65</span>, <span class="dv">73</span>, <span class="dv">82</span>, <span class="dv">92</span>, <span class="dv">73</span>, <span class="co"># Datos para Nivel2 de Factor1</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                <span class="dv">47</span>, <span class="dv">63</span>, <span class="dv">44</span>, <span class="dv">61</span>, <span class="dv">55</span>, <span class="dv">52</span>, <span class="dv">73</span>, <span class="dv">63</span>, <span class="dv">53</span>) <span class="co"># Datos para Nivel3 de Factor1</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"Tiempo_estudio"</span>, <span class="at">y =</span> <span class="st">"Rendimiento"</span>, <span class="at">color =</span> <span class="st">"Tipo_dieta"</span>,</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>),</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>,<span class="st">"#c94545"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>En primer lugar observamos los datos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tiempo_estudio =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"1. Alto"</span>, <span class="st">"2. Medio"</span>, <span class="st">"3. Bajo"</span>), <span class="at">each =</span> <span class="dv">9</span>)),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tipo_dieta =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Vegetariana"</span>, <span class="st">"Normal"</span>, <span class="st">"Vegana"</span>), <span class="at">times =</span> <span class="dv">9</span>)),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rendimiento =</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">71</span>, <span class="dv">90</span>, <span class="dv">75</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">91</span>, <span class="dv">100</span>, <span class="dv">98</span>, <span class="co"># Datos para Nivel1 de Factor1</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                <span class="dv">60</span>, <span class="dv">83</span>, <span class="dv">70</span>, <span class="dv">54</span>, <span class="dv">65</span>, <span class="dv">73</span>, <span class="dv">82</span>, <span class="dv">92</span>, <span class="dv">73</span>, <span class="co"># Datos para Nivel2 de Factor1</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                <span class="dv">47</span>, <span class="dv">63</span>, <span class="dv">44</span>, <span class="dv">61</span>, <span class="dv">55</span>, <span class="dv">52</span>, <span class="dv">73</span>, <span class="dv">63</span>, <span class="dv">53</span>) <span class="co"># Datos para Nivel3 de Factor1</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"Tiempo_estudio"</span>, <span class="at">y =</span> <span class="st">"Rendimiento"</span>, <span class="at">color =</span> <span class="st">"Tipo_dieta"</span>,</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>),</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>,<span class="st">"#c94545"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -837,15 +840,13 @@ Tip
 <p><img src="anova_files/figure-html/datos_anova2_1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-</div>
 <p>Realizamos el ANOVA de dos factores con interacción.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores con interacción</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Rendimiento <span class="sc">~</span> Tiempo_estudio <span class="sc">*</span> Tipo_dieta, <span class="at">data =</span> datos)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores con interacción</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Rendimiento <span class="sc">~</span> Tiempo_estudio <span class="sc">*</span> Tipo_dieta, <span class="at">data =</span> datos)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                          Df Sum Sq Mean Sq F value  Pr(&gt;F)    
 Tiempo_estudio             2   3765  1882.3  17.410 6.2e-05 ***
@@ -858,11 +859,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>La interacción entre los dos factores no es estadísticamente significativa a nivel <span class="math inline">\(\alpha=0.05\)</span> y por lo tanto eliminamos dicha fuente de variabilidad del modelo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores sin interacción</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Rendimiento <span class="sc">~</span> Tiempo_estudio <span class="sc">+</span> Tipo_dieta, <span class="at">data =</span> datos)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de dos factores sin interacción</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Rendimiento <span class="sc">~</span> Tiempo_estudio <span class="sc">+</span> Tipo_dieta, <span class="at">data =</span> datos)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 Tiempo_estudio  2   3765  1882.3  17.178 3.21e-05 ***
@@ -874,11 +875,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>Podemos observar que el tipo de dieta no es un factor significativo en el rendimiento académico. Por tanto, eliminamos dicho factor del modelo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de un factor</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Rendimiento <span class="sc">~</span> Tiempo_estudio , <span class="at">data =</span> datos)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el ANOVA de un factor</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Rendimiento <span class="sc">~</span> Tiempo_estudio , <span class="at">data =</span> datos)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados del ANOVA</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
 Tiempo_estudio  2   3765  1882.3   17.51 2.04e-05 ***
@@ -888,11 +889,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <p>En cambio, el tiempo de estudio sí es un factor determinante en el rendimiento académico. Su <span class="math inline">\(p-valor\)</span> asociado es claramente inferior al nivel de significancia <span class="math inline">\(0.05\)</span>.</p>
-<p>Podemos visualizar el resultado: ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"Tiempo_estudio"</span>, <span class="at">y =</span> <span class="st">"Rendimiento"</span>,</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Podemos visualizar el resultado:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggpubr"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggline</span>(datos, <span class="at">x =</span> <span class="st">"Tiempo_estudio"</span>, <span class="at">y =</span> <span class="st">"Rendimiento"</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">add =</span> <span class="fu">c</span>(<span class="st">"mean_se"</span>, <span class="st">"dotplot"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Bin width defaults to 1/30 of the range of the data. Pick better value with
 `binwidth`.</code></pre>
@@ -900,17 +902,15 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <p><img src="anova_files/figure-html/anova_rend4-1.png" class="img-fluid" width="672"></p>
 </div>
-<p>::: :::</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="comparaciones-múltiples" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="comparaciones-múltiples"><span class="header-section-number">5.3</span> Comparaciones múltiples</h2>
 <p>En el último ejemplo del apartado anterior hemos determinado que un factor con <span class="math inline">\(3\)</span> niveles era estadísticamente significativo. Es decir, podemos rechazar la siguiente hipótesis nula:</p>
-<p><span class="math display">\[H_O: \mu_1=\mu_2\ldots = \mu_k\]</span></p>
-<p>(con <span class="math inline">\(k\)</span> igual al número de niveles en el factor). Podemos plantearnos la pregunta siguiente: ¿En qué niveles del factor se encuentran las principales diferencias? Es decir, qué hipotesis (una o varias) de las siguientes son rechazadas:</p>
-<p><span class="math display">\[H_O: \mu_1=\mu_2\]</span></p>
-<p><span class="math display">\[H_O: \mu_1=\mu_3\]</span></p>
-<p><span class="math display">\[\ldots\]</span></p>
-<p><span class="math display">\[H_O: \mu_{k-1} = \mu_k\]</span></p>
+<p><span class="math display">\[H_O: \mu_1=\mu_2\ldots = \mu_k\]</span> (con <span class="math inline">\(k\)</span> igual al número de niveles en el factor). Podemos plantearnos la pregunta siguiente: ¿En qué niveles del factor se encuentran las principales diferencias? Es decir, qué hipotesis (una o varias) de las siguientes son rechazadas: <span class="math display">\[H_O: \mu_1=\mu_2\]</span> <span class="math display">\[H_O: \mu_1=\mu_3\]</span> <span class="math display">\[\ldots\]</span> <span class="math display">\[H_O: \mu_{k-1} = \mu_k\]</span></p>
 <p>En un ejemplo con <span class="math inline">\(k=3\)</span> niveles en el factor, es posible plantear <span class="math inline">\(3\)</span> contrastes de igualdad de medias, como los estudiados en capítulos anteriores. En un ejemplo con <span class="math inline">\(k\)</span> niveles en el factor, es posible plantear <span class="math inline">\(k*(k-1)/2\)</span> posibles contrastes de igualda de medias. Sin embargo, si realizamos todos estos contrastes, aumenta la probabilidad de cometer errores de tipo I (rechazar incorrectamente la hipótesis nula). Este fenómeno se conoce como el <strong>problema de las pruebas múltiples</strong>.</p>
 <p>Como hemos venido viendo, cuando realizamos una sola prueba de hipótesis (por ejemplo, una prueba <span class="math inline">\(t\)</span> de Student o un ANOVA), generalmente establecemos un nivel de significancia predeterminado, como <span class="math inline">\(\alpha = 0.05\)</span>. Esto significa que estamos dispuestos a aceptar una probabilidad de error de tipo I del <span class="math inline">\(5\%\)</span>, es decir, hay un <span class="math inline">\(5\%\)</span> de probabilidad de rechazar incorrectamente la hipótesis nula cuando es verdadera.</p>
 <p>Sin embargo, cuando realizamos múltiples pruebas de hipótesis, la probabilidad acumulada de cometer al menos un error de tipo I aumenta significativamente con cada prueba adicional. Por ejemplo, si realizamos <span class="math inline">\(10\)</span> pruebas de hipótesis independientes, cada una con un nivel de significancia de <span class="math inline">\(\alpha = 0.05\)</span>, la probabilidad de cometer al menos un error de tipo I aumenta a más del <span class="math inline">\(40\%\)</span> (<span class="math inline">\(1-(1-0.05)^{10}\approx 0.401\)</span>.</p>
@@ -918,44 +918,44 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="método-de-bonferroni" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="método-de-bonferroni"><span class="header-section-number">5.3.1</span> Método de Bonferroni</h3>
 <p>El método de Bonferroni es una técnica comúnmente utilizada para corregir el problema de las comparaciones múltiples y controlar el riesgo de error de tipo I. Este método es relativamente simple y conservador, lo que lo hace popular en muchas aplicaciones estadísticas.</p>
-<p>La idea principal detrás del método de Bonferroni es ajustar el nivel de significancia individual para cada prueba de hipótesis realizada. En lugar de utilizar un nivel de significancia estándar (por ejemplo, <span class="math inline">\(\alpha = 0.05\)</span>), dividimos el nivel de significancia global deseado (generalmente <span class="math inline">\(0.05\)</span>) por el número total de pruebas realizadas (<span class="math inline">\(m\)</span>): $$</p>
-<p>’ = </p>
-<p>$$ Esta división produce un nivel de significancia más estricto (<span class="math inline">\(\alpha'\)</span>) para cada prueba individual, lo que ayuda a controlar el riesgo global de error de tipo I.</p>
+<p>La idea principal detrás del método de Bonferroni es ajustar el nivel de significancia individual para cada prueba de hipótesis realizada. En lugar de utilizar un nivel de significancia estándar (por ejemplo, <span class="math inline">\(\alpha = 0.05\)</span>), dividimos el nivel de significancia global deseado (generalmente <span class="math inline">\(0.05\)</span>) por el número total de pruebas realizadas (<span class="math inline">\(m\)</span>): <span class="math display">\[
+\alpha' = \frac{\alpha}{m}
+\]</span> Esta división produce un nivel de significancia más estricto (<span class="math inline">\(\alpha'\)</span>) para cada prueba individual, lo que ayuda a controlar el riesgo global de error de tipo I.</p>
 <p>Utilizamos el nivel de significancia individual ajustado para cada prueba de hipótesis. Si el <span class="math inline">\(p-valor\)</span> de una prueba es menor que el nivel de significancia ajustado, rechazamos la hipótesis nula de la prueba.</p>
 <p>El método de Bonferroni es fácil de entender e implementar, y proporciona un control conservador sobre el error de tipo I en comparaciones múltiples. No obstante puede ser un método demasiado conservador en situaciones donde se realizan muchas comparaciones, lo que puede resultar en una pérdida de potencia estadística. Además, no tiene en cuenta la correlación entre las pruebas realizadas.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. Comparaciones múltiples">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Tip
+<div class="callout-title-container flex-fill">
+Ejemplo. Comparaciones múltiples
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body" title="Ejemplo. Comparaciones múltiples">
+<div class="callout-body-container callout-body">
 <p>Continuamos con el ejemplo anterior anterior sobre la influencia del tiempo de estudio en el rendimiento académico. Hemos visto que existe una relación entre ambos factores. En otras palabras, hemos rechazado la siguiente hipótesis nula:</p>
-<p>$$</p>
-<p>H_0: <em>{Alto}=</em>{Medio}=_{Bajo}</p>
-<p>$$ Pero, ¿dónde se encuentran las diferencias relevantes?. Calculamos las tres medias muestrales ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos[datos<span class="sc">$</span>Tiempo_estudio<span class="sc">==</span><span class="st">"1. Alto"</span>,]<span class="sc">$</span>Rendimiento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math display">\[
+H_0: \mu_{Alto}=\mu_{Medio}=\mu_{Bajo}
+\]</span> Pero, ¿dónde se encuentran las diferencias relevantes?. Calculamos las tres medias muestrales</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos[datos<span class="sc">$</span>Tiempo_estudio<span class="sc">==</span><span class="st">"1. Alto"</span>,]<span class="sc">$</span>Rendimiento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 85.66667</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos[datos<span class="sc">$</span>Tiempo_estudio<span class="sc">==</span><span class="st">"2. Medio"</span>,]<span class="sc">$</span>Rendimiento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos[datos<span class="sc">$</span>Tiempo_estudio<span class="sc">==</span><span class="st">"2. Medio"</span>,]<span class="sc">$</span>Rendimiento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 72.44444</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos[datos<span class="sc">$</span>Tiempo_estudio<span class="sc">==</span><span class="st">"3. Bajo"</span>,]<span class="sc">$</span>Rendimiento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos[datos<span class="sc">$</span>Tiempo_estudio<span class="sc">==</span><span class="st">"3. Bajo"</span>,]<span class="sc">$</span>Rendimiento)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 56.77778</code></pre>
 </div>
 </div>
-</div>
-</div>
-<p>Aplicamos el método de Bonferroni, y obtenemos: ::: {.cell}</p>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(datos<span class="sc">$</span>Rendimiento, <span class="at">g=</span>datos<span class="sc">$</span>Tiempo_estudio,<span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Aplicamos el método de Bonferroni, y obtenemos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(datos<span class="sc">$</span>Rendimiento, <span class="at">g=</span>datos<span class="sc">$</span>Tiempo_estudio,<span class="at">p.adjust.method =</span> <span class="st">"bonferroni"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pairwise comparisons using t tests with pooled SD 
@@ -968,17 +968,19 @@ data:  datos$Rendimiento and datos$Tiempo_estudio
 
 P value adjustment method: bonferroni </code></pre>
 </div>
-<p>:::</p>
+</div>
 <p>Dado que todos los <span class="math inline">\(p-valores\)</span> ajustados son menores que <span class="math inline">\(0.05\)</span>, podemos rechazar las <span class="math inline">\(3\)</span> hipótesis nulas. Es decir, rechazamos que el rendimiento sea el mismo para los diferentes niveles de tiempos de estudio.</p>
 <p>Y en <code>R</code> podemos pintarlo como sigue (aquí empleamos otro método de corrección diferente al de Bonferroni, revísalo)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>comparaciones_mult <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_result)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(comparaciones_mult)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>comparaciones_mult <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_result)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(comparaciones_mult)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="anova_files/figure-html/plot_1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>:::</p>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -1012,9 +1014,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1025,8 +1041,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiada");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1054,31 +1087,136 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
