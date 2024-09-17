@@ -1,12 +1,12 @@
 # Análisis Exploratorio de Datos {#sec-eda}
 
-En @sec-intro hablamos de las dos ramas fundamentales de la estadística:
+En el @sec-intro presentamos las dos ramas fundamentales de la estadística:
 
--   Estadística Descriptiva: buscamos una visión comprensible de los datos en base a resumir las características de un conjunto de datos mediante herramientas gráficas y numéricas.
+-   **Estadística Descriptiva**: se busca una visión comprensible de los datos en base a resumir las características de un conjunto de datos mediante herramientas gráficas y numéricas.
 
--   Estadística Inferencial: utiliza muestras de datos para hacer generalizaciones o inferencias sobre una población más amplia.
+-   **Estadística Inferencial**: se utilizan muestras de datos para hacer generalizaciones o inferencias sobre una población más amplia.
 
-La estadística descriptiva no solo proporciona las bases necesarias para la inferencia estadística, sino que también juega un papel crucial en la preparación, comprensión y comunicación de los datos. Para estudiantes de Ciencia e Ingeniería de Datos, dominar estas herramientas es esencial para poder aplicar técnicas inferenciales de manera correcta y efectiva.
+La estadística descriptiva no solo proporciona las bases necesarias para la inferencia estadística, sino que también juega un papel crucial en la preparación, comprensión y comunicación de los datos. Para estudiantes de *Ciencia e Ingeniería de Datos*, dominar estas herramientas es esencial para poder aplicar técnicas inferenciales de manera correcta y efectiva.
 
 -   La estadística descriptiva proporciona las herramientas básicas necesarias para resumir y entender los datos. Sin una comprensión clara de cómo describir y resumir los datos, es difícil avanzar hacia métodos más complejos de inferencia estadística.
 
@@ -14,11 +14,11 @@ La estadística descriptiva no solo proporciona las bases necesarias para la inf
 
 -   Herramientas descriptivas como los gráficos (histogramas, diagramas de caja, gráficos de dispersión) ayudan a visualizar la distribución de los datos, detectar problemas y plantear hipótesis.
 
--   Sin una comprensión de la estadística descriptiva, los resultados de las pruebas inferenciales que estudiaremos en cap´itulos posteriores, pueden ser malinterpretados o exagerados. La interpretación de los resultados inferenciales se basa en la comprensión del contexto de los datos. Las estadísticas descriptivas proporcionan el contexto necesario para entender lo que los resultados inferenciales realmente significan.
+-   Sin una comprensión de la estadística descriptiva, los resultados de las pruebas inferenciales que estudiaremos en capítulos posteriores, pueden ser malinterpretados o exagerados. La interpretación de los resultados inferenciales se basa en la comprensión del contexto de los datos. Las estadísticas descriptivas proporcionan el contexto necesario para entender lo que los resultados inferenciales realmente significan.
 
--   Muchas técnicas de inferencia estadística se basan en ciertos supuestos sobre los datos (como la normalidad de las distribuciones, homogeneidad de varianzas, etc.). La estadística descriptiva permite verificar si estos supuestos se cumplen. Por ejemplo, se puede usar un histograma o un gráfico Q-Q para verificar la normalidad de los datos antes de aplicar una prueba t.
+-   Muchas técnicas de inferencia estadística se basan en ciertos supuestos sobre los datos (como la normalidad de las distribuciones, homogeneidad de varianzas, etc.). La estadística descriptiva permite verificar si estos supuestos se cumplen. Por ejemplo, se puede usar un histograma o un gráfico Q-Q para verificar la normalidad de los datos antes de aplicar una prueba t de Student.
 
-El análisis exploratorio de datos o (EDA, del inglés "Exploratory Data Analysis") representa un conjunto de técnicas que permiten resumir los aspectos más importantes de un conjunto de datos, normalmente con especial énfasis en el uso de métodos de visualización gráfica. El término fue popularizado, entre otros, por el estadístico norteamericano *John W. Tukey* como método para descubrir información importante (y no evidente) contenida en los datos [@tukey1977exploratory]. Estas técnicas se emplean habitualmente como paso previo a la inferencia estadística, orientada hacia un análisis confirmatorio. Así, con EDA se estudian los datos, se descubre cómo son y cómo se comportan y con la inferencia estadística se comprueba analíticamente si esos comportamientos y diferencias halladas son realmente significativos (desde un punto de vista estadístico). El EDA es, sin duda, fundamental para adquirir conocimiento de los datos, antes de emplearlos dentro de un modelo de ML como los que vais a aprendener a lo largo del grado en Ciencia e Ingeniería de Datos. Es un error muy típico de algunos analistas de datos aplicar modelos a sus datos en cuanto estos están disponibles sin pasar previamente por el necesario análisis exploratorio de los mismos.
+El análisis exploratorio de datos o (EDA, del inglés "Exploratory Data Analysis") representa un conjunto de técnicas que permiten resumir los aspectos más importantes de un conjunto de datos, normalmente con especial énfasis en el uso de métodos de visualización gráfica. El término fue popularizado, entre otros, por el estadístico norteamericano *John W. Tukey* como método para descubrir información importante (y no evidente) contenida en los datos [@tukey1977exploratory]. Estas técnicas se emplean habitualmente como paso previo a la inferencia estadística, orientada hacia un análisis confirmatorio. Así, con EDA se estudian los datos, se descubre cómo son y cómo se comportan y con la inferencia estadística se comprueba analíticamente si esos comportamientos y diferencias halladas son realmente significativos (desde un punto de vista estadístico). El EDA es, sin duda, fundamental para adquirir conocimiento de los datos antes de emplearlos dentro de un modelo de aprendiaje automático como los que vais a aprender a lo largo del grado en Ciencia e Ingeniería de Datos. Es un error muy típico de algunos analistas de datos aplicar modelos a sus datos en cuanto estos están disponibles sin pasar previamente por el necesario análisis exploratorio de los mismos.
 
 ::: {.callout-tip title="John Tukey"}
 "El análisis exploratorio de datos es una actitud, un estado de flexibilidad, una voluntad de buscar aquellas cosas que creemos que no están ahí, así como aquellas que creemos que están ahí."
@@ -26,17 +26,17 @@ El análisis exploratorio de datos o (EDA, del inglés "Exploratory Data Analysi
 
 Es decir, el EDA no sigue un proceso formal con normas estrictas, algo que sí suele ocurrir con la inferencia. Más bien, podemos decir que EDA es una mentalidad o enfoque. En otras palabras, una forma de hacer las cosas. Cuando lleves a cabo un EDA, debes sentirte libre para explorar todas las ideas que se te ocurran. En inferencia, suele ocurrir que esas ideas están planteadas a priori. Algunas de estas ideas serán fructíferas, mientras que otras pueden llevarte a callejones sin salida. No te preocupes, probablemente no hayas roto nada. Simplemente habrás "gastado" tiempo. A medida que sigas explorando, te enfocarás en áreas particularmente prometedoras, las cuales documentarás y compartirás con otros.
 
-A menudo se necesita mucho tiempo para explorar los datos. Se dice que el *80%* del tiempo del proyecto se gasta en EDA. A través del proceso de EDA, podemos pedir que se redefina el enunciado del problema o la definición de nuestro conjunto de datos, lo cual es muy importante.
+A menudo se necesita mucho tiempo para explorar los datos. Se dice que el *80%* del tiempo de un proyecto de datos se gasta en EDA. A través del proceso de EDA, podemos pedir que se redefina el enunciado del problema o la definición de nuestro conjunto de dato.
 
 ::: {.callout-important title="Para recordar"}
-Cuando nos enfrentamos a un EDA, lo ideal es contar con un objetivo que se haya definido junto con los datos, indicando qué se quiere conseguir a partir de ellos. Por ejemplo, "*predecir las ventas en los próximos 30 días*", "*estimar el riesgo que tiene un paciente de no superar una determinada operación quirúrgica*", "*clasificar como fraudulenta, o no, una página web*", etc.
+Cuando nos enfrentamos a un EDA, lo ideal es contar con un objetivo (o una hipótesis) que se haya definido junto con los datos, indicando qué se quiere conseguir a partir de ellos. Por ejemplo, "*predecir las ventas en los próximos 30 días*", "*estimar el riesgo que tiene un paciente de no superar una determinada operación quirúrgica*", "*clasificar como fraudulenta, o no, una página web*", etc.
 :::
 
-EDA es un ciclo iterativo:
+Podemos ver el EDA como un ciclo iterativo:
 
-1.  Genera preguntas sobre los datos.
+1.  Genera preguntas sobre los datos. Podrían ser hipótesis que deseamos contrastar.
 
-2.  Busca respuestas visualizando, transformando y modelizando los datos.
+2.  Busca respuestas visualizando, transformando y modelizando los datos. Podrían alcanzar estas respuestas mediante contrastes de hipótesis y/o estimaciones puntuales o por intervalos.
 
 3.  Utiliza lo que hayas aprendido para refinar las preguntas y/o generar otras nuevas.
 
@@ -50,7 +50,7 @@ La inferencia estadística se puede utilizar en diferentes etapas del ciclo iter
 
 ## Preguntas
 
-Tu objetivo principal durante el EDA es adquirir una comprensión profunda de los datos. La forma más sencilla de hacerlo es utilizar preguntas como herramientas para guiar la investigación. Cuando planteas una pregunta, ésta centra tu atención en una parte específica del conjunto de datos y te ayuda a decidir qué gráficos, modelos o transformaciones realizar.
+Tu objetivo principal durante el EDA es adquirir una comprensión profunda de los datos que se están analizando. La forma más sencilla de hacerlo es utilizar preguntas como herramientas para guiar la investigación. Cuando planteas una pregunta, ésta centra tu atención en una parte específica del conjunto de datos y te ayuda a decidir qué gráficos, modelos o transformaciones realizar.
 
 EDA es un proceso creativo y como tal, la clave para llevarlo a cabo consiste en el planteamiento de preguntas de calidad. ¿Qué preguntas son las correctas? La respuesta es que depende del conjunto de datos con el que se trabaje.
 
@@ -58,10 +58,10 @@ EDA es un proceso creativo y como tal, la clave para llevarlo a cabo consiste en
 Mucho mejor una respuesta aproximada a la pregunta correcta, que a menudo es vaga, que una respuesta exacta a la pregunta incorrecta, que siempre se puede precisar.
 :::
 
-Al inicio del análisis, puede resultar todo un desafío formular preguntas reveladoras, ya que aún no se conoce completamente la información contenida en el conjunto de datos. Sin embargo, cada nueva pregunta que plantees te llevará a explorar un nuevo aspecto de tus datos, aumentando así las posibilidades de hacer descubrimientos importantes.
+Al inicio del análisis, puede resultar todo un desafío formular preguntas reveladoras, ya que aún no se conoce completamente la información contenida en el conjunto de datos. Si estás involucrado en un proceso de inferencia estadística, en muchas ocasiones, esas preguntas vendrán formuladas por un experto del dominio o por un superior con conocimientos estadísticos. Cada nueva pregunta que se plantee te llevará a explorar un nuevo aspecto de tus datos, aumentando así las posibilidades de hacer descubrimientos importantes.
 
 ::: {.callout-important title="Para recordar"}
-Durante la preparación y limpieza de los datos acumulamos pistas sobre los modelos más adecuados que podrán ser aplicados en etapas posteriores.
+Durante la preparación y limpieza de los datos acumulamos pistas sobre los modelos de aprendizaje más adecuados que podrán ser aplicados en etapas posteriores.
 :::
 
 Algunas de las preguntas que, generalmente, deberían de abordarse durante el EDA son:
@@ -110,7 +110,7 @@ Una correcta preparación y limpieza de datos implica, sin duda, un ahorro de ti
 
 ## Entender el negocio
 
-La comprensión del problema que estamos abordando representa una de las primeras etapas en cualquier proyecto de ciencia de datos. En la mayoría de los casos, esta tarea se realiza en estrecha colaboración con expertos en el dominio correspondiente, quienes a menudo son las personas que han solicitado (y a menudo financian) el análisis de datos. Es importante recordar que cualquier estudio que involucre ciencia de datos requiere un conocimiento profundo del dominio, el cual debe ser compartido con el científico de datos. Por lo tanto, el profesional de la ciencia de datos debe poseer un conocimiento suficiente para enfrentar con confianza los diversos desafíos que puedan surgir. Esta comprensión inicial permite establecer los objetivos del proyecto y procesar los datos de manera significativa para obtener información valiosa. A través de esta información, se busca derivar conocimientos aplicables. Este conocimiento puede ser aprendido y almacenado para su uso futuro, lo que lleva a la sabiduría, según la jerarquía de conocimiento presentada en la Figura [@fig-cono].
+La comprensión del problema que estamos abordando representa una de las primeras etapas en cualquier proyecto de ciencia de datos. En la mayoría de los casos, esta tarea se realiza en estrecha colaboración con expertos en el dominio correspondiente, quienes a menudo son las personas que han solicitado (y a menudo financian) el análisis de datos. Es importante recordar que cualquier estudio que involucre ciencia de datos requiere un conocimiento profundo del dominio, el cual debe ser compartido con el científico de datos. Por lo tanto, el profesional de la ciencia de datos debe poseer un conocimiento suficiente para enfrentar con confianza los diversos desafíos que puedan surgir. Esta comprensión inicial permite establecer los objetivos del proyecto y procesar los datos de manera correcta para obtener información valiosa. A través de esta información, se busca derivar conocimientos aplicables. Este conocimiento puede ser aprendido y almacenado para su uso futuro, lo que lleva a la sabiduría, según la jerarquía de conocimiento presentada en la Figura [@fig-cono].
 
 ![Jerarquía de Conocimiento](EDA/conocimiento.png){#fig-cono width="80%"}
 
@@ -120,13 +120,13 @@ La comprensión del problema que estamos abordando representa una de las primera
 
 ## Un primer vistazo a los datos
 
-En este tema vamos a trabajar con los datos de [**Bank Marketing**](https://archive.ics.uci.edu/dataset/222/bank+marketing) del repositorio UCI. En primer lugar debemos comprender el problema. ¿Qué sabes del marketing bancario? En el caso que nos ocupa, los datos están relacionados con campañas de marketing directo (llamadas telefónicas) de una entidad bancaria portuguesa. El objetivo de la clasificación es *predecir si el cliente suscribirá un depósito* a plazo (variable objetivo).
+En este capítulo vamos a trabajar con los datos de [**Bank Marketing**](https://archive.ics.uci.edu/dataset/222/bank+marketing) del repositorio UCI. En primer lugar debemos comprender el problema. ¿Qué sabes del marketing bancario? En el caso que nos ocupa, los datos están relacionados con campañas de marketing directo (llamadas telefónicas) de una entidad bancaria portuguesa. El objetivo final, que abordaremos en cursos posteriores, es *predecir si el cliente suscribirá un depósito* a plazo (variable objetivo). En este curso nos conformamos con adquirir conocimiento de los datos, planteando algunas hipótesis de interés.
 
 Las variables que debemos estudiar son:
 
 Variables de entrada:
 
-\# datos del cliente bancario:
+* Datos del cliente bancario:
 
 1.  edad (variable numérica)
 
@@ -154,7 +154,7 @@ Variables de entrada:
 
 12. duración: duración del último contacto, en segundos (variable numérica)
 
-\# otros atributos
+* Otros atributos
 
 13. campaña: número de contactos realizados durante esta campaña y para este cliente (variable numérica, incluye el último contacto)
 
@@ -164,14 +164,14 @@ Variables de entrada:
 
 16. poutcome: resultado de la campaña de marketing anterior (variable categórica: "desconocido", "otro", "fracaso", "éxito")
 
-\# Variable de salida (objetivo deseado):
+* Variable de salida (objetivo deseado):
 
 17 - y: ¿ha suscrito el cliente un depósito a plazo? (variable binaria: "sí", "no")
 
 ::: {.callout-important title="Para recordar"}
-A veces (muchas veces) la descripción que encontramos en una primera etapa no coincide al completo con los datos que luego nos entrega el cliente.
+A veces (muchas veces) la descripción que encontramos en una primera etapa no coincide al completo con los datos que luego nos entrega el cliente. Los datos suelen ser más complejos que la teoría detrás de los datos.
 
-En otras ocasiones no se dispone de la descripción de las variables. En ese caso, ¡hay que hacer lo imposible por conseguirla!
+En otras ocasiones no se dispone de la descripción de las variables. En ese caso, ¡hay que hacer lo imposible por conseguirla! Si no conocemos el significado de una variable, difícilmente podremos interpretar los resultados asociados a ella.
 :::
 
 Leemos los datos con R.
@@ -204,7 +204,7 @@ Para averiguar qué tipo de variables manejamos, ejecutar:
 str(bank)
 ```
 
-Creamos las particiones sobre los datos y trabajamos sobre la partición de entrenamiento.
+Creamos las particiones sobre los datos y trabajamos sobre la partición de entrenamiento. Este paso cobrará significado en asignaturas posteriores, especialmente en las enfocadas en el aprendizaje automático (*Machine Learning*). Sin entrar en más detalles, podemos decir que la idea fundamental es estudiar las hipótesis en un subconjunto de la muestra disponible y evaluar la veracidad (o no) de dichas hipótesis en muestras diferentes.
 
 ```{r}
 # Parciticionamos los datos
@@ -288,7 +288,7 @@ bank.train %>%
 
 ## Variable objetivo
 
-En el ámbito del Aprendizaje Automático, en problemas de clasificación (Aprendizaje Supervisado) existe una variable de interés fundamental, es la variable respuesta o variable objetivo. En el caso que nos ocupa dicha variable es la característica: "deposit". Vamos a estudiar la información que nos proporciona dicha variable.
+En el ámbito del Aprendizaje Automático, en problemas de clasificación (Aprendizaje Supervisado) existe una variable de interés fundamental, es la variable respuesta o variable objetivo. En el próximo cuatrimestre se trata con detalle este tipo de problemas. En el caso que nos ocupa dicha variable es la característica: "deposit". Vamos a estudiar la información que nos proporciona dicha variable.
 
 ```{r}
 #| label: variable_objetivo
@@ -344,7 +344,7 @@ ggplot(data = bank.train) +
   
 ```
 
-Un histograma divide el eje $x$ en intervalos equidistantes y, a continuación, utiliza la altura de una barra para mostrar el número de observaciones que se encuentran en cada intervalo. En el gráfico anterior, la primera barra muestra unas 100 observaciones (realmente son 119) tienen un valor de edad por debajo de 22.5 años. Puede establecer la anchura de los intervalos en un histograma con el argumento binwidth, que se mide en las unidades de la variable $x$.
+Un histograma divide el eje $x$ en intervalos equidistantes y, a continuación, utiliza la altura de una barra para mostrar el número de observaciones que se encuentran en cada intervalo. En el gráfico anterior, la primera barra muestra unas $100$ observaciones (realmente son $119$) tienen un valor de edad por debajo de $22.5$ años. Puede establecer la anchura de los intervalos en un histograma con el argumento `binwidth`, que se mide en las unidades de la variable $x$.
 
 ::: {.callout-important title="Para recordar"}
 Siempre se deben explorar una variedad de anchos de intervalo cuando trabajamos con histogramas, ya que diferentes anchos de intervalo pueden revelar diferentes patrones.
@@ -387,7 +387,7 @@ ggplot(bank.train, aes(x=deposit, y=age, color=deposit)) +
 
 ### Transformación de variables cuantitativas
 
-En algunos métodos de ML es necesario contar con variables que cumplan requisitos de normalidad. Por ejemplo, si tomamos la transformación $log$ sobre la variable `edad` obtenemos una distribución multimodal que, probablemente, corresponda a la combinación de dos (o más) normales.
+En algunos métodos de inferencia estadística y aprendizaje automático será necesario contar con variables que cumplan requisitos de normalidad. Por ejemplo, si tomamos la transformación $log$ sobre la variable `edad` obtenemos una distribución multimodal que, probablemente, corresponda a la combinación de dos (o más) normales.
 
 ```{r}
 #| include: true
@@ -399,7 +399,7 @@ ggplot(data = bank.train) +
 ```
 
 ::: {.callout-important title="Para recordar"}
-Los modelos de ML serán tan buenos como lo sean las variables de entrada de dichos algoritmos.
+Los modelos de aprendizaje serán tan buenos como lo sean las variables de entrada de dichos algoritmos.
 :::
 
 #### Transformaciones para igualar dispersión
@@ -417,14 +417,15 @@ La forma más sencilla de detectar que alguna de nuestras variables necesita ser
 El uso de los logaritmos tiene su propia recomendación en preparación de datos [@fox2018r]:
 
 ::: {.callout-tip title="John Fox"}
-"Si la variable es estrictamente positiva, no tiene un límite superior para sus valores, y su rango abarca dos o más órdenes de magnitud (potencias de 10), entonces la transformación logarítmica suele ser útil. A la inversa, cuando la variable tiene un rango de valores pequeño (menor de un orden de magnitud), el logaritmo o cualquier otra transformación simple no ayudará mucho."
+"Si la variable es estrictamente positiva, no tiene un límite superior para sus valores, y su rango abarca dos o más órdenes de magnitud (potencias de $10$), entonces la transformación logarítmica suele ser útil. A la inversa, cuando la variable tiene un rango de valores pequeño (menor de un orden de magnitud), el logaritmo o cualquier otra transformación simple no ayudará mucho."
 :::
 
 La versión general de esta transformación son las transformaciones de escala-potencia (scaled-power transformations), también denominadas transformaciones de **Box-Cox**.
 
 $$x(\lambda)= \begin{cases} \frac{x^\lambda-1}{\lambda},& \text{cuando } \lambda \neq 0,\\ log_e(x), & \text{cuando } \lambda = 0 \end{cases}$$
 
-La función `car::symbox(...)` permite probar varias combinaciones típicas del parámetro λ , para comprobar con cuál de ellas obtenemos una distribución más simétrica de valores.
+La función `car::symbox(...)` permite probar varias combinaciones típicas del parámetro 
+$\lambda$ , para comprobar con cuál de ellas obtenemos una distribución más simétrica de valores.
 
 ```{r}
 #| include: true
@@ -587,7 +588,7 @@ En el caso de las variables **cuantitativas**, el histograma de frecuencias se c
 
 ### Estadísticos resumen
 
-En asignaturas o cursos anteriores de estadística te habrán explicado medidas que resumen el comportamiento de una variable aleatoria cuantitativa (¿verdad?). Recordemos algunas de ellas:
+A continuación te explicamos algunas medidas que resumen el comportamiento de una variable aleatoria cuantitativa:
 
 ::: {.callout-note collapse="true"}
 ## Media
@@ -631,7 +632,7 @@ Los cuartiles dividen un conjunto de datos en cuatro partes iguales, mientras qu
 El coeficiente de variación es una medida de la variabilidad relativa de los datos y se calcula como la desviación estándar dividida por la media. Se expresa como un porcentaje y es útil para comparar la variabilidad entre diferentes conjuntos de datos.
 :::
 
-En R, podemos obtener algunos estadísticos resumen mediante la opción `summary`
+En R, podemos obtener algunos estadísticos resumen mediante la opción `summary`.
 
 ```{r}
 #| include: true
@@ -680,19 +681,19 @@ Algunas de las estrategias comunes para tratar los valores faltantes incluyen:
 
 3.  **Marcadores especiales:** En algunos casos, es útil asignar un valor específico (como "N/A" o "-999") para indicar que un valor está ausente. Esto puede ser útil cuando se desea mantener un registro explícito de los valores faltantes sin eliminarlos o imputarlos. Es importante que, en este caso, el valor asignado no tenga otro significado. Por ejemplo, asignamos "-999" como marcador de valor faltante y sin embargo, es un valor plausible dentro del rango de valores de la variable.
 
-4.  **Métodos basados en modelos:** Utilizar modelos estadísticos o de ML para predecir los valores faltantes en función de otras variables disponibles. Esto puede ser especialmente eficaz cuando los datos faltantes siguen un patrón que puede ser capturado por el modelo.
+4.  **Métodos basados en modelos:** Utilizar modelos estadísticos o de aprendizaje automático para predecir los valores faltantes en función de otras variables disponibles. Esto puede ser especialmente eficaz cuando los datos faltantes siguen un patrón que puede ser capturado por el modelo.
 
 La elección de la estrategia adecuada para tratar los valores faltantes depende del contexto del análisis, la cantidad de datos faltantes y la naturaleza de los datos. Es fundamental abordar este problema de manera cuidadosa y transparente, documentando cualquier procedimiento de imputación o tratamiento de valores faltantes utilizado en el análisis para garantizar la integridad y la validez de los resultados.
 
 ::: callout-warning
 # Peligro
 
-Sustituir valores faltantes por otros obtenidos con técnicas y métodos estadísticos o de ML siempre es un riesgo, pues implica "inventar" datos allá donde no los hay.
+Sustituir valores faltantes por otros obtenidos con técnicas y métodos estadísticos o de aprendizaje automático siempre es un riesgo, pues implica "inventar" datos allá donde no los hay.
 :::
 
 ## Correlación entre variables
 
-Existen varios métodos y técnicas para estudiar la correlación entre variables, lo que ayuda a comprender las relaciones entre las diferentes características en un conjunto de datos. En ML, especial interés van a tener las relaciones entre la variable objetivo y las variables explicativas.
+Existen varios métodos y técnicas para estudiar la correlación entre variables, lo que ayuda a comprender las relaciones entre las diferentes características en un conjunto de datos. En próximos cursos estudiarás que es de especial interés estudiar las relaciones entre la variable objetivo y las variables explicativas.
 
 Puedes desplegar los paneles siguientes para averiguar alguno de los métodos más comunes.
 
@@ -715,30 +716,30 @@ Los mapas de calor son representaciones visuales de la matriz de correlación en
 :::
 
 ::: {.callout-note collapse="true"}
-## Coeficiente de Correlación de Pearson
+## Coeficiente de correlación de Pearson
 
 Este coeficiente mide la correlación lineal entre dos variables numéricas. Varía entre $-1$ y $+1$, donde valores cercanos a $-1$ o $+1$ indican una correlación fuerte, mientras que valores cercanos a $0$ indican una correlación débil o nula.
 :::
 
 ::: {.callout-note collapse="true"}
-## Coeficiente de Correlación de Spearman
+## Coeficiente de correlación de Spearman
 
 Este coeficiente evalúa la correlación monotónica entre dos variables, lo que significa que puede detectar relaciones no lineales. Es útil cuando las variables no siguen una distribución normal.
 :::
 
 ::: {.callout-note collapse="true"}
-## Coeficiente de Correlación de Kendall
+## Coeficiente de correlación de Kendall
 
 Similar al coeficiente de Spearman, evalúa la correlación entre variables, pero se centra en la concordancia de los rangos de datos, lo que lo hace útil para datos no paramétricos y muestras pequeñas.
 :::
 
 ::: {.callout-note collapse="true"}
-## Coeficiente de Correlación de Kendall
+## Pruebas estadísticas
 
 Las pruebas estadísticas, como la prueba t de Student o la ANOVA, pueden utilizarse para evaluar si existe una diferencia significativa en los promedios de una variable entre diferentes categorías de otra variable. Si la diferencia es significativa, puede indicar una correlación entre las variables.
 :::
 
-Vamos a estudiar la relación existente entre la variable objetivo `deposit' y la variable`duration`de la base de datos`bank\`.
+Vamos a estudiar la relación existente entre la variable objetivo `deposit` y la variable `duration` de la base de datos `bank`.
 
 ```{r}
 #| include: true
