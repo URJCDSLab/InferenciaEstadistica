@@ -146,11 +146,11 @@ $$ donde:
 
 Una vez se dispone de toda esta información, es común representarla en forma de tabla, en la llamada *Tabla ANOVA*:
 
-| Fuente de variación                                | Suma de cuadrados | Grados de libertad | Cuadrado Medio |
-|---------------------------|---------------|---------------|---------------|
-| Disferencias entre grupos                          | SSB               | k-1                | MSB            |
-| Diferencias dentro de los grupos, Residual o Error | SSW               | N-k                | MSW            |
-| Total                                              | SST               | N-1                |                |
+| Fuente de variación | Suma de cuadrados | Grados de libertad | Cuadrado Medio |
+|----|----|----|----|
+| Disferencias entre grupos | SSB | k-1 | MSB |
+| Diferencias dentro de los grupos, Residual o Error | SSW | N-k | MSW |
+| Total | SST | N-1 |  |
 
 ::: {.callout-caution title="Para el futuro"}
 La proporción de variabilidad explicada por los grupos se calcula como: $$
@@ -287,12 +287,12 @@ Donde:
 
 En este caso, la tabla ANOVA queda como sigue:
 
-| Fuente de variación                    | Suma de cuadrados | Grados de libertad | Cuadrado Medio |
-|---------------------------|---------------|---------------|---------------|
-| Diferencias entre niveles del factor A | $SSB_A$           | $m_A-1$            | $MSB_A$        |
-| Diferencias entre niveles del factor B | $SSB_B$           | $m_B-1$            | $MSB_B$        |
-| Error                                  | $SSW$             | $N-m_A-m_B+1$      | $MSW$          |
-| Total                                  | $SST$             | $N-1$              |                |
+| Fuente de variación | Suma de cuadrados | Grados de libertad | Cuadrado Medio |
+|----|----|----|----|
+| Diferencias entre niveles del factor A | $SSB_A$ | $m_A-1$ | $MSB_A$ |
+| Diferencias entre niveles del factor B | $SSB_B$ | $m_B-1$ | $MSB_B$ |
+| Error | $SSW$ | $N-m_A-m_B+1$ | $MSW$ |
+| Total | $SST$ | $N-1$ |  |
 
 Para estudiar la importancia de cada factor se calcula el estadístico $F$ particular para cada uno de ellos como sigue: $$
 F_A=\frac{MSB_A}{MSW} \sim F_{m_A-1,N-m_A-m_B+1}
@@ -300,27 +300,25 @@ $$ y $$
 F_B=\frac{MSB_B}{MSW}\sim F_{m_B-1,N-m_A-m_B+1}
 $$ A partir de estos estadísticos de prueba podemos contrastar las hipótesis nulas de no existencia de efectos asociados a los factores $A$ y $B$ respectivamente.
 
-**Modelo con Interacción**: 
-$$ Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \epsilon_{ijk} $$ 
+**Modelo con Interacción**: $$ Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \epsilon_{ijk} $$
 
 Donde: $(\alpha\beta)_{ij}$ representa el efecto de interacción entre el nivel $i$-ésimo del factor A y el nivel $j$-ésimo del factor B.
 
 En este caso, la tabla ANOVA añade el factor de interacción:
 
-| Fuente de variación                    | Suma de cuadrados | Grados de libertad | Cuadrado Medio |
-|---------------------------|---------------|---------------|---------------|
-| Diferencias entre niveles del factor A | $SSB_A$           | $m_A-1$            | $MSB_A$        |
-| Diferencias entre niveles del factor B | $SSB_B$           | $m_B-1$            | $MSB_B$        |
-| Diferencias debidas la interacción     | $SSB_{AB}$        | $(m_A-1)*(m_B-1)$  | $MSB_{AB}$     |
-| Error                                  | $SSW$             | $N-m_A*m_B$        | $MSW$          |
-| Total                                  | $SST$             | $N-1$              |                |
+| Fuente de variación | Suma de cuadrados | Grados de libertad | Cuadrado Medio |
+|----|----|----|----|
+| Diferencias entre niveles del factor A | $SSB_A$ | $m_A-1$ | $MSB_A$ |
+| Diferencias entre niveles del factor B | $SSB_B$ | $m_B-1$ | $MSB_B$ |
+| Diferencias debidas la interacción | $SSB_{AB}$ | $(m_A-1)*(m_B-1)$ | $MSB_{AB}$ |
+| Error | $SSW$ | $N-m_A*m_B$ | $MSW$ |
+| Total | $SST$ | $N-1$ |  |
 
 Para estudiar la importancia de cada de la interacción se calculan el estadístico $F$ correspondiente:
 
-
 $$
 F_{AB}=\frac{MSB_{AB}}{MSW}\sim F_{(m_A-1)*(m_B-1),N-m_A*m_B}
-$$ 
+$$
 
 A partir de este estadísticos de prueba podemos contrastar la hipótesis nula de no existencia de interacción entre los dos factores $A$, $B$. Si podemos rechazar esa hipótesis, es decir, si existe interacción entre los factores, entonces hemos terminado. Es decir, no podemos eliminar ningún factor del modelo. En cambio, si no rechazamos la hipótesis nula, es decir, si no existe interacción entre los factores, podemos eliminar dicho efecto (la interacción) del modelo y pasar a un modelos sin interacción como el anteriormente descrito.
 
@@ -355,12 +353,11 @@ anova_result <- aov(rendimiento ~ metodo * material, data=datos)
 summary(anova_result)
 ```
 
-
 Los resultados del ANOVA se interpretan observando los $p-valores$ para cada uno de los componentes del modelo:
 
-- **metodo**: Efecto principal del método de enseñanza.
-- **material**: Efecto principal del tipo de material de estudio.
-- **metodo:material**: Interacción entre el método de enseñanza y el tipo de material de estudio.
+-   **metodo**: Efecto principal del método de enseñanza.
+-   **material**: Efecto principal del tipo de material de estudio.
+-   **metodo:material**: Interacción entre el método de enseñanza y el tipo de material de estudio.
 
 El $p-valor$ asociado a la interacción es menor que $0.05$, lo que indica que la interacción entre el método de enseñanza y el tipo de material de estudio es significativa y por lo tanto no debe ser eliminada del modelo.
 
@@ -371,6 +368,7 @@ Efectivamente, viendo la figura anterior concluimos que el rendimiento depende d
 Supongamos que estamos estudiando el efecto del tipo de fertilizante (con dos niveles: $A$ y $B$) y el tipo de riego (con tres niveles: Goteo, Aspersión, Manual) sobre el crecimiento de las plantas.
 
 En primer lugar observamos los datos:
+
 ```{r datos_anova2}
 # Crear datos simulados
 crecimiento <- c(20, 21, 23, 22, 24, 25, 26, 27, 28, 29, 30, 31,
@@ -400,7 +398,7 @@ anova_result <- aov(crecimiento ~ fertilizante * riego, data=datos)
 summary(anova_result)
 ```
 
-El $p-valor$ asociado a la interaccióni es mayor que $0.05$ lo, lo que indica que la interacción entre el tipo de fertilizante y el tipo de riego no es significativa y debe de ser eliminada del modelo. 
+El $p-valor$ asociado a la interaccióni es mayor que $0.05$ lo, lo que indica que la interacción entre el tipo de fertilizante y el tipo de riego no es significativa y debe de ser eliminada del modelo.
 
 Por tanto, obtenemos la tabla ANOVA para los dos factores sin interacción:
 
@@ -431,6 +429,7 @@ Ahora bien, si tuvieras que elegir un método de riego y un fertilizando, ¿cuá
 Supongamos que estamos estudiando del tiempo de estudio y del tipo de dieta en el rendimiento académico de un grupo de estudiantes. El tiempo de estudio tiene $3$ niveles (Alto, Medio y Bajo). El tipo de dieta tiene $3$ niveles (Normal, Vegana y Vegetariana).
 
 En primer lugar observamos los datos:
+
 ```{r datos_anova2_1}
 # Datos
 datos <- data.frame(
@@ -447,6 +446,7 @@ ggline(datos, x = "Tiempo_estudio", y = "Rendimiento", color = "Tipo_dieta",
        add = c("mean_se", "dotplot"),
        palette = c("#00AFBB", "#E7B800","#c94545"))
 ```
+
 Realizamos el ANOVA de dos factores con interacción.
 
 ```{r anova_rend}
@@ -480,6 +480,7 @@ summary(anova_result)
 En cambio, el tiempo de estudio sí es un factor determinante en el rendimiento académico. Su $p-valor$ asociado es claramente inferior al nivel de significancia $0.05$.
 
 Podemos visualizar el resultado:
+
 ```{r anova_rend4}
 # Visualizar
 library("ggpubr")
@@ -492,13 +493,7 @@ ggline(datos, x = "Tiempo_estudio", y = "Rendimiento",
 
 En el último ejemplo del apartado anterior hemos determinado que un factor con $3$ niveles era estadísticamente significativo. Es decir, podemos rechazar la siguiente hipótesis nula:
 
-$$H_O: \mu_1=\mu_2\ldots = \mu_k$$
-(con $k$ igual al número de niveles en el factor). Podemos plantearnos la pregunta siguiente:
-¿En qué niveles del factor se encuentran las principales diferencias? Es decir, qué hipotesis (una o varias) de las siguientes son rechazadas:
-$$H_O: \mu_1=\mu_2$$
-$$H_O: \mu_1=\mu_3$$
-$$\ldots$$
-$$H_O: \mu_{k-1} = \mu_k$$
+$$H_O: \mu_1=\mu_2\ldots = \mu_k$$ (con $k$ igual al número de niveles en el factor). Podemos plantearnos la pregunta siguiente: ¿En qué niveles del factor se encuentran las principales diferencias? Es decir, qué hipotesis (una o varias) de las siguientes son rechazadas: $$H_O: \mu_1=\mu_2$$ $$H_O: \mu_1=\mu_3$$ $$\ldots$$ $$H_O: \mu_{k-1} = \mu_k$$
 
 En un ejemplo con $k=3$ niveles en el factor, es posible plantear $3$ contrastes de igualdad de medias, como los estudiados en capítulos anteriores. En un ejemplo con $k$ niveles en el factor, es posible plantear $k*(k-1)/2$ posibles contrastes de igualda de medias. Sin embargo, si realizamos todos estos contrastes, aumenta la probabilidad de cometer errores de tipo I (rechazar incorrectamente la hipótesis nula). Este fenómeno se conoce como el **problema de las pruebas múltiples**.
 
@@ -512,25 +507,21 @@ Existe una solución, **las comparaciones múltiples** necesarias para controlar
 
 El método de Bonferroni es una técnica comúnmente utilizada para corregir el problema de las comparaciones múltiples y controlar el riesgo de error de tipo I. Este método es relativamente simple y conservador, lo que lo hace popular en muchas aplicaciones estadísticas.
 
-La idea principal detrás del método de Bonferroni es ajustar el nivel de significancia individual para cada prueba de hipótesis realizada. En lugar de utilizar un nivel de significancia estándar (por ejemplo, $\alpha = 0.05$), dividimos el nivel de significancia global deseado (generalmente $0.05$) por el número total de pruebas realizadas ($m$):
-$$
+La idea principal detrás del método de Bonferroni es ajustar el nivel de significancia individual para cada prueba de hipótesis realizada. En lugar de utilizar un nivel de significancia estándar (por ejemplo, $\alpha = 0.05$), dividimos el nivel de significancia global deseado (generalmente $0.05$) por el número total de pruebas realizadas ($m$): $$
 \alpha' = \frac{\alpha}{m}
-$$
-Esta división produce un nivel de significancia más estricto ($\alpha'$) para cada prueba individual, lo que ayuda a controlar el riesgo global de error de tipo I.
+$$ Esta división produce un nivel de significancia más estricto ($\alpha'$) para cada prueba individual, lo que ayuda a controlar el riesgo global de error de tipo I.
 
 Utilizamos el nivel de significancia individual ajustado para cada prueba de hipótesis. Si el $p-valor$ de una prueba es menor que el nivel de significancia ajustado, rechazamos la hipótesis nula de la prueba.
-
 
 El método de Bonferroni es fácil de entender e implementar, y proporciona un control conservador sobre el error de tipo I en comparaciones múltiples. No obstante puede ser un método demasiado conservador en situaciones donde se realizan muchas comparaciones, lo que puede resultar en una pérdida de potencia estadística. Además, no tiene en cuenta la correlación entre las pruebas realizadas.
 
 ::: {.callout-tip collapse="true" title="Ejemplo. Comparaciones múltiples"}
-
 Continuamos con el ejemplo anterior anterior sobre la influencia del tiempo de estudio en el rendimiento académico. Hemos visto que existe una relación entre ambos factores. En otras palabras, hemos rechazado la siguiente hipótesis nula:
 
 $$
 H_0: \mu_{Alto}=\mu_{Medio}=\mu_{Bajo}
-$$
-Pero, ¿dónde se encuentran las diferencias relevantes?. Calculamos las tres medias muestrales
+$$ Pero, ¿dónde se encuentran las diferencias relevantes?. Calculamos las tres medias muestrales
+
 ```{r datos_bon_2}
 mean(datos[datos$Tiempo_estudio=="1. Alto",]$Rendimiento)
 mean(datos[datos$Tiempo_estudio=="2. Medio",]$Rendimiento)
@@ -538,9 +529,10 @@ mean(datos[datos$Tiempo_estudio=="3. Bajo",]$Rendimiento)
 ```
 
 Aplicamos el método de Bonferroni, y obtenemos:
+
 ```{r bon3}
 pairwise.t.test(datos$Rendimiento, g=datos$Tiempo_estudio,p.adjust.method = "bonferroni")
-``` 
+```
 
 Dado que todos los $p-valores$ ajustados son menores que $0.05$, podemos rechazar las $3$ hipótesis nulas. Es decir, rechazamos que el rendimiento sea el mismo para los diferentes niveles de tiempos de estudio.
 

@@ -4,48 +4,54 @@
 
 Un **estadístico** es una medida calculada a partir de una muestra de datos que se utiliza para describir o resumir características de la muestra. En otras palabras, un estadístico es un valor numérico que resume o describe algún aspecto de los datos recolectados. Los estadísticos se utilizan ampliamente en análisis de datos, inferencia estadística y para hacer estimaciones sobre poblaciones más grandes basadas en la información obtenida de una muestra.
 
-Como puedes ver, en la @sec-eda hemos estado trabajando con estadísticos. Los estadísticos juegan un papel crucial en la inferencia estadística, donde se utilizan para hacer estimaciones o probar hipótesis sobre una población a partir de la información contenida en una muestra.
+Si te fijas bien, verás que en el @sec-eda ya hemos estado trabajando con estadísticos. Los estadísticos juegan un papel crucial en la inferencia estadística, donde se utilizan para hacer estimaciones o probar hipótesis sobre una población a partir de la información contenida en una muestra.
 
 Ejemplos comunes de estadísticos incluyen:
 
--   Media: Promedio aritmético de los valores en la muestra.
--   Mediana: Valor que divide la muestra en dos partes iguales.
--   Moda: Valor que aparece con mayor frecuencia en la muestra.
+-   Media: Promedio aritmético de los valores de una variable en la muestra.
+-   Mediana: Valor que divide la muestra en dos partes iguales respecto a una variable.
+-   Moda: Valor de una variable que aparece con mayor frecuencia en la muestra.
 -   Varianza: Medida de la dispersión de los datos respecto a la media.
 -   Desviación estándar: Raíz cuadrada de la varianza, que también mide la dispersión.
 -   Coeficiente de correlación: Medida de la relación entre dos variables.
 
 ## Estimación puntual
 
-La **estimación puntual** es una técnica en estadística que consiste en utilizar los datos de una muestra para calcular un valor único, denominado **estimador puntual**, que se usa como mejor aproximación de un parámetro desconocido de la población. Este parámetro puede ser, por ejemplo, la media, la varianza, la proporción, entre otros. La estimación puntual proporciona una forma simple y directa de hacer inferencias sobre parámetros poblacionales a partir de una muestra, aunque su simplicidad también implica que no proporciona información sobre la precisión o variabilidad de la estimación, aspectos que se abordan mediante la **estimación por intervalos** y otras técnicas inferenciales.
+La **estimación puntual** es una técnica estadística que consiste en utilizar los datos de una muestra para calcular un valor único, denominado **estimador puntual**, que se usa como mejor aproximación de un parámetro desconocido de la población. Este parámetro puede ser, por ejemplo, la media, la varianza, la proporción, entre otros. La estimación puntual proporciona una forma simple y directa de hacer inferencias sobre parámetros poblacionales a partir de una muestra, aunque su simplicidad también implica que no proporciona información sobre la precisión o variabilidad de la estimación, aspectos que se abordan mediante la **estimación por intervalos** y otras técnicas inferenciales.
 
-### Conceptos Clave en la Estimación Puntual
+### Conceptos clave en la estimación puntual
 
-**Estimador**: Es una fórmula o función que se aplica a los datos de la muestra para obtener la estimación puntual. Por ejemplo, la media muestral ($\bar{x}$) es un estimador de la media poblacional ($\mu$).
+**Estimador**: Es una fórmula o función que se aplica a los datos de la muestra para obtener la estimación puntual. Por ejemplo, la media muestral ($\bar{x}$) es un estimador de la media poblacional ($\mu$). Formalmente, dada una variable aleatoria $X$ con función de distribución $F_\theta$, con parámetro $\theta$ desconocido, un estadístico o estimador $T = T(X_1,\ldots,X_n)$ es una función real de la muestra aleatoria simple (m.a.s.) $(X_1,\ldots, X_n)$ que estima el valor del parámetro desconocido. $$
+T = T(X_1,\ldots, X_n) = \hat{\theta}
+$$ Un estadístico es una variable aleatoria, y por lo tanto, tiene asociada una distribución que se denomina distribución muestral.
+
+Por ejemplo, la media $$T_1(X_1,\ldots,X_n)=\bar{X}=\frac{X_1+\ldots+X_n}{n}$$ y la mediana $$T_2(X_1,\ldots,X_n)=\frac{X_{(n/2)}+X_{(n/2+1)}}{2}$$ son estimadores.
 
 **Estimación**: Es el valor numérico específico obtenido al aplicar el estimador a una muestra concreta de datos. Por ejemplo, si $\bar{x} = 5.4$, esa es la estimación puntual de $\mu$.
 
-### Ejemplos de Estimadores Puntuales
+### Ejemplos de estimadores puntuales
 
--   **Media Muestral (**$\bar{x}$): Utilizada para estimar la media poblacional ($\mu$). $$
-    \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+-   **Media muestral** ($\bar{x}$): Utilizada para estimar la media poblacional ($\mu$). Aplicamos el estimador a una realización de la muestra ($x_1,\ldots,x_n$), obteniendo el estimador muestral: $$
+    \bar{x} = T_1(x_1,\ldots,x_n)= \frac{1}{n} \sum_{i=1}^n x_i
     $$
 
--   **Varianza Muestral (**$s^2$): Utilizada para estimar la varianza poblacional ($\sigma^2$). $$
+-   **Varianza muestral** ($s^2$): Utilizada para estimar la varianza poblacional ($\sigma^2$). $$
     s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
     $$
 
--   **Proporción Muestral (**$\hat{p}$): Utilizada para estimar la proporción poblacional ($p$). $$
+-   **Desviación típica muestral** ($s$). Es la raíz cuadrada de la varianza muestral. Tiene las mismas unidades de medida que la variable original.
+
+-   **Proporción muestral** ($\hat{p}$): Utilizada para estimar la proporción poblacional ($p$). $$
     \hat{p} = \frac{x}{n}
     $$ donde $x$ es el número de éxitos en la muestra y $n$ es el tamaño de la muestra.
 
 ## Propiedades de los estimadores
 
-Existen diferentes métodos diferentes para obtener estimadores de un parámetro poblacional. ¿Cómo elegir el estimador más adecuado para un parámetro desconocid? ¿Cuáles son las propiedades de un buen estimador?
+Existen diferentes métodos para obtener estimadores de un parámetro poblacional. ¿Cómo elegir el estimador más adecuado para un parámetro desconocido? ¿Cuáles son las propiedades de un buen estimador?
 
 Para que un estimador sea considerado adecuado, generalmente debe cumplir con ciertas propiedades:
 
--   **Insesgadez**: Un estimador es insesgado si, en promedio, coincide con el valor verdadero del parámetro que se estima. Es decir, el valor esperado del estimador es igual al parámetro poblacional.
+-   **Insesgadez**: Un estimador es insesgado (o centrado) si, en promedio, coincide con el valor verdadero del parámetro que se estima. Es decir, el valor esperado del estimador es igual al parámetro poblacional.
 
 $$E(\hat{\theta}) = \theta$$ La comparaciones que implican estimadores sesgados a menudo se basan en el *error cuadrático medio* definido como: $$
 ECM(\hat{\theta})=E[(\hat{\theta}- \theta)^2]=Var(\hat{\theta})+(E(\hat{\theta})- \theta)^2=Eficiencia+  Sesgo
@@ -153,6 +159,24 @@ ggplot(datos, aes(x = tamanos_muestra, y = medias_estimadas)) +
 El gráfico resultante muestra cómo las medias estimadas convergen hacia la media verdadera de la población a medida que aumenta el tamaño de la muestra. Esto ilustra la propiedad de consistencia del estimador. La línea roja representa la media verdadera de la población, mientras que la línea azul representa las medias estimadas en función del tamaño de la muestra. A medida que el tamaño de la muestra aumenta, las medias estimadas se acercan cada vez más a la media verdadera.
 :::
 
+### Distribuciones muestrales
+
+Hemos visto que usamos estadísticos para estimar los parámetros desconocidos de la población. Estamos interesados en estadísticos con buenas propiedades. Además, estos estadísticos son variables aleatorias con distribución de probabilidad.
+
+Sabemos, por el TCL visto en la Introducción, que, teniendo el tamaño muestral adecuado, la distribución de los estadísticos será una Normal.
+
+Por ejemplo, dadas $X_1,\ldots,X_n$ variables aleatorias independientes e idénticamente distribuidas con media $\mu$ y varianza $\sigma^2$ conocida, la media muestral: $$
+\bar{X}=\frac{X_1+\ldots+X_n}{n}
+$$ tiene media igual a $E[\bar{X}]=\mu$ y varianza igual a $V[\bar{X}]=\sigma^2/n$.
+
+Entonces, por el TCL, con $n$ suficientemente grande: $$
+\bar{X} \sim N \left ( \mu,\frac{\sigma^2}{n} \right )
+$$
+
+Otro ejemplo sería, dadas $X_1,\ldots,X_n$ variables aleatorias independientes e idénticamente distribuidas con una distribución Bernoulli de parámetro $p$. Para $n$ suficientemente grande se tiene que: $$
+\hat{p} \sim N \left (p,\frac{p(1-p)}{n} \right ) \Leftrightarrow \frac{\hat{p}-p}{\sqrt{p(1-p)/n}} \sim N(0,1)
+$$
+
 ## Método de los momentos
 
 El método de los momentos es una técnica utilizada en estadística para estimar los parámetros desconocidos de una distribución de probabilidad. Fue introducido por el estadístico *Karl Pearson* en 1984. Este método se basa en igualar los momentos muestrales (calculados a partir de los datos observados) con los momentos teóricos (expresados en términos de los parámetros de la distribución).
@@ -176,11 +200,11 @@ Los momentos poblacionales pueden ser vistos como funciones de los parámetros d
 
 El método de los momentos consiste en resolver un conjunto de ecuaciones y tiene los siguientes pasos:
 
-1.  **Calcular Momentos Muestrales**: Se calculan los momentos muestrales de los datos observados. El (k)-ésimo momento muestral se define como: $m_k = \frac{1}{n} \sum_{i=1}^{n}X_i^k$ donde $n$ es el tamaño de la muestra y $X_i$ son los valores de la muestra.
+1.  **Calcular momentos muestrales**: Se calculan los momentos muestrales de los datos observados. El (k)-ésimo momento muestral se define como: $m_k = \frac{1}{n} \sum_{i=1}^{n}X_i^k$ donde $n$ es el tamaño de la muestra y $X_i$ son los valores de la muestra.
 
-2.  **Igualar Momentos Muestrales y Teóricos**: Se igualan los momentos muestrales con los momentos teóricos de la distribución. Los momentos teóricos se expresan en términos de los parámetros desconocidos que se desean estimar.
+2.  **Igualar momentos muestrales y teóricos**: Se igualan los momentos muestrales con los momentos teóricos de la distribución. Los momentos teóricos se expresan en términos de los parámetros desconocidos que se desean estimar.
 
-3.  **Resolver el Sistema de Ecuaciones**: Se resuelve el sistema de ecuaciones resultante para encontrar los estimadores de los parámetros desconocidos. Fíjate que tenemos $k$ ecuaciones y $k$ parámetros ($\theta_1,\ldots,\theta_k$). De modo que es posible despejar los parámetros de estas ecuaciones, que quedando estos parámetros en función de los momentos. En estas ecuaciones se sustituyen los momentos poblacionales por sus correspondientes momentos poblacionales. Esto da como resultado estimaciones de esos parámetros.
+3.  **Resolver el sistema de ecuaciones**: Se resuelve el sistema de ecuaciones resultante para encontrar los estimadores de los parámetros desconocidos. Fíjate que tenemos $k$ ecuaciones y $k$ parámetros ($\theta_1,\ldots,\theta_k$). De modo que es posible despejar los parámetros de estas ecuaciones, que quedando estos parámetros en función de los momentos. En estas ecuaciones se sustituyen los momentos poblacionales por sus correspondientes momentos poblacionales. Esto da como resultado estimaciones de esos parámetros.
 
 ::: {.callout-tip collapse="true"}
 ### Ejemplo, distribución Normal
@@ -234,7 +258,7 @@ $$
 $$ $$\hat{p}=\frac{\bar{X}}{\hat{k}}$$
 :::
 
-### Ventajas y Limitaciones
+### Ventajas y limitaciones
 
 Los estimadores de los momentos presentan interesantes propiedades estadísticas, aunqeu también tienen sus limitaciones.
 
@@ -251,7 +275,7 @@ Los estimadores de los momentos presentan interesantes propiedades estadísticas
 
 ## Método de la máxima verosimilud
 
-El método de la máxima verosimilitud es una técnica estadística ampliamente utilizada para estimar los parámetros desconocidos de una distribución de probabilidad. Este método se basa en encontrar los valores de los parámetros que maximicen la función de verosimilitud, la cual mide la probabilidad de observar los datos dados los parámetros. El método de m-axima verosimilitud es el método más popular para obtener un estimador. La idea básica es seleccionar el valor del parámetro que hace que los datos sean más probables.
+El método de la **máxima verosimilitud** es una técnica estadística ampliamente utilizada para estimar los parámetros desconocidos de una distribución de probabilidad. Este método se basa en encontrar los valores de los parámetros que maximicen la función de verosimilitud, la cual mide la probabilidad de observar los datos dados los parámetros. El método de máxima verosimilitud es el método más popular para obtener un estimador. La idea básica es seleccionar el valor del parámetro que hace que los datos sean más probables.
 
 Dado un modelo estadiıstico (es decir, una familia de distribuciones $f(·|\theta)| \theta \in \Theta$ donde $\theta$ es el parámetro del modelo), el método de máxima verosimilitud encuentra el valor del parámetro del modelo $\theta$ que maximiza la función de verosimilitud:
 
@@ -261,7 +285,7 @@ $$
 
 Para una muestra aleatoria $\mathbf{x}=(x_1,\ldots,x_n)$ de una variable aleatoria $X$, la *verosimilitud* es proporcional al producto de las probabilidades asociadas a los valores individuales: $$
 \prod_jP(X=x_j)
-$$ El término fue acuñado por Sir Roland Fisher.
+$$ El término verosimilitud fue acuñado por *Sir Roland Fisher*.
 
 Cuando $X$ es una variable aleatoria continua, un valor muestral $x_j$ debe considerarse como que está (en general) en el intervalo $(x_j-\delta,x_j+\delta)$, donde $\delta$ representa la precisión de la medición. La verosimilutd es entonces proporcional a: $$
 \prod_jP(x_j-\delta<X<x_j+\delta).
@@ -269,9 +293,9 @@ $$ Si $\delta$ es suficientemente pequeño, esta expresión es aproximadamente p
 \prod_jf(x_j).
 $$ donde $f$ es la función de densidad de $X$. Por lo tanto, la *verosimilitd* describe lo plausible que es un valor del parámetro poblacional, dadas unas observaciones concretas de la muestra.
 
-### Conceptos Básicos
+### Conceptos básicos
 
-1.  **Función de Verosimilitud**: La función de verosimilitud, $L(\theta|\mathbf{x})$, para un conjunto de datos $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ y un vector de parámetros $\theta$, es el producto de las funciones de densidad (o de probabilidad) de los datos observados, dadas las posibles realizaciones de $\theta$: $$
+1.  **Función de verosimilitud**: La función de verosimilitud, $L(\theta|\mathbf{x})$, para un conjunto de datos $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ y un vector de parámetros $\theta$, es el producto de las funciones de densidad (o de probabilidad) de los datos observados, dadas las posibles realizaciones de $\theta$: $$
     L(\theta|\mathbf{x}) = f(\mathbf{x}|\theta)=f(x_1,\ldots,x_n|\theta)=f(x_1|\theta)f(x_2|\theta)\ldots f(x_n|\theta)=\prod_{i=1}^n f(x_i| \theta)
     $$ donde $f(x_i|\theta)$ es la función de densidad (o de probabilidad) de $x_i$ dado $\theta$.
 
@@ -279,22 +303,22 @@ $$ donde $f$ es la función de densidad de $X$. Por lo tanto, la *verosimilitd* 
     \ell(\theta|\mathbf{x}) = \log L(\theta|\mathbf{x}) = \sum_{i=1}^n \log f(x_i|\theta)
     $$
 
-### Procedimiento del Método de Máxima Verosimilitud
+### Procedimiento del método de Máxima Verosimilitud
 
-1.  **Especificar la Función de Verosimilitud**: Identificar la función de verosimilitud correspondiente a los datos observados y a la distribución supuesta.
+1.  **Especificar la función de verosimilitud**: Identificar la función de verosimilitud correspondiente a los datos observados y a la distribución supuesta.
 
 2.  **Calcular la Log-Verosimilitud**: Tomar el logaritmo natural de la función de verosimilitud para obtener la función de log-verosimilitud.
 
-3.  **Derivar y Resolver**: Derivar la función de log-verosimilitud con respecto a cada parámetro y resolver las ecuaciones obtenidas igualando a cero (puntos críticos) para encontrar los estimadores de máxima verosimilitud (EMV).
+3.  **Derivar y resolver**: Derivar la función de log-verosimilitud con respecto a cada parámetro y resolver las ecuaciones obtenidas igualando a cero (puntos críticos) para encontrar los estimadores de máxima verosimilitud (EMV).
 
-4.  **Verificar Máximos**: Asegurarse de que las soluciones encontradas corresponden a máximos y no a mínimos o puntos de inflexión, típicamente verificando la segunda derivada.
+4.  **Verificar máximos**: Asegurarse de que las soluciones encontradas corresponden a máximos y no a mínimos o puntos de inflexión, típicamente verificando la segunda derivada.
 
 ::: {.callout-tip collapse="true"}
 ### Ejemplo, distribución Normal
 
 Supongamos que tenemos una muestra $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ de una distribución Normal con media $\mu$ y varianza $\sigma^2$, y queremos estimar estos parámetros.
 
-1.  **Función de Verosimilitud**: La función de densidad para una distribución normal es: $$
+1.  **Función de verosimilitud**: La función de densidad para una distribución normal es: $$
     f(x_i|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x_i - \mu)^2}{2\sigma^2}\right)
     $$ Por lo tanto, la función de verosimilitud es: $$
     L(\mu, \sigma^2| \mathbf{x}) = \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x_i - \mu)^2}{2\sigma^2}\right)
@@ -304,7 +328,7 @@ Supongamos que tenemos una muestra $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ de una
     \ell(\mu, \sigma^2|\mathbf{x}) = \sum_{i=1}^n \left[ -\frac{1}{2} \log(2\pi\sigma^2) - \frac{(x_i - \mu)^2}{2\sigma^2} \right]
     $$
 
-3.  **Derivadas y Resolución**: Derivamos la log-verosimilitud con respecto a $\mu$ y $\sigma^2$ y las igualamos a cero: $$
+3.  **Derivadas y resolución**: Derivamos la log-verosimilitud con respecto a $\mu$ y $\sigma^2$ y las igualamos a cero: $$
     \frac{\partial \ell}{\partial \mu} = \sum_{i=1}^n \frac{x_i - \mu}{\sigma^2} = 0 \implies \hat{\mu} = \frac{1}{n} \sum_{i=1}^n x_i
     $$ $$
     \frac{\partial \ell}{\partial \sigma^2} = -\frac{n}{2\sigma^2} + \frac{1}{2\sigma^4} \sum_{i=1}^n (x_i - \mu)^2 = 0 \implies \hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})^2
@@ -318,7 +342,7 @@ Supongamos que tenemos una muestra $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ de una
 
 Supongamos que tenemos una muestra de tamaño $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ de una variable aleatoria Binomial con parámetro $p$ que deseamos estimar. Se emplea dicha variable para describir el número de errores en las $n$ pruebas asociadas. Se realiza un experimento y se obtienen un total de $4$ errores en las $10$ pruebas.
 
-1.  **Función de Verosimilitud**: La verosimilud viene dada por:
+1.  **Función de verosimilitud**: La verosimilud viene dada por:
 
 $$
 L(p|\mathbf{x}) = {10 \choose 4}p^4(1-p)^6
@@ -328,14 +352,14 @@ $$
     \ell(p|\mathbf{x}) = log\left({10 \choose 4}\right) +4log(p)+6log(1-p)
     $$
 
-3.  **Derivadas y Resolución**: Derivamos la log-verosimilitud con respecto a $p$ y las igualamos a cero: $$
+3.  **Derivadas y resolución**: Derivamos la log-verosimilitud con respecto a $p$ y las igualamos a cero: $$
     \frac{\partial \ell}{\partial p} =\frac{4}{p} -\frac{6}{1-p}= 0 \implies \frac{4}{p}=\frac{6}{1-p}\implies 4-4p=6p\implies 4=10p \implies p=4/10=0.4
     $$
 
 La función de verosimilud nos informa, dados los datos, sobre los valores más plausibles (o creíbles) para el parámetroo $p$.
 :::
 
-### Ventajas y Limitaciones
+### Ventajas y limitaciones
 
 Los estimadores de máxima verosimilutd presentan buenas propiedades estadísticas.
 
@@ -348,19 +372,19 @@ Los estimadores de máxima verosimilutd presentan buenas propiedades estadístic
 
 **Limitaciones**:
 
--   **Complejidad Computacional**: Encontrar los estimadores de máxima verosimilitud puede implicar resolver ecuaciones no lineales, lo cual puede ser complejo y requerir técnicas numéricas.
--   **Existencia y Unicidad**: Los estimadores de máxima verosimilitud no siempre existen y, si existen, no siempre son únicos. En problemas reales, la derivada de la función de verosimilitud es, a veces, analíticamente intratable. En esos casos, se utilizan métodos iterativos para encontrar soluciones numéricas para las estimaciones de los parámetros.
--   **Sesgo en Muestras Pequeñas**: Los estimadores pueden ser sesgados en muestras pequeñas, aunque el sesgo disminuye a medida que el tamaño de la muestra aumenta.
+-   **Complejidad computacional**: Encontrar los estimadores de máxima verosimilitud puede implicar resolver ecuaciones no lineales, lo cual puede ser complejo y requerir técnicas numéricas.
+-   **Existencia y unicidad**: Los estimadores de máxima verosimilitud no siempre existen y, si existen, no siempre son únicos. En problemas reales, la derivada de la función de verosimilitud es, a veces, analíticamente intratable. En esos casos, se utilizan métodos iterativos para encontrar soluciones numéricas para las estimaciones de los parámetros.
+-   **Sesgo en muestras pequeñas**: Los estimadores pueden ser sesgados en muestras pequeñas, aunque el sesgo disminuye a medida que el tamaño de la muestra aumenta.
 
 ## Estimación por intervalo
 
 La estimación puntual proporciona una aproximación razonable para un parámetro de la población, pero no tiene en cuenta la variabilidad debido al tamaño muestral, la variabilidad en la población, el conocimiento de otros parámetros, etc.
 
-La **estimación por intervalo** es una técnica en estadística que, a diferencia de la estimación puntual que proporciona un único valor, ofrece un rango de valores dentro del cual se espera que se encuentre el parámetro poblacional desconocido con un cierto nivel de confianza. Este rango se denomina **intervalo de confianza**.
+La **estimación por intervalo** es una técnica en estadística que, a diferencia de la estimación puntual que proporciona un único valor, ofrece un rango de valores dentro del cual se espera que se encuentre el verdadero parámetro poblacional desconocido con un cierto nivel de confianza. Este rango se denomina **intervalo de confianza**.
 
-La estimación por intervalos es una herramienta esencial en la inferencia estadística, ya que no solo ofrece una estimación del parámetro poblacional, sino que también proporciona un marco para entender la precisión y confiabilidad de esa estimación. Esto la convierte en una técnica poderosa para hacer inferencias más robustas y útiles basadas en datos muestrales.
+La estimación por intervalos es una herramienta esencial en la Inferencia Estadística, ya que no solo ofrece una estimación del parámetro poblacional, sino que también proporciona un marco para entender la precisión y confiabilidad de esa estimación. Esto la convierte en una técnica poderosa para hacer inferencias más robustas y útiles basadas en datos muestrales.
 
-### Conceptos Clave en la Estimación por Intervalo
+### Conceptos clave en la estimación por intervalo
 
 **Intervalo de Confianza (IC)**: Es un rango de valores calculado a partir de los datos de la muestra, que se utiliza para estimar el parámetro poblacional desconocido. Se expresa comúnmente como $(\text{Límite Inferior}, \text{Límite Superior})$.
 
@@ -376,13 +400,13 @@ El cálculo de un intervalo de confianza generalmente sigue la fórmula:
 
 $$
 \text{Estimación Puntual} \pm (\text{Valor Crítico} \times \text{Error Estándar})
-$$ Para alcanzar el intervalo de confianza, generalmente se busca una cantidad (aletoria) $C(\mathbf{X},\theta)$ relacionada con el parámetro desconocido $\theta$ y con la muestras $\mathbf{X}$, cuya distribución sea conocida y no dependa del valor del parámetro. Esta cantidad recibe el nombre de *pivote* o *cantidad pivotal* para $theta$.
+$$ Para alcanzar el intervalo de confianza, generalmente se busca una cantidad (aleatoria) $C(\mathbf{X},\theta)$ relacionada con el parámetro desconocido $\theta$ y con la muestras $\mathbf{X}$, cuya distribución sea conocida y no dependa del valor del parámetro. Esta cantidad recibe el nombre de *pivote* o *cantidad pivotal* para $\theta$.
 
-Dado que conocemos la distribución del pivote, podemos usar los cuartiles $1-\alpha/2$ y $\alpha/2$ de dicha distribuciuón, y la desviación estándar dle estimador por intervalos de confianza, para plantear la siguiente ecuación: $$
+Dado que conocemos la distribución del pivote, podemos usar los cuartiles $1-\alpha/2$ y $\alpha/2$ de dicha distribución, y la desviación estándar dle estimador por intervalos de confianza, para plantear la siguiente ecuación: $$
 P(1-\alpha/2 \text{ cuantil}< C(\mathbf{X},\theta)<\alpha/2 \text{ cuantil}) = 1- \alpha
-$$ Para obtener los extremos (inferior y superior) del estimador por intervalos de confianza $T_{inf}(\mathbf{X})$ y $T_{sup}(\mathbf{X})$, se resuelve la doble desigualdad en $\theta$. De este modo el intervalo de confianza al $100(1-\alpha)\%$ para $\theta$ es $(T_{inf}(\mathbf{x}),T_{sup}(\mathbf{x}))$
+$$Para obtener los extremos (inferior y superior) del estimador por intervalos de confianza $T_{inf}(\mathbf{X})$ y $T_{sup}(\mathbf{X})$, se resuelve la doble desigualdad en $\theta$. De este modo el intervalo de confianza al $100(1-\alpha)\%$ para $\theta$ es $(T_{inf}(\mathbf{x}),T_{sup}(\mathbf{x}))$
 
-### Importancia de la Estimación por Intervalos
+### Importancia de la estimación por intervalos
 
 A diferencia de la estimación puntual, el intervalo de confianza proporciona información sobre la precisión de la estimación y la variabilidad inherente en los datos muestrales.
 
@@ -390,21 +414,21 @@ Además, la estimación por intervalo proporciona un rango de valores que es út
 
 Podemos señalar que la estimación por intervalos es menos susceptible a errores muestrales y proporciona una medida más realista del parámetro poblacional que la obtenida con la estimación puntual.
 
-### Intervalo de Confianza para la Media (cuando la varianza es conocida)
+### Intervalo de Confianza para la media (cuando la varianza es conocida)
 
-Sea una muestra aleatoria simple $\mathbf{X}$ de tamño $n$ obtenida de $X$. Supongamos que $X$ sigue una distribución normal con parámetros ($\mu$) y varianza conocida ($\sigma^2$). Fijate que este último supuesto es muy poco realista. El estadístico $\bar{X}$ tiene una distribución normal: $$
+Sea una muestra aleatoria simple $\mathbf{X}$ de tamaño $n$ obtenida de $X$. Supongamos que $X$ sigue una distribución Normal con parámetros ($\mu$) y varianza conocida ($\sigma^2$). Fijate que este último supuesto es muy poco realista (no conocemos la media, pero conocemos la varianza). En este caso, el estadístico $\bar{X}$ tiene una distribución normal: $$
 \bar{X} \sim N \left( \mu,\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{n}}\right )
-$$ La desviación típica de $\bar{X}$ ( o de cualquier otro estadístico) se conoce como su **error estándar**.
+$$La desviación típica de $\bar{X}$ ( o de cualquier otro estadístico) se conoce como su **error estándar**.
 
 La cantidad pivotal para $\mu$ es: $$
 Z=\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \sim N \left( 0,1 \right )
-$$ Ahora, si $z_{1-\alpha/2}$ y $z_{\alpha/2}$ son los cuartiles $(1-alpha/2)$ y $\alpha/2$ de la distribución $N(0,1$, entonces tenemos: $$
+$$ Ahora, si $z_{1-\alpha/2}$ y $z_{\alpha/2}$ son los cuartiles $(1-\alpha/2)$ y $\alpha/2$ de la distribución $N(0,1$, entonces tenemos: $$
 P(z_{1-\alpha/2}<Z<z_{\alpha/2})=1-\alpha
 $$ Es decir: $$
 P\left (z_{1-\alpha/2}<\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<z_{\alpha/2} \right)=1-\alpha
 $$ Hay que notar que para la distribución Normal: $z_{1-\alpha/2}=-z_{\alpha/2}$
 
-Resolvemos la doble desigualdad para$\mu$: $$
+Resolvemos la doble desigualdad para $\mu$: $$
 -z_{\alpha/2}<\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<z_{\alpha/2} 
 $$ $$
 -z_{\alpha/2}\frac{\sigma}{\sqrt{n}}<\bar{X}-\mu<z_{\alpha/2}\frac{\sigma}{\sqrt{n}} 
@@ -416,7 +440,7 @@ IC_{1-\alpha}(\mu)=\left (\bar{x} -z_{\alpha/2} \frac{\sigma}{\sqrt{n}},\bar{x} 
 $$ donde $\bar{x}$ es la media muestral, $z_{\alpha/2}$ es el valor crítico del estadístico $z$ para el nivel de confianza deseado, $\sigma$ es la desviación estándar poblacional, y $n$ es el tamaño de la muestra.
 
 ::: {.callout-tip collapse="true" title="Ejemplo. Intervalo de confianza para la media de una distribución normal"}
-Se ha probado que la altura de los alumnas de primer curso de la URJC se puede aproximar mediante una variable aleatoria con distribución normal con desviación típica $\sigma=10$ cm pero la media $(\mu)$ desconocida. En un estudio con $25$ alumnas se obtiene una media de $166$ cm. Vamos a construir un intervalo de confianza al $95\%$ para $\mu$.
+Se ha probado que la altura de los alumnas de primer curso de la URJC se puede aproximar mediante una variable aleatoria con distribución normal con desviación típica $\sigma=10$ cm pero la media $(\mu)$ desconocida. En un estudio con $50$ alumnas se obtiene una media de $166$ cm. Vamos a construir un intervalo de confianza al $95\%$ para $\mu$.
 
 Sea $X$ la altura, y sabemos que las variables independientes y identicamente distribuidas: $$
 X_1,X_2,\ldots,X_{50}\sim N(\mu,\sigma^2=10^2).
@@ -437,15 +461,15 @@ P\left(\bar{X}-1,96\sqrt{2}<\mu<\bar{X}+1,96\sqrt{2}\right)=0,95.
 $$ Por tanto, si $\bar{x}$ es una realización particular de la variable aleatoria $\bar{X}$ en la muestra observada, el intervalo de confianza al $95\%$ será: $$
 IC_{0.5}(\mu)=\bar{x}\pm1.96 \sqrt{2} = \bar{x}\pm2.77
 $$ En nuestro caso particular como la media era $\bar{x}=166$ cm, tenemos: $$
-IC_{0.5}(\mu)= 166\pm2.77=(163.23 , 168,77)
+IC_{0.5}(\mu)= 166\pm2.77=(163.23 , 168.77)
 $$
 :::
 
 ### Intervalo de Confianza para la media (cuando la varianza es desconocida)
 
-Sea una muestra aleatoria simple $\mathbf{X}$ de tamaño $n$ obtenida de $X$. Supongamos que $X$ sigue una distribución normal con parámetros ($\mu$) y varianza desconocida ($\sigma^2$). Este supuesto es más realista que el caso anterior. Lo habitual es no disponer de información sobre la varianza poblacional.
+Sea una muestra aleatoria simple $\mathbf{X}$ de tamaño $n$ obtenida de $X$. Supongamos que $X$ sigue una distribución Normal con parámetros ($\mu$) y varianza desconocida ($\sigma^2$). Este supuesto es más realista que el caso anterior. Lo habitual es no disponer de información sobre la varianza poblacional.
 
-La cantidad pivotal para $mu$ es: $$
+La cantidad pivotal para $\mu$ es: $$
 T=\frac{\bar{X}-\mu}{s/\sqrt{n}}\sim t_{n-1}
 $$ donde $s^2$ es la es la cuasi-varianza muestral: $s^2=\frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2$ y $t_n$ es la distribución $t$ de Student con $n$ grados de libertad.
 
@@ -461,7 +485,7 @@ Si $t_{n-1;1-\alpha/2}$ y $t_{n-1;\alpha/2}$ son los cuantiles $(1-\alpha/2)$ y 
 P(t_{n-1;1-\alpha/2}<T<t_{n-1;\alpha/2})=1-\alpha
 $$ Es decir: $$
 P(-t_{n-1;\alpha/2}<\frac{\bar{X}-\mu}{s/\sqrt{n}}<t_{n-1;\alpha/2})=1-\alpha
-$$ Se resuelve la doble desigualdad para $mu$ y se obtiene el estimador por intervalos de confianza: $$
+$$ Se resuelve la doble desigualdad para $\mu$ y se obtiene el estimador por intervalos de confianza: $$
 \left ( \bar{X}-t_{n-1;\alpha/2}\frac{s}{\sqrt{n}}, \bar{X}+t_{n-1;\alpha/2}\frac{s}{\sqrt{n}} \right )
 $$ Resultando el intervalo de confianza: $$
 IC_{1-\alpha}(\mu) = \left ( \bar{\mathbf{x}}-t_{n-1;\alpha/2}\frac{s}{\sqrt{n}}, \bar{\mathbf{x}}+t_{n-1;\alpha/2}\frac{s}{\sqrt{n}} \right )
@@ -475,16 +499,18 @@ set.seed(3987)
 muestra1=round(rnorm(10,34,3),1)
 muestra1
 sum1=sum(muestra1^2)
+media = round(mean(muestra1),1)
+cuasivar = round(var(muestra1),1)
 ```
 
 Se nos mide calcular el IC al $90\%$ para la temperatura media, suponiendo que la temperatura de la solución salina se puede aproximar mediante una variable aleatoria con distribución normal.
 
-Vemos que la población a estudiar es "X=temperatura de una solución salina" donde $X \sim N(\mu,\sigma^2)$ con $\sigma 2$ desconocida.
+Vemos que la población a estudiar es "X=temperatura de una solución salina" donde $X \sim N(\mu,\sigma^2)$ con $\sigma^{2}$ desconocida.
 
-Tenemos: $n=10$, $\bar{x}=$ `r round(mean(muestra1),1)`, $s^2=\frac{12565.5-10(35.3)^2}{10-1}=11.62$, $s=3.41$. Además: $t_{9;0.05}=1.83$.
+Tenemos: $n=10$, $\bar{x}=$ `r round(mean(muestra1),1)`, $s^2=$ `r round(var(muestra1),1)`, $s=$ `r round(sqrt(var(muestra1)),1)`. Además: $t_{n-1;\alpha/2}=t_{9;0.05}=1.83$.
 
 Por tanto el intervalo de confianza que buscamos es: $$
-IC_{0.9}(\mu)=\left (35.34\pm 1.83\frac{11.62}{\sqrt{10}} \right )=(35.34\pm6.72)=(28.62;42.06)
+IC_{0.9}(\mu)=\left (35.3\pm 1.83\frac{2.91}{\sqrt{10}} \right )=(35.3\pm 1.68)=(33.62;36.98)
 $$
 :::
 
@@ -493,7 +519,7 @@ $$
 Sea $\mathbf{X}=(X_1,\ldots,X_n)$ una muestra aleatoria simple de tamaño $n$ de una variable aleatoria $X$. Supongamos que $X$ sigue una distribución (conocida o no) con parámetros $\mu$ y $\sigma^2$. Además, supongamos que $n \geq 30$. Entonces, por el *Teorema Central del Límite* se tiene que la cantidad pivotal para $\mu$ cumple la siguiente propiedad:
 
 $$
-Z=\frac{\bar{X}-\mu}{\hat{\sigma}/\sqrt{n}}\sim approx. N(0,1)
+Z=\frac{\bar{X}-\mu}{\hat{\sigma}/\sqrt{n}}\sim  N(0,1)
 $$ Si $z_{1-\alpha/2}$ y $z_{\alpha/2}$ son los cuantiles $(1-\alpha/2)$ y $\alpha/2$ de $N(0,1)$, tenemos: $$
 P(z_{1-\alpha/2}<Z<z_{\alpha/2})=1-\alpha
 $$
@@ -524,17 +550,17 @@ $$
 Con un $95\%$ de confianza, podemos decir que la media del tiempo diario que las personas pasan en redes sociales en la población está entre $2.389$ y $2.611$ horas. Esto es, entre $2$ horas y $23$ minutos y $2$ horas y $37$ minutos, aproximadamente.
 :::
 
-### Intervalo de Confianza para la Proporción
+### Intervalo de Confianza para la proporción
 
-Sea $\mathbf{X}=(X_1,\ldots,X_n)$ una muestra aleatoria simple de tamaño $n$ de una variable aleatora $X$. Supongamos que $X$ sigue una distribución de Bernoulli con parámetro $p$. Esto es: $$
+Sea $\mathbf{X}=(X_1,\ldots,X_n)$ una muestra aleatoria simple de tamaño $n$ de una variable aleatoria $X$. Supongamos que $X$ sigue una distribución de Bernoulli con parámetro $p$. Esto es: $$
 \mu=E[X]=p
 $$ y $$
 \sigma^2=Var[X]=p(1-p)
 $$ Además, supongamos que $n \geq 30$. Entonces, por el *Teorema Central del Límite* se tiene que la cantidad pivotal para $\hat{p}=\bar{X}$ cumple la siguiente propiedad:
 
 $$
-Z=\frac{\hat{p}-p}{\sqrt{\hat{p}(1-\hat{p})/n}}\sim approx. N(0,1)
-$$ EL intervalor de confianza para estimar una proporción poblacional ($p$) es: $$
+Z=\frac{\hat{p}-p}{\sqrt{\hat{p}(1-\hat{p})/n}}\sim  N(0,1)
+$$ EL intervalo de confianza para estimar una proporción poblacional ($p$) es: $$
 IC_{1-\alpha}(p)=\left ( \hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} \right )
 $$
 
@@ -618,11 +644,11 @@ Determinar el tamaño adecuado de una muestra es crucial en la inferencia estad�
 
 Los factores clave para determinar el **tamaño muestral** son:
 
-1.  **Nivel de Confianza** $1-\alpha$:
+1.  **Nivel de confianza ($1-\alpha$)**:
     -   El nivel de confianza indica el grado de certeza de que el intervalo de confianza contiene el parámetro poblacional. Tal y como hemos indicado anteriormente, niveles de confianza comunes son $90\%$, $95\%$ y $99\%$. Un nivel de confianza más alto requiere una muestra más grande para asegurar la misma precisión.
-2.  **Margen de Error (E)**:
+2.  **Margen de error (E)**:
     -   El margen de error es la máxima diferencia tolerable entre la estimación muestral y el valor real del parámetro poblacional. Un margen de error más pequeño requiere una muestra más grande para asegurar una estimación precisa.
-3.  **Variabilidad Poblacional** $\sigma$:
+3.  **Variabilidad poblacional ($\sigma$)**:
     -   La variabilidad en la población, medida por la desviación estándar, afecta directamente al tamaño muestral. Una mayor variabilidad requiere una muestra más grande para obtener una estimación precisa.
 
 A continuación mostramos algunos ejemplos del cálculo del tamaño muestral para diferentes situaciones.
@@ -635,13 +661,18 @@ $$
 n = \left( \frac{z_{\alpha/2} \cdot \sigma}{E} \right)^2
 $$
 
-donde: - $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado. - $\sigma$ es la desviación estándar de la población (si es desconocida, se puede usar la desviación estándar de la muestra $s$).
+donde:
+
+- $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado. 
+- $\sigma$ es la desviación estándar de la población (si es desconocida, se puede usar la desviación estándar de la muestra $s$).
 
 Efectivamente, teníamos que el intervalo de confianza para la media se obtenía mediante la fórmula: $$
 \left ( \bar{x} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}} \right )
 $$ Y buscamos el $n$ tal que la desviación respecto a la media sea menor que $E$, es decir: $$
  z_{\alpha/2}\frac{\sigma}{\sqrt{n}}  < E
-$$ $$
+$$ 
+Esto es:
+$$
 n >  \left ( \frac{z_{\alpha/2} \sigma}{\sqrt{n}} \right )^2
 $$
 
@@ -663,7 +694,10 @@ $$
 n = \frac{z_{\alpha/2}^2 \cdot p \cdot (1 - p)}{E^2}
 $$
 
-donde: - $p$ es la proporción esperada (si no se conoce, se usa $p = 0.5$ para maximizar el tamaño muestral). - $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado.
+donde: 
+
+- $p$ es la proporción esperada (si no se conoce, se usa $p = 0.5$ para maximizar el tamaño muestral). 
+- $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado.
 
 ::: {.callout-tip collapse="true" title="Ejemplo. Tamaño muestral para la estimación de una proporción"}
 Supongamos que deseamos estimar la proporción de personas que aprueban una nueva ley con un nivel de confianza del $95\%$, un margen de error del $3\%$ $(0.03)$ y se estima que la proporción esperada es $p = 0.5$. El valor crítico $z_{\alpha/2}$ para un nivel de confianza del $95\%$ es aproximadamente $1.96$.
@@ -679,15 +713,15 @@ Por lo tanto, necesitamos una muestra de al menos $1068$ individuos.
 
 Los contrastes de hipótesis son una herramienta fundamental en la inferencia estadística utilizada para tomar decisiones basadas en datos muestrales. Permiten evaluar si los datos disponibles proporcionan suficiente evidencia en contra de una hipótesis previamente establecida sobre una población.
 
-El contraste de hipótesis es un proceso estructurado para evaluar afirmaciones sobre parámetros poblacionales utilizando datos muestrales. Mediante la formulación de hipótesis, selección de niveles de significancia, elección de estadísticas de prueba y evaluación del valor p, podemos tomar decisiones informadas y cuantitativamente justificadas. Este enfoque es fundamental en muchas áreas de investigación y análisis de datos, proporcionando un marco riguroso para la inferencia estadística.
+El contraste de hipótesis es un proceso estructurado para evaluar afirmaciones sobre parámetros poblacionales utilizando datos muestrales. Mediante la formulación de hipótesis, selección de niveles de significancia, elección de estadísticas de prueba y evaluación del valor p, podemos tomar decisiones informadas y cuantitativamente justificadas. Este enfoque es fundamental en muchas áreas de investigación y análisis de datos, proporcionando un marco riguroso para la Inferencia Estadística.
 
-### Conceptos Básicos
+### Conceptos básicos
 
 **Hipótesis Nula** $(H_0)$:
 
--   La hipótesis nula es una afirmación sobre un parámetro poblacional que se asume verdadera hasta que se presente suficiente evidencia en contra. Se asume inicialmente que la hipótesis nula es correcta (semejante a suponer inocencia a menos que se pruebe la culpa). Habitualmente corresponde al estatus quo. Esto es, generalmente, la hipótesis nula representa un estado de "no efecto" o "no diferencia".
+-   La hipótesis nula es una afirmación sobre un parámetro poblacional que se asume verdadera hasta que se presente suficiente evidencia en contra. Se asume inicialmente que la hipótesis nula es correcta (semejante a suponer inocencia en un juicio a menos que se pruebe la culpabilidad). Habitualmente corresponde al estatus quo. Esto es, generalmente, la hipótesis nula representa un estado de "no efecto" o "no diferencia".
 
-    -   Ejemplo: $(H_0: \mu = 50)$ (la media poblacional es $50$). En este ejemplo, la idea fundamental del contraste sería toma una muestra aleatoria simple de la población, estudiar su media, y ver si hay evidencia suficiente como para rechazar la hipótesis nula establecida. La probabilidad de que la media sea *exactamente* igual a $50$ en la muestra es muy baja. Es decir, probablemente $\bar{\mathbf{x}} \neq 50$. Sin embargo, lo importante para rechazar la hipótesis nula es si la diferencia encontrada entre la media muestral y $50$ es tan grande como para rechazar que podría ser $50$.
+    -   Ejemplo: $(H_0: \mu = 50)$ (la media poblacional es $50$). En este ejemplo, la idea fundamental del contraste sería toma una muestra aleatoria simple de la población, estudiar su media, y ver si hay evidencia suficiente como para rechazar la hipótesis nula establecida. La probabilidad de que la media sea *exactamente* igual a $50$ en la muestra es muy baja. Es decir, probablemente $\bar{\mathbf{x}} \neq 50$. Sin embargo, lo importante para rechazar la hipótesis nula es si la diferencia encontrada entre la media muestral y $50$ es tan grande como para rechazar que podría ser $50$. Esto va a depender fuertemente del tamaño muestral y de la variabilidad de las observaciones en la muestra.
 
 **Hipótesis Alternativa** $(H_1)$:
 
@@ -733,7 +767,11 @@ Supongamos que el rectorado de la URJC afirma que menos del $20\%$ de los estudi
 5.  **Tomar una decisión**:
     -   La regla de decisión de un contraste de hipótesis se basa en la "distancia" entre los datos muestrales y los valores esperados si $H_0$ es cierta. Esta distancia se calcula a partir de un estadístico del contraste y se considera "grande" o no, en base a la distribución del mismo y a la probabilidad de observar realizaciones "más extremas" de dicho estadístico. Para tomar la decisión, comparamos el valor p con $\alpha$:
     -   Si $p-valor \leq \alpha$, se rechaza $H_0$. Hay suficiente evidencia en la muestra como para rechazar la hipótesis nula. El valor del parámetro establecido en $H_0$ es poco creíble dada la muestra observada.
-    -   Si $p-valor > \alpha$, no se rechaza $H_0$. **Muy importante**: esto no significa que la hipótesis nula sea cierta. La interpretación es que no existe, en la muestra que hemos observado, suficiente evidencia en contra de la hipótesis nula como para recharzarla.
+    -   Si $p-valor > \alpha$, no se rechaza $H_0$. 
+
+::: {.callout-important .justify title="¡Importante!"}
+No rechazar la hipótesis nula no significa que la hipótesis nula sea cierta. La interpretación es que no existe, en la muestra que hemos observado, suficiente evidencia en contra de la hipótesis nula como para recharzarla.
+:::
 
 Tenemos por tanto que el $p-valor$ es una medida que nos dice cuán probable sería obtener nuestros datos observados si la hipótesis nula fuera verdadera. En otras palabras, mide la evidencia en contra $H_0$. Si el $p-valor$ es pequeño (generalmente menor que $0.05$), tenemos razones para rechazar $H_0$. Si es grande, no tenemos suficiente evidencia para rechazarla.
 
@@ -757,9 +795,9 @@ Dado que $p < 0.05$, rechazamos la hipótesis nula $H_0$. Podemos afirmar que lo
 
 ### Errores tipo I y tipo II. Potencia
 
-Como hemos visto, una vez especificadas las hipótesis nula y alternativa y recogida la información muestral, se toma una decisióon sobre la hipótesis nula (rechazar o no rechazar H0). Sin embargo, Existe la posibilidad de llegar a una conclusión equivocada, porque solo se dispone de una muestra aleatoria y no se puede tener la certeza de que $H_0$ sea correcta o no.
+Como hemos visto, una vez especificadas las hipótesis nula y alternativa y recogida la información muestral, se toma una decisión sobre la hipótesis nula (rechazar o no rechazar $H_0$). Sin embargo, existe la posibilidad de llegar a una conclusión equivocada, porque solo se dispone de una muestra aleatoria y no se puede tener la certeza de que $H_0$ sea correcta o no.
 
-En la inferencia estadística, cuando realizamos un contraste de hipótesis, hay dos tipos de errores que pueden ocurrir: el **error de tipo I o** $\alpha$ y el **error de tipo II on** $\beta$. Entender estos errores es fundamental para interpretar correctamente los resultados de cualquier prueba estadística. El balance entre $\alpha$ y $\beta$, así como el tamaño de la muestra, juegan un papel importante en la fiabilidad de los resultados obtenidos.
+En la Inferencia Estadística, cuando realizamos un contraste de hipótesis, hay dos tipos de errores que pueden ocurrir: el **error de tipo I o $\alpha$** y el **error de tipo II o $\beta$**. Entender estos errores es fundamental para interpretar correctamente los resultados de cualquier prueba estadística. El balance entre $\alpha$ y $\beta$, así como el tamaño de la muestra, juegan un papel importante en la fiabilidad de los resultados obtenidos.
 
 #### Error de Tipo I $(\alpha)$
 
@@ -773,7 +811,10 @@ Recuerda que establecemos de antemano esta valor, comúnmente $0.05$, $0.01$ o $
 
 Así, por ejemplo, Si $\alpha = 0.05$, esto significa que estamos dispuestos a aceptar un $5\%$ de probabilidad de rechazar $H_0$ cuando es verdadera.
 
-::: {callout-caution title="Atención"} ¿Qué relación existe entre el error de tipo I y el $\%$ de un IC? :::
+
+::: {.callout-caution .justify title="Atención"}
+¿Qué relación existe entre el error de tipo I y el $\%$ de un IC? 
+:::
 
 #### Error de Tipo II $(\beta)$
 
@@ -811,11 +852,11 @@ Supongamos que estamos evaluando la efectividad de un nuevo medicamento.
 
 La siguiente tabla refleja la relación entre los dos tipos de errores en relación con la decisión del contraste y la verdadera situación en la población:
 
-|                   | **Verdadera situación**    |                                |
-|-------------------|-------------------------|----------------------------|
-| **Decisión**      | $H_0$ correcta             | $H_0$ incorrecta               |
-| No rechazar $H_0$ | Sin error ($1-\alpha$)     | Error de Tipo II ($\beta$)     |
-| Rechazar $H_0$    | Error de Tipo I ($\alpha$) | Sin error ($1-\beta$=potencia) |
+|   | **Verdadera situación** |   |
+|------------------------|------------------------|------------------------|
+| **Decisión** | $H_0$ correcta | $H_0$ incorrecta |
+| No rechazar $H_0$ | Sin error ($1-\alpha$) | Error de Tipo II ($\beta$) |
+| Rechazar $H_0$ | Error de Tipo I ($\alpha$) | Sin error ($1-\beta$=potencia) |
 
 Es importante notar que, si todo lo demás no cambia, entonces la potencia del contraste disminuye cuando:
 
@@ -868,7 +909,7 @@ y como conclusión
 
 El contraste para la media de una población normal con varianza conocida es un procedimiento estadístico utilizado para determinar si la media de una población difiere de un valor específico (hipótesis nula). Sin embargo, como hemos indicado anteriormente, es poco realista pensar que conocemos la varianza de una variable aleatoria en la población.
 
-El parámetr de estudio es la media d ela variable aleatoria:
+El parámetro de estudio es la media de la variable aleatoria:
 
 $$ X \sim N(\mu,\sigma^2) $$
 
@@ -882,7 +923,7 @@ Tenemos varias opciones para la hipótesis alternativa:
 -   $H_1$: $\mu > \mu_0$ (Contraste unilateral derecho)
 -   $H_1$: $\mu < \mu_0$ (Contraste unilateral izquierdo)
 
-Debemos fijar el nivel de el nivel de significación ($\alpha$). Recordemos, es la probabilidad de rechazar la hipótesis nula cuando esta es verdadera.
+Debemos fijar el nivel de el nivel de significación ($\alpha$). Recordemos, $\alpha$ es la probabilidad de rechazar la hipótesis nula cuando esta es verdadera.
 
 El estadístico de prueba se calcula utilizando la distribución Normal estándar ($Z$), dado que la varianza ($\sigma^2$) es conocida. La fórmula para el estadístico de prueba es:
 
@@ -892,15 +933,15 @@ Donde $\bar{\mathbf{X}}$ es la media poblacional. Calculamos el valor observado 
 
 Después calculamos el $p-valor$ como sigue:
 
--   Contraste bilateral:$p-valor=P(|Z|\geq z)$
+-   Contraste bilateral: $p-valor=P(|Z|\geq z)$
 
--   Contraste unilateral derecho:$p-valor=P(Z\geq z)$
+-   Contraste unilateral derecho: $p-valor=P(Z\geq z)$
 
--   Contraste unilateral izquierdo:$p-valor=P(Z\leq z)$
+-   Contraste unilateral izquierdo:  $p-valor=P(Z\leq z)$
 
-Si esta probabilidad es menor o igual que el valor de referencia $\alpha$ entonces, rechazamos la hipótesis nula en favor de la alternativa.
+Si esta probabilidad es menor o igual que el valor de referencia $\alpha$, entonces rechazamos la hipótesis nula en favor de la alternativa.
 
-Otra forma práctica de plantear el contraste de hipótesis es determinando el Rechazo de $H_0$ Para ello, debemos comparar el valor del estadístico $Z$ con los valores críticos de la distribución Normal estándar.
+Otra forma práctica de plantear el contraste de hipótesis es determinando el rechazo de $H_0$. Para ello, debemos comparar el valor del estadístico $Z$ con los valores críticos de la distribución Normal estándar.
 
 -   Para un contraste bilateral (dos colas):
     -   Rechaza $H_0$ si $|z| > z_{\alpha/2}$.
@@ -986,7 +1027,7 @@ Supongamos m.a.s. independientes con medias, desviaciones típicas y tamaño mue
 Formulamos las hipótesis:
 
 -   **Hipótesis nula (**$H_0$): Las medias de las dos poblaciones son iguales ($\mu_1=\mu_2$).
--   **Hipótesis alternativa (**$H_1$): Las medias de las dos poblaciones son diferentes ($mu_1 \neq \mu_2$).
+-   **Hipótesis alternativa (**$H_1$): Las medias de las dos poblaciones son diferentes ($\mu_1 \neq \mu_2$).
 
 Consideramos un nivel de significancia estadística $\alpha$. Típicamente $\alpha=0.05$.
 

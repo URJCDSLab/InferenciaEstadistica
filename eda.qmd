@@ -94,7 +94,7 @@ Algunas de las preguntas que, generalmente, deberían de abordarse durante el ED
 
 -   ¿Es posible identificar la distribución que siguen las variables?
 
--   Calcular estadísticos resumen (media, desviación típica, frecuencia,\...) de todas las variables de interés. Estudiaremos las propiedades de estos *estimadores* en el próximo capítulo.
+-   Calcular estadísticos resumen (media, desviación típica, frecuencia,...) de todas las variables de interés. Estudiaremos las propiedades de estos *estimadores* en el próximo capítulo.
 
 -   Detección y tratamiento de valores atípicos.
 
@@ -126,7 +126,7 @@ Las variables que debemos estudiar son:
 
 Variables de entrada:
 
-* Datos del cliente bancario:
+-   Datos del cliente bancario:
 
 1.  edad (variable numérica)
 
@@ -154,7 +154,7 @@ Variables de entrada:
 
 12. duración: duración del último contacto, en segundos (variable numérica)
 
-* Otros atributos
+-   Otros atributos
 
 13. campaña: número de contactos realizados durante esta campaña y para este cliente (variable numérica, incluye el último contacto)
 
@@ -164,7 +164,7 @@ Variables de entrada:
 
 16. poutcome: resultado de la campaña de marketing anterior (variable categórica: "desconocido", "otro", "fracaso", "éxito")
 
-* Variable de salida (objetivo deseado):
+-   Variable de salida (objetivo deseado):
 
 17 - y: ¿ha suscrito el cliente un depósito a plazo? (variable binaria: "sí", "no")
 
@@ -424,8 +424,7 @@ La versión general de esta transformación son las transformaciones de escala-p
 
 $$x(\lambda)= \begin{cases} \frac{x^\lambda-1}{\lambda},& \text{cuando } \lambda \neq 0,\\ log_e(x), & \text{cuando } \lambda = 0 \end{cases}$$
 
-La función `car::symbox(...)` permite probar varias combinaciones típicas del parámetro 
-$\lambda$ , para comprobar con cuál de ellas obtenemos una distribución más simétrica de valores.
+La función `car::symbox(...)` permite probar varias combinaciones típicas del parámetro $\lambda$ , para comprobar con cuál de ellas obtenemos una distribución más simétrica de valores.
 
 ```{r}
 #| include: true
