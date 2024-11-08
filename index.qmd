@@ -29,19 +29,25 @@ Esperamos que este libro sea una fuente valiosa de conocimiento y que os sirva d
 :::
 
 ::: {.callout-important title="Grado en Ciencia e Ingeniería de Datos"}
+# Grado en Ciencia e Ingeniería de Datos
+
 Este libro presenta el material de la asignatura de Inferencia Estadística del grado en Ciencia e Ingeniería de Datos de la Universidad Rey Juan Carlos. Os recordamos que en próximos cursos os encontraréis con las asiganturas de Regresión, Aprendizaje Automático I y Aprendizaje Automático II, donde aplicaréis muchas de las técnicas y herramientas que vamos a estudiar aquí.
 :::
 
 ::: {.callout-important title="Conocimientos previos"}
+# Conocimientos previos
+
 Es conveniente haber superado con éxito las asignaturas de Cálculo, Herramientas Matemáticas para la Ciencia de Datos I y Probabilidad y Simulación, del grado en Ciencia e Ingeniería de Datos.
 :::
 
 ::: {.callout-note title="Sobre los autores"}
+# Sobre los autores
+
+**Isaac Martín de Diego** es diplomado en Estadística por la Universidad de Valladolid (UVA), licenciado en Ciencias y Técnicas Estadísticas por la Universidad Carlos III de Madrid (UC3M), doctor en Ingeniería Matemática por la UC3M, catedrático de Ciencias de la Computación e Inteligencia Artificial del departamento de Informática y Estadística de la URJC. Es fundador y coordinador del DSLAB y del DSLAB-TI.
+
 **Carmen Lancho Martín** es graduada en Matemáticas y Estadística por la Universidad Complutense de Madrid (UCM), máster en Tratamiento Estadístico y Computacional de la Información por la UCM y la Universidad Politécnica de Madrid (UPM), doctora en Tecnologías de la Información y las Comunicaciones por la Universidad Rey Juan Carlos (URJC) y profesora del departamento de Informática y Estadística de la URJC. Miembro del grupo de investigación de alto rendimiento en Fundamentos y Aplicaciones de la Ciencia de Datos, DSLAB, de la URJC. Pertenece al grupo de innovación docente, DSLAB-TI.
 
 **Víctor Aceña Gil** es graduado en Matemáticas por la UNED, máster en Tratamiento Estadístico y Computacional de la Información por la UCM y la UPM, doctor en Tecnologías de la Información y las Comunicaciones por la URJC y profesor del departamento de Informática y Estadística de la URJC. Miembro del grupo de investigación de alto rendimiento en Fundamentos y Aplicaciones de la Ciencia de Datos, DSLAB, de la URJC. Pertenece al grupo de innovación docente, DSLAB-TI.
-
-**Isaac Martín de Diego** es diplomado en Estadística por la Universidad de Valladolid (UVA), licenciado en Ciencias y Técnicas Estadísticas por la Universidad Carlos III de Madrid (UC3M), doctor en Ingeniería Matemática por la UC3M, catedrático de Ciencias de la Computación e Inteligencia Artificial del departamento de Informática y Estadística de la URJC. Es fundador y coordinador del DSLAB y del DSLAB-TI.
 :::
 
 ```{r, echo=FALSE}
