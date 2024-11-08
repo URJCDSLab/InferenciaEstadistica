@@ -108,7 +108,7 @@ $$ Donde:
     Y_i=\mu+\tau_i
     $$ al efecto medio del grupo $i$-esimo.
 
-La Suma de las diferencias al cuadrado de cada dato respecto a la media general se calcula como sigue: $$
+La suma de las diferencias al cuadrado de cada dato respecto a la media general se calcula como sigue: $$
     \text{SST} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{..})^2        
 $$ donde $\bar{Y}_{..}$ es la media general de todas las observaciones.
 
@@ -160,7 +160,7 @@ $$ Este valor, será muy importante en la asignatura de *Regresión* del Grado e
 
 El estadístico de prueba $F \sim F_{df_B,df_W}$ bajo la hipótesis nula de igualdad de medias.
 
-El $p-valor$ se obtiene a partir de la distribución $F$, considerando los grados de libertad de los numeradores y denominadores. Esto es: $$
+El $p-valor$ se obtiene a partir de la distribución $F$, considerando los grados de libertad de numerador y denominador. Esto es: $$
 p-valor=P(F_{df_b,df_W}>F_{muestral})
 $$
 
@@ -263,9 +263,9 @@ pf(17.01, df1 = 2, df2 = 12, lower.tail = FALSE)
 El p-valor es muy pequeño, mucho menor que el grado de significancia $\alpha=0.05$, indicando una diferencia significativa entre los grupos.
 :::
 
-## Modelo con dos factores con y sin Interacción
+## Modelo con dos factores con y sin interacción
 
-El modelo de ANOVA de dos factores se utiliza cuando se estudian dos factores simultáneamente para evaluar su efecto individual y conjunto en una variable dependiente. Podemos verlo como una generalización del caso de ANOVA con un único factor. Este modelo es más complejo y permite entender no solo los efectos principales de cada factor, sino también si hay una interacción entre ellos.
+El modelo de ANOVA de dos factores se utiliza cuando se estudian dos factores simultáneamente para evaluar su efecto individual y conjunto en una variable dependiente. Podemos verlo como una generalización del caso de ANOVA con un único factor. Este modelo es más complejo y permite entender no solo los efectos principales de cada factor, sino también si existe una interacción entre ellos.
 
 Sean A y B dos factores que se desean estudiar, con $m_A$ y $m_B$ niveles. Trabajaremos con las siguientes hipótesis nulas:
 
@@ -314,7 +314,7 @@ En este caso, la tabla ANOVA añade el factor de interacción:
 | Error | $SSW$ | $N-m_A*m_B$ | $MSW$ |
 | Total | $SST$ | $N-1$ |  |
 
-Para estudiar la importancia de cada de la interacción se calculan el estadístico $F$ correspondiente:
+Para estudiar la importancia de la interacción se calcula el estadístico $F$ correspondiente:
 
 $$
 F_{AB}=\frac{MSB_{AB}}{MSW}\sim F_{(m_A-1)*(m_B-1),N-m_A*m_B}

@@ -558,7 +558,7 @@ Los métodos paramétricos son más potentes que los no paramétricos (es decir,
 
 **Estadística no paramétrica**
 
-La estadística no paramétrica no hace suposiciones fuertes sobre la distribución de los datos. Estos métodos son más flexibles y robustos a las violaciones de las suposiciones, pero pueden ser menos potentes si las suposiciones de los métodos paramétricos son verdaderas. Los métodos no paramétricos a menudo se basan en el orden de los datos, en lugar de sus valores exactos. Ejemplos de pruebas no paramétricas incluyen la prueba de *Mann-Whitney U*, la prueba de *Kruskal-Wallis* y la prueba de *Chi-cuadrado*. Tendremos un capítulo (@sec-nopara), dedicado a este tipo de herramientas. 
+La estadística no paramétrica no hace suposiciones fuertes sobre la distribución de los datos. Estos métodos son más flexibles y robustos a las violaciones de las suposiciones, pero pueden ser menos potentes si las suposiciones de los métodos paramétricos son verdaderas. Los métodos no paramétricos a menudo se basan en el orden de los datos, en lugar de sus valores exactos. Ejemplos de pruebas no paramétricas incluyen la prueba de *Mann-Whitney U*, la prueba de *Kruskal-Wallis* y la prueba de *Chi-cuadrado*. Tendremos un capítulo (@sec-nopara), dedicado a este tipo de herramientas.
 
 La elección entre métodos paramétricos y no paramétricos depende de la naturaleza de tus datos y de las suposiciones que estés dispuesto a hacer. Si tus datos cumplen con las suposiciones de una prueba paramétrica, esa prueba puede ser la opción más potente. Si no, una prueba no paramétrica puede ser más apropiada.
 
@@ -657,7 +657,7 @@ A lo largo de este libro vamos a usar la siguiente notación:
 
 -   $\sigma^2$: Varianza poblacional
 
--   $\hat{[\cdot]}$: Simboliza un estimador de $\cdot$. Por ejemplo, $s = \hat{\sigma}$ quiere decir que la desviación típica muestral $s$ es un estimador de la desviación típica poblacional $\sigma$. 
+-   $\hat{[\cdot]}$: Simboliza un estimador de $\cdot$. Por ejemplo, $s = \hat{\sigma}$ quiere decir que la desviación típica muestral $s$ es un estimador de la desviación típica poblacional $\sigma$.
 
 ## Resúmenes gráficos y numéricos útiles en la inferencia estadística
 

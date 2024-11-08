@@ -229,7 +229,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#modelo-con-un-factor" id="toc-modelo-con-un-factor" class="nav-link active" data-scroll-target="#modelo-con-un-factor"><span class="header-section-number">5.1</span> Modelo con un factor</a></li>
-  <li><a href="#modelo-con-dos-factores-con-y-sin-interacción" id="toc-modelo-con-dos-factores-con-y-sin-interacción" class="nav-link" data-scroll-target="#modelo-con-dos-factores-con-y-sin-interacción"><span class="header-section-number">5.2</span> Modelo con dos factores con y sin Interacción</a></li>
+  <li><a href="#modelo-con-dos-factores-con-y-sin-interacción" id="toc-modelo-con-dos-factores-con-y-sin-interacción" class="nav-link" data-scroll-target="#modelo-con-dos-factores-con-y-sin-interacción"><span class="header-section-number">5.2</span> Modelo con dos factores con y sin interacción</a></li>
   <li><a href="#comparaciones-múltiples" id="toc-comparaciones-múltiples" class="nav-link" data-scroll-target="#comparaciones-múltiples"><span class="header-section-number">5.3</span> Comparaciones múltiples</a>
   <ul class="collapse">
   <li><a href="#método-de-bonferroni" id="toc-método-de-bonferroni" class="nav-link" data-scroll-target="#método-de-bonferroni"><span class="header-section-number">5.3.1</span> Método de Bonferroni</a></li>
@@ -378,7 +378,7 @@ Distribución F
 Y_i=\mu+\tau_i
 \]</span> al efecto medio del grupo <span class="math inline">\(i\)</span>-esimo.</li>
 </ul>
-<p>La Suma de las diferencias al cuadrado de cada dato respecto a la media general se calcula como sigue: <span class="math display">\[
+<p>La suma de las diferencias al cuadrado de cada dato respecto a la media general se calcula como sigue: <span class="math display">\[
     \text{SST} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (Y_{ij} - \bar{Y}_{..})^2        
 \]</span> donde <span class="math inline">\(\bar{Y}_{..}\)</span> es la media general de todas las observaciones.</p>
 <p>Teniendo en cuenta que: <span class="math display">\[
@@ -462,7 +462,7 @@ R^2=1-SSW/SST
 </div>
 </div>
 <p>El estadístico de prueba <span class="math inline">\(F \sim F_{df_B,df_W}\)</span> bajo la hipótesis nula de igualdad de medias.</p>
-<p>El <span class="math inline">\(p-valor\)</span> se obtiene a partir de la distribución <span class="math inline">\(F\)</span>, considerando los grados de libertad de los numeradores y denominadores. Esto es: <span class="math display">\[
+<p>El <span class="math inline">\(p-valor\)</span> se obtiene a partir de la distribución <span class="math inline">\(F\)</span>, considerando los grados de libertad de numerador y denominador. Esto es: <span class="math display">\[
 p-valor=P(F_{df_b,df_W}&gt;F_{muestral})
 \]</span></p>
 <p>Como en otros contrastes, si el <span class="math inline">\(p-valor\)</span> p es menor que el nivel de significancia (<span class="math inline">\(\alpha\)</span>), se rechaza la hipótesis nula, concluyendo que al menos una de las medias de los grupos es diferente.</p>
@@ -561,8 +561,8 @@ F = \frac{\text{MSB}}{\text{MSW}} = \frac{48.2}{2.8333} \approx 17.01
 </div>
 </section>
 <section id="modelo-con-dos-factores-con-y-sin-interacción" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="modelo-con-dos-factores-con-y-sin-interacción"><span class="header-section-number">5.2</span> Modelo con dos factores con y sin Interacción</h2>
-<p>El modelo de ANOVA de dos factores se utiliza cuando se estudian dos factores simultáneamente para evaluar su efecto individual y conjunto en una variable dependiente. Podemos verlo como una generalización del caso de ANOVA con un único factor. Este modelo es más complejo y permite entender no solo los efectos principales de cada factor, sino también si hay una interacción entre ellos.</p>
+<h2 data-number="5.2" class="anchored" data-anchor-id="modelo-con-dos-factores-con-y-sin-interacción"><span class="header-section-number">5.2</span> Modelo con dos factores con y sin interacción</h2>
+<p>El modelo de ANOVA de dos factores se utiliza cuando se estudian dos factores simultáneamente para evaluar su efecto individual y conjunto en una variable dependiente. Podemos verlo como una generalización del caso de ANOVA con un único factor. Este modelo es más complejo y permite entender no solo los efectos principales de cada factor, sino también si existe una interacción entre ellos.</p>
 <p>Sean A y B dos factores que se desean estudiar, con <span class="math inline">\(m_A\)</span> y <span class="math inline">\(m_B\)</span> niveles. Trabajaremos con las siguientes hipótesis nulas:</p>
 <ul>
 <li><strong>Hipótesis</strong>:
@@ -682,7 +682,7 @@ F_B=\frac{MSB_B}{MSW}\sim F_{m_B-1,N-m_A-m_B+1}
 </tr>
 </tbody>
 </table>
-<p>Para estudiar la importancia de cada de la interacción se calculan el estadístico <span class="math inline">\(F\)</span> correspondiente:</p>
+<p>Para estudiar la importancia de la interacción se calcula el estadístico <span class="math inline">\(F\)</span> correspondiente:</p>
 <p><span class="math display">\[
 F_{AB}=\frac{MSB_{AB}}{MSW}\sim F_{(m_A-1)*(m_B-1),N-m_A*m_B}
 \]</span></p>
