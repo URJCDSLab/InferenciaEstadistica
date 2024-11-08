@@ -2,27 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introducción – Inferencia Estadística</title>
+<title>Inferencia Estadística - 1&nbsp; Introducción</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +27,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -47,20 +41,48 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
-.hanging-indent div.csl-entry {
+.hanging div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -74,7 +96,8 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}</style>
+}
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -101,75 +124,33 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "Sín resultados",
     "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-copy-link-title": "Copiar el enlace en la busqueda",
+    "search-hide-matches-text": "Esconder resultados adicionales",
+    "search-more-match-text": "hay más resultados en este documento",
+    "search-more-matches-text": "más resultados en este documento",
     "search-clear-button-title": "Borrar",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-submit-button-title": "Eviar"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
   </nav>
@@ -177,102 +158,93 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Inferencia Estadística</a> 
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
+      <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
-        </div>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefacio</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Prefacio</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></span></a>
+  <a href="./eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./para.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimación y contraste paramétrico</span></span></a>
+  <a href="./para.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimación y contraste paramétrico</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nopara.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Contraste no paramétrico</span></span></a>
+  <a href="./nopara.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Contraste no paramétrico</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></span></a>
+  <a href="./anova.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Análisis de varianza</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conclusiones.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusiones</span></span></a>
+  <a href="./conclusiones.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusiones</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bibliografía</span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Bibliografía</a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Indice de contenidos</h2>
    
   <ul>
-  <li><a href="#ciencia-de-datos" id="toc-ciencia-de-datos" class="nav-link active" data-scroll-target="#ciencia-de-datos"><span class="header-section-number">1.1</span> Ciencia de datos</a></li>
-  <li><a href="#sec-inferencia" id="toc-sec-inferencia" class="nav-link" data-scroll-target="#sec-inferencia"><span class="header-section-number">1.2</span> Inferencia Estadística</a></li>
-  <li><a href="#datos-y-variables" id="toc-datos-y-variables" class="nav-link" data-scroll-target="#datos-y-variables"><span class="header-section-number">1.3</span> Datos y variables</a>
+  <li><a href="#ciencia-de-datos" id="toc-ciencia-de-datos" class="nav-link active" data-scroll-target="#ciencia-de-datos"> <span class="header-section-number">1.1</span> Ciencia de datos</a></li>
+  <li><a href="#sec-inferencia" id="toc-sec-inferencia" class="nav-link" data-scroll-target="#sec-inferencia"> <span class="header-section-number">1.2</span> Inferencia Estadística</a></li>
+  <li><a href="#datos-y-variables" id="toc-datos-y-variables" class="nav-link" data-scroll-target="#datos-y-variables"> <span class="header-section-number">1.3</span> Datos y variables</a>
   <ul class="collapse">
-  <li><a href="#sec-datos" id="toc-sec-datos" class="nav-link" data-scroll-target="#sec-datos"><span class="header-section-number">1.3.1</span> Datos en R</a></li>
-  <li><a href="#tipo-de-variables" id="toc-tipo-de-variables" class="nav-link" data-scroll-target="#tipo-de-variables"><span class="header-section-number">1.3.2</span> Tipo de variables</a></li>
-  <li><a href="#escalas-de-medición" id="toc-escalas-de-medición" class="nav-link" data-scroll-target="#escalas-de-medición"><span class="header-section-number">1.3.3</span> Escalas de medición</a></li>
+  <li><a href="#sec-datos" id="toc-sec-datos" class="nav-link" data-scroll-target="#sec-datos"> <span class="header-section-number">1.3.1</span> Datos en R</a></li>
+  <li><a href="#tipo-de-variables" id="toc-tipo-de-variables" class="nav-link" data-scroll-target="#tipo-de-variables"> <span class="header-section-number">1.3.2</span> Tipo de variables</a></li>
+  <li><a href="#escalas-de-medición" id="toc-escalas-de-medición" class="nav-link" data-scroll-target="#escalas-de-medición"> <span class="header-section-number">1.3.3</span> Escalas de medición</a></li>
   </ul></li>
-  <li><a href="#población-y-muestra" id="toc-población-y-muestra" class="nav-link" data-scroll-target="#población-y-muestra"><span class="header-section-number">1.4</span> Población y muestra</a>
+  <li><a href="#población-y-muestra" id="toc-población-y-muestra" class="nav-link" data-scroll-target="#población-y-muestra"> <span class="header-section-number">1.4</span> Población y muestra</a>
   <ul class="collapse">
-  <li><a href="#muestreo" id="toc-muestreo" class="nav-link" data-scroll-target="#muestreo"><span class="header-section-number">1.4.1</span> Muestreo</a></li>
+  <li><a href="#muestreo" id="toc-muestreo" class="nav-link" data-scroll-target="#muestreo"> <span class="header-section-number">1.4.1</span> Muestreo</a></li>
   </ul></li>
-  <li><a href="#parámetros-y-estadísticos" id="toc-parámetros-y-estadísticos" class="nav-link" data-scroll-target="#parámetros-y-estadísticos"><span class="header-section-number">1.5</span> Parámetros y estadísticos</a>
+  <li><a href="#parámetros-y-estadísticos" id="toc-parámetros-y-estadísticos" class="nav-link" data-scroll-target="#parámetros-y-estadísticos"> <span class="header-section-number">1.5</span> Parámetros y estadísticos</a>
   <ul class="collapse">
-  <li><a href="#uso-de-la-muestra" id="toc-uso-de-la-muestra" class="nav-link" data-scroll-target="#uso-de-la-muestra"><span class="header-section-number">1.5.1</span> Uso de la muestra</a></li>
+  <li><a href="#uso-de-la-muestra" id="toc-uso-de-la-muestra" class="nav-link" data-scroll-target="#uso-de-la-muestra"> <span class="header-section-number">1.5.1</span> Uso de la muestra</a></li>
   </ul></li>
-  <li><a href="#estadística-paramétrica-y-no-paramétrica" id="toc-estadística-paramétrica-y-no-paramétrica" class="nav-link" data-scroll-target="#estadística-paramétrica-y-no-paramétrica"><span class="header-section-number">1.6</span> Estadística paramétrica y no paramétrica</a></li>
-  <li><a href="#frecuentistas-vs-bayesianos" id="toc-frecuentistas-vs-bayesianos" class="nav-link" data-scroll-target="#frecuentistas-vs-bayesianos"><span class="header-section-number">1.7</span> Frecuentistas vs Bayesianos</a></li>
-  <li><a href="#notación" id="toc-notación" class="nav-link" data-scroll-target="#notación"><span class="header-section-number">1.8</span> Notación</a></li>
-  <li><a href="#resúmenes-gráficos-y-numéricos-útiles-en-la-inferencia-estadística" id="toc-resúmenes-gráficos-y-numéricos-útiles-en-la-inferencia-estadística" class="nav-link" data-scroll-target="#resúmenes-gráficos-y-numéricos-útiles-en-la-inferencia-estadística"><span class="header-section-number">1.9</span> Resúmenes gráficos y numéricos útiles en la inferencia estadística</a>
+  <li><a href="#estadística-paramétrica-y-no-paramétrica" id="toc-estadística-paramétrica-y-no-paramétrica" class="nav-link" data-scroll-target="#estadística-paramétrica-y-no-paramétrica"> <span class="header-section-number">1.6</span> Estadística paramétrica y no paramétrica</a></li>
+  <li><a href="#frecuentistas-vs-bayesianos" id="toc-frecuentistas-vs-bayesianos" class="nav-link" data-scroll-target="#frecuentistas-vs-bayesianos"> <span class="header-section-number">1.7</span> Frecuentistas vs Bayesianos</a></li>
+  <li><a href="#notación" id="toc-notación" class="nav-link" data-scroll-target="#notación"> <span class="header-section-number">1.8</span> Notación</a></li>
+  <li><a href="#resúmenes-gráficos-y-numéricos-útiles-en-la-inferencia-estadística" id="toc-resúmenes-gráficos-y-numéricos-útiles-en-la-inferencia-estadística" class="nav-link" data-scroll-target="#resúmenes-gráficos-y-numéricos-útiles-en-la-inferencia-estadística"> <span class="header-section-number">1.9</span> Resúmenes gráficos y numéricos útiles en la inferencia estadística</a>
   <ul class="collapse">
-  <li><a href="#métodos-numéricos" id="toc-métodos-numéricos" class="nav-link" data-scroll-target="#métodos-numéricos"><span class="header-section-number">1.9.1</span> Métodos numéricos</a></li>
-  <li><a href="#métodos-gráficos" id="toc-métodos-gráficos" class="nav-link" data-scroll-target="#métodos-gráficos"><span class="header-section-number">1.9.2</span> Métodos gráficos</a></li>
+  <li><a href="#métodos-numéricos" id="toc-métodos-numéricos" class="nav-link" data-scroll-target="#métodos-numéricos"> <span class="header-section-number">1.9.1</span> Métodos numéricos</a></li>
+  <li><a href="#métodos-gráficos" id="toc-métodos-gráficos" class="nav-link" data-scroll-target="#métodos-gráficos"> <span class="header-section-number">1.9.2</span> Métodos gráficos</a></li>
   </ul></li>
-  <li><a href="#teorema-central-del-límite" id="toc-teorema-central-del-límite" class="nav-link" data-scroll-target="#teorema-central-del-límite"><span class="header-section-number">1.10</span> Teorema Central del Límite</a></li>
+  <li><a href="#teorema-central-del-límite" id="toc-teorema-central-del-límite" class="nav-link" data-scroll-target="#teorema-central-del-límite"> <span class="header-section-number">1.10</span> Teorema Central del Límite</a></li>
   </ul>
 </nav>
     </div>
@@ -281,7 +253,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></h1>
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></h1>
 </div>
 
 
@@ -289,40 +261,37 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
 
-
 </header>
 
-
 <p>En un mundo cada vez más impulsado por los datos, la capacidad de extraer información útil y tomar decisiones informadas a partir de grandes volúmenes de datos se ha convertido en una habilidad crucial. La <strong>Ciencia de Datos</strong>, una disciplina que se sitúa en la intersección de la estadística, la informática y el conocimiento específico del dominio, juega un papel central en esta transformación. Dentro de este vasto campo, la inferencia estadística ocupa una posición privilegiada, proporcionando las herramientas necesarias para interpretar datos y hacer predicciones con un fundamento sólido.</p>
-<p>Recordemos los aspectos más fundamentales de la Ciencia de Datos. Probablemente, estos aspectos los habrás estudiado en cursos anteriores. Si los tienes claros, puedes saltarte la siguiente sección e ir directamente a la <a href="#sec-inferencia" class="quarto-xref"><span>Sección 1.2</span></a>.</p>
+<p>Recordemos los aspectos más fundamentales de la Ciencia de Datos. Probablemente, estos aspectos los habrás estudiado en cursos anteriores. Si los tienes claros, puedes saltarte la siguiente sección e ir directamente a la <a href="#sec-inferencia"><span>Sección&nbsp;1.2</span></a>.</p>
 <section id="ciencia-de-datos" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="ciencia-de-datos"><span class="header-section-number">1.1</span> Ciencia de datos</h2>
 <p>La última revolución asociada a la IA ha estado enmarcada por el crecimiento en el uso del Aprenzaje Automático dentro del contexto de la ciencia de datos <span class="citation" data-cites="kelleher2020fundamentals">(<a href="references.html#ref-kelleher2020fundamentals" role="doc-biblioref">Kelleher, Mac Namee, y D’arcy 2020</a>)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Ciencia de datos">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Ciencia de datos
 </div>
 </div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Ciencia de datos">
 <p>La ciencia de datos es un área interdisciplinar que abarca un conjunto de principios, problemas, definiciones, algoritmos y procesos cuyo objetivo es extraer conocimiento no obvio y útil a partir de un conjunto de datos.</p>
 </div>
 </div>
-<p>Pero, ¿qué áreas, métodos y técnicas están implicados en la ciencia de datos?. En primer lugar, presentemos los aspectos teórico y prácticos que sustentan un proyecto real de ciencia de datos. Para ellos recurrimos a la Figura <a href="#fig-ds1" class="quarto-xref">Figura&nbsp;<span>1.1 (a)</span></a> que representa el clásico diagrama de la ciencia de datos, como una disciplina en la intersección de tres aspectos fundamentales. Para saber más sobre estos aspectos, desplegad los paneles siguientes:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Pero, ¿qué áreas, métodos y técnicas están implicados en la ciencia de datos?. En primer lugar, presentemos los aspectos teórico y prácticos que sustentan un proyecto real de ciencia de datos. Para ellos recurrimos a la Figura <a href="#fig-ds1">Figura&nbsp;<span>1.1 (a)</span></a> que representa el clásico diagrama de la ciencia de datos, como una disciplina en la intersección de tres aspectos fundamentales. Para saber más sobre estos aspectos, desplegad los paneles siguientes:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Matemáticas y Estadística
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -333,12 +302,12 @@ Matemáticas y Estadística
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Ciencias de la Computación
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -349,12 +318,12 @@ Ciencias de la Computación
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Conocimiento del Dominio
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -366,47 +335,35 @@ Conocimiento del Dominio
 </div>
 </div>
 <div id="fig-ds" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-ds" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-ds1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-ds1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="datascience1.png" class="img-fluid figure-img" data-ref-parent="fig-ds">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-ds1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Fundamentos
-</figcaption>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-ds1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="datascience1.png" class="img-fluid figure-img" data-ref-parent="fig-ds"></p>
+<p></p><figcaption class="figure-caption">(a) Fundamentos</figcaption><p></p>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-ds" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-ds2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-ds2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="datascience_english.png" class="img-fluid figure-img" data-ref-parent="fig-ds" width="275">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-ds2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Aplicaciones
-</figcaption>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-ds2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="datascience_english.png" class="img-fluid figure-img" data-ref-parent="fig-ds" width="275"></p>
+<p></p><figcaption class="figure-caption">(b) Aplicaciones</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ds-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Ciencia de datos
-</figcaption>
+<p></p><figcaption class="figure-caption">Figura 1.1: Ciencia de datos</figcaption><p></p>
 </figure>
 </div>
-<p>La Figura <a href="#fig-ds2" class="quarto-xref">Figura&nbsp;<span>1.1 (b)</span></a> basada en CRISP-DM: “<em>Cross Industry Standard Process for Data Mining</em>” <span class="citation" data-cites="wirth2000crisp">(<a href="references.html#ref-wirth2000crisp" role="doc-biblioref">Wirth y Hipp 2000</a>)</span> presenta el ciclo de vida que todo proyecto de ciencia de datos debería seguir. El inicio del proyecto viene dado por la definición de los objetivos de la organización. A continuación, se recogen y gestionan los datos. Como siguiente paso, se desarrollan y evalúan algoritmos matemáticos sobre los datos. Los resultados de estos modelos se presentan a los expertos en el dominio de aplicación para su posterior integración dentro de la organización. Nótese que el proyecto puede tener varias iteraciones, volviendo a alguna de las etapas anteriores siempre que una etapa posterior así lo requiera. Para saber más detalles sobre estas etapas investigad los paneles siguientes:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>La Figura <a href="#fig-ds2">Figura&nbsp;<span>1.1 (b)</span></a> basada en CRISP-DM: “<em>Cross Industry Standard Process for Data Mining</em>” <span class="citation" data-cites="wirth2000crisp">(<a href="references.html#ref-wirth2000crisp" role="doc-biblioref">Wirth y Hipp 2000</a>)</span> presenta el ciclo de vida que todo proyecto de ciencia de datos debería seguir. El inicio del proyecto viene dado por la definición de los objetivos de la organización. A continuación, se recogen y gestionan los datos. Como siguiente paso, se desarrollan y evalúan algoritmos matemáticos sobre los datos. Los resultados de estos modelos se presentan a los expertos en el dominio de aplicación para su posterior integración dentro de la organización. Nótese que el proyecto puede tener varias iteraciones, volviendo a alguna de las etapas anteriores siempre que una etapa posterior así lo requiera. Para saber más detalles sobre estas etapas investigad los paneles siguientes:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Definir objetivos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -417,12 +374,12 @@ Definir objetivos
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Obtener, preparar y gestionar los datos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -433,12 +390,12 @@ Obtener, preparar y gestionar los datos
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Construir un modelo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -449,12 +406,12 @@ Construir un modelo
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Evaluar y criticar el modelo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -465,12 +422,12 @@ Evaluar y criticar el modelo
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Visualización y presentación
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -481,12 +438,12 @@ Visualización y presentación
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Despliegue en producción
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -499,12 +456,12 @@ Despliegue en producción
 </div>
 <p>En este libro vamos a tratar en profundidad la <em>Inferencia Estadística</em>. Pero, ¿qué relación tiene con la Estadística. Vamos a verlo.</p>
 <p>La estadística es la ciencia que se encarga de recolectar, organizar, analizar e interpretar datos para tomar decisiones informadas. Su objetivo principal es comprender y describir la <em>variabilidad</em> inherente en los datos y utilizar esta comprensión para hacer predicciones y tomar decisiones bajo condiciones de incertidumbre. La estadística se divide en dos ramas principales:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Estadística Descriptiva
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -515,12 +472,12 @@ Estadística Descriptiva
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Estadística Inferencial
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -554,12 +511,12 @@ Estadística Inferencial
 </ul>
 <p>Estas preguntas no solo requieren una recopilación cuidadosa de datos, sino también un análisis riguroso que tenga en cuenta la variabilidad inherente y las posibles fuentes de error.</p>
 <p>La relevancia de la inferencia estadística en la Ciencia de Datos se manifiesta en varias áreas clave. Despliega el panel para averiguarlas.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Áreas clave
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -671,14 +628,14 @@ Estadística Inferencial
 <pre><code>   x  y char
 1  1  1    A
 2  1  2    A
-3  1  3    C
-4  1  4    A
-5  1  5    B
+3  1  3    A
+4  1  4    C
+5  1  5    C
 6  1  6    A
 7  1  7    B
 8  1  8    B
 9  1  9    A
-10 1 10    A</code></pre>
+10 1 10    B</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -706,16 +663,16 @@ Estadística Inferencial
 # ℹ 140 more rows</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution callout-titled" title="Práctica">
+<div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Práctica
 </div>
 </div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Práctica">
 <p>Es importante que realices algún ejercicio en R, leyendo datos de diferentes fuentes y familiarizándote con las diferentes estructuras de datos que R proporciona.</p>
 </div>
 </div>
@@ -756,16 +713,16 @@ Práctica
 </ol>
 <p># Variable de salida (objetivo deseado):</p>
 <p>17 - y: ¿ha suscrito el cliente un depósito a plazo? (variable binaria: “sí”, “no”)</p>
-<div class="justify callout callout-style-default callout-important callout-titled" title="Para recordar">
+<div class="callout-important justify callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Para recordar
 </div>
 </div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Para recordar">
 <p>A veces (muchas veces) la descripción que encontramos en una primera etapa no coincide al completo con los datos que luego nos entrega el cliente.</p>
 <p>En otras ocasiones no se dispone de la descripción de las variables. En ese caso, ¡hay que hacer lo imposible por conseguirla!</p>
 </div>
@@ -824,12 +781,12 @@ Para recordar
  $ deposit  : chr [1:11162] "yes" "yes" "yes" "yes" ...</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Ejercicio
 </div>
 </div>
@@ -863,18 +820,18 @@ Ejercicio
 <h2 data-number="1.4" class="anchored" data-anchor-id="población-y-muestra"><span class="header-section-number">1.4</span> Población y muestra</h2>
 <p>La <strong>población</strong> es el conjunto completo de todos los elementos o individuos que se desean estudiar. Puede ser una colección de personas, objetos, eventos o cualquier unidad de observación que sea de interés en un estudio. Por ejemplo, la población podría ser todos los estudiantes de una universidad, todos los árboles en un bosque, o todos los productos fabricados en una planta.</p>
 <p>Dado que es a menudo impráctico o imposible estudiar toda la población, se selecciona una muestra, que es un subconjunto de la población. El estudio de las observaciones de una población podría implicar destruir dichas observaciones (vida útil del componente). El coste del estudio de las características de las observaciones podría ser muy elevado (experimentos biológicos). A veces el tamaño de la población es tan elevado (<em>very big data!</em>) que es obligatorio utilizar métodos de muestreo. Eso sí, es importante que la muestra sea representativa para que las conclusiones que se extraen de ella sean válidas para la población completa.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. Sondeo Electoral de 1936">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Ejemplo. Sondeo Electoral de 1936
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Ejemplo. Sondeo Electoral de 1936">
 <p>El caso del sondeo electoral de 1936, realizado por la revista “Literary Digest” en Estados Unidos, es un ejemplo clásico que ilustra la importancia de la representatividad de una muestra en la investigación estadística y en particular en la realización de encuestas.</p>
 <p>En 1936, la revista “Literary Digest” llevó a cabo un sondeo para predecir el resultado de la elección presidencial entre el candidato demócrata Franklin D. Roosevelt y el candidato republicano Alf Landon. La revista enviaba millones de encuestas a sus lectores y a otras listas de individuos, como propietarios de automóviles y personas que aparecían en directorios telefónicos. En ese año, “Literary Digest” envió unos 10 millones de encuestas y recibió alrededor de 2.4 millones de respuestas, lo que constituía una muestra enorme para los estándares de la época.</p>
 <p>La predicción del sondeo fue que Alf Landon ganaría la elección con un margen significativo. Sin embargo, el resultado real fue una victoria aplastante para Franklin D. Roosevelt, quien ganó con más del 60% del voto popular y el 98.5% del voto electoral. Este error de predicción se debió principalmente a problemas relacionados con la representatividad de la muestra.</p>
@@ -888,12 +845,12 @@ Ejemplo. Sondeo Electoral de 1936
 </div>
 </div>
 <p>La <strong>probabilidad</strong> juega un papel crucial en el diseño del muestreo y en la inferencia estadística. En el contexto del muestreo, la probabilidad asegura que cada miembro de la población tiene una oportunidad conocida y, generalmente, igual de ser incluido en la muestra. Esto permite que las muestras sean representativas y que los resultados sean generalizables. La teoría de la probabilidad también se utiliza para modelar la incertidumbre y el comportamiento aleatorio inherente en los datos.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Advertencia
 </div>
 </div>
@@ -914,15 +871,11 @@ Advertencia
 <li>Contraste de hipótesis: Probar afirmaciones sobre la población utilizando los datos de la muestra. Esto implica formular una hipótesis nula y una hipótesis alternativa, y usar pruebas estadísticas para decidir cuál es más consistente con los datos observados.</li>
 </ul>
 <p>La inferencia estadística se basa en la teoría de la probabilidad para evaluar la incertidumbre y la variabilidad en las estimaciones y pruebas.</p>
-<p>La <a href="#fig-muestreo" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> muestra la relación entre los conceptos de Población, Muestra, Inferencia Estadística, Probabilida y Estadística Descriptiva. Estos conceptos permiten a los estadísticos recolectar datos de manera eficiente, describir los datos recolectados y hacer inferencias significativas y precisas sobre la población a partir de la muestra.</p>
-<div id="fig-muestreo" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-muestreo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="dogma1.png" class="img-fluid figure-img" style="width:50.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-muestreo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.2: La esencia de la Estadística
-</figcaption>
+<p>La <a href="#fig-muestreo">Figura&nbsp;<span>1.2</span></a> muestra la relación entre los conceptos de Población, Muestra, Inferencia Estadística, Probabilida y Estadística Descriptiva. Estos conceptos permiten a los estadísticos recolectar datos de manera eficiente, describir los datos recolectados y hacer inferencias significativas y precisas sobre la población a partir de la muestra.</p>
+<div id="fig-muestreo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="dogma1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figura 1.2: La esencia de la Estadística</figcaption><p></p>
 </figure>
 </div>
 <p>Existe un principio fundamental en el análisis de datos que podríamos simplificar así:</p>
@@ -936,12 +889,12 @@ Figura&nbsp;1.2: La esencia de la Estadística
 <section id="muestreo" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="muestreo"><span class="header-section-number">1.4.1</span> Muestreo</h3>
 <p>El muestreo estadístico es una técnica fundamental en la estadística que permite extraer conclusiones sobre una población basándose en el análisis de una parte más pequeña de dicha población, conocida como muestra. A continuación, presentamos algunas de las principales técnicas de muestreo estadístico. Cada una de estas técnicas tiene sus propias ventajas y limitaciones, y la elección de la técnica adecuada depende del objetivo del estudio, las características de la población y los recursos disponibles.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Muestreo aleatorio simple
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -955,7 +908,7 @@ Muestreo aleatorio simple
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>indices<span class="ot">=</span><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">size=</span><span class="dv">5</span>,<span class="at">replace=</span><span class="cn">FALSE</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>indices <span class="co"># indices de las observaciones elegidas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  9871  2846 10505  1818   200</code></pre>
+<pre><code>[1] 8684 5574 9899 9162 9360</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>muestra<span class="ot">=</span>bank[indices,] <span class="co"># muestra de observaciones </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -963,12 +916,12 @@ Muestreo aleatorio simple
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Muestreo sistemático
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -979,12 +932,12 @@ Muestreo sistemático
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Muestreo estratificado
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -995,12 +948,12 @@ Muestreo estratificado
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Muestreo por conglomerados
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1011,12 +964,12 @@ Muestreo por conglomerados
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Muestreo por cuotas
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1027,12 +980,12 @@ Muestreo por cuotas
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Muestreo de bola de nieve
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1043,12 +996,12 @@ Muestreo de bola de nieve
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Muestreo intencional o dirigido
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1065,14 +1018,10 @@ Muestreo intencional o dirigido
 <h2 data-number="1.5" class="anchored" data-anchor-id="parámetros-y-estadísticos"><span class="header-section-number">1.5</span> Parámetros y estadísticos</h2>
 <p>Los <strong>parámetros</strong> de una población son (casi) siempre desconocidos. Son valores teóricos que se definen sobre la población y que son de interés para el investigador. Son sobre los que haremos <em>inferencia</em>. Normalmente se representan con letras griegas.</p>
 <p>Diremos que un <strong>estadístico</strong> (además de una persona que hace estadística) es una función definida sobre los datos de una muestra (valores de una o más variables). En cada muestra serán distintos, debido a la variabilidad inherente a la extracción de una muestra representativa de una población. Los estadísticos siguen una distribución en el muestro y se representa con letras latinas.</p>
-<div id="fig-muestreo2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-muestreo2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="dogma2.png" class="img-fluid figure-img" style="width:50.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-muestreo2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.3: Parámetros vs.&nbsp;Estadísticos
-</figcaption>
+<div id="fig-muestreo2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="dogma2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figura 1.3: Parámetros vs.&nbsp;Estadísticos</figcaption><p></p>
 </figure>
 </div>
 <p>Es decir, una vez obtenida una muestra, es necesario extraer información útil de la misma. Esto se hace a través de los estadísticos.</p>
@@ -1080,58 +1029,61 @@ Figura&nbsp;1.3: Parámetros vs.&nbsp;Estadísticos
 <p>Un estadístico es una variable aleatoria, y por lo tanto, tiene asociada una distribución. La ditribución de probabilidad correspondiente a un estadístico se denomina <strong>distribución muestral</strong>.</p>
 <p>Por ejemplo, sea <span class="math inline">\((X_1,\ldots,X_n)\)</span> una muestra aletoria de una población <span class="math inline">\(X\)</span> con esperanza <span class="math inline">\(\mu\)</span> y vaianza <span class="math inline">\(\sigma^2\)</span>. Consideremos los siguientes ejemplos de estadísticos:</p>
 <ul>
-<li><strong>Media Muestral</strong> (<span class="math inline">\(\bar{X}\)</span>): Utilizada para estimar la media poblacional. <span class="math display">\[
+<li><p><strong>Media Muestral</strong> (<span class="math inline">\(\bar{X}\)</span>): Utilizada para estimar la media poblacional. <span class="math display">\[
 \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-\]</span></li>
-<li><strong>Varianza Muestral</strong> (<span class="math inline">\(V\)</span>): Utilizada para estimar la varianza poblacional. <span class="math display">\[
+\]</span></p></li>
+<li><p><strong>Varianza Muestral</strong> (<span class="math inline">\(V\)</span>): Utilizada para estimar la varianza poblacional. <span class="math display">\[
 V=\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2
-\]</span></li>
-<li><strong>Cuasivarianza muestral</strong> (<span class="math inline">\(S^2\)</span>) <span class="math display">\[
+\]</span></p></li>
+<li><p><strong>Cuasivarianza muestral</strong> (<span class="math inline">\(S^2\)</span>) <span class="math display">\[
 S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2=\frac{1}{n-1}\left [ \sum_{i=1}^nX_i^2-n\bar{X}^2\right]
-\]</span> Entonces se tienen las siguientes propiedades:</li>
+\]</span> Entonces se tienen las siguientes propiedades:</p></li>
 </ul>
+<p><span class="math display">\[E(\bar{X})=\mu\]</span></p>
 <p><span class="math display">\[
-E(\bar{X})=\mu
-\]</span> <span class="math display">\[
-Var(\bar{X})=\frac{\sigma^2}{n}
+Var(\bar{X})=\frac{\sigma^{2}}{n}
 \]</span></p>
 <p><span class="math display">\[
-E(V)=\frac{n-1}{n}\sigma^2
-\]</span> <span class="math display">\[
-E(S^2)=\sigma^2
+E(V)=\frac{n-1}{n}\sigma^{2}
+\]</span></p>
+<p><span class="math display">\[
+E(S^{2})=\sigma^{2}
 \]</span></p>
 <section id="uso-de-la-muestra" class="level3" data-number="1.5.1">
 <h3 data-number="1.5.1" class="anchored" data-anchor-id="uso-de-la-muestra"><span class="header-section-number">1.5.1</span> Uso de la muestra</h3>
-<p>Supongamos que queremos estudiar una característica de cierta población. Esta característica se representa mediante una variable aleatoria <span class="math inline">\(X\)</span> y el estudio se centra en su valor medio <span class="math inline">\(E[X]\)</span>. Para ello, se decide tomar una muestra y se obtiene un estadístico, la <em>media muestral</em>, que se utiliza para estimar el valor de <span class="math inline">\(E[X]\)</span>: <span class="math display">\[
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-\]</span> Fíjate que este estadístico <span class="math inline">\(\bar{X}\)</span> es una variable aleatoria. Una vez tomada una muestra particular <span class="math inline">\((x_1,\ldots,x_n)\)</span> de la variable aleatoria <span class="math inline">\(X\)</span> se obtiene un valor numérico particular para la variable aleatoria <span class="math inline">\(\bar{X}\)</span>: <span class="math display">\[
-\bar{x}=\frac{1}{n}\sum_{i=1}^nx_i
+<p>Supongamos que queremos estudiar una característica de cierta población. Esta característica se representa mediante una variable aleatoria <span class="math inline">\(X\)</span> y el estudio se centra en su valor medio <span class="math inline">\(E[X]\)</span>. Para ello, se decide tomar una muestra y se obtiene un estadístico, la <em>media muestral</em>, que se utiliza para estimar el valor de <span class="math inline">\(E[X]\)</span>:</p>
+<p><span class="math display">\[
+\bar{X}=\frac{1}{n}\sum_{i=1}^{n} X_i
 \]</span></p>
-<div class="callout callout-style-default callout-important callout-titled" title="Para recordar">
+<p>Fíjate que este estadístico <span class="math inline">\(\bar{X}\)</span> es una variable aleatoria. Una vez tomada una muestra particular <span class="math inline">\((x_1,\ldots,x_n)\)</span> de la variable aleatoria <span class="math inline">\(X\)</span> se obtiene un valor numérico particular para la variable aleatoria <span class="math inline">\(\bar{X}\)</span>:</p>
+<p><span class="math display">\[
+\bar{x}=\frac{1}{n}\sum_{i=1}^{n} x_i
+\]</span></p>
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Para recordar
 </div>
 </div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Para recordar">
 <p><span class="math display">\[\bar{X}\neq\bar{x}\]</span></p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. Diferencia entre parámetro y estadístico">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Ejemplo. Diferencia entre parámetro y estadístico
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-27" class="callout-27-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Ejemplo. Diferencia entre parámetro y estadístico">
 <p>Se quiere estudiar la temperatura de una solución líquida en un laboratorio y estimar el valor medio <span class="math inline">\(\mu\)</span> (parámetro de la población), que es desconocido. Se supone que la temperatura se puede aproximar mediante una variable aleatoria de la que se desconoce su distribución. Una opción razonable para estimarla sería escoger una muestra de la solución, medir su temperatura, y estimar <span class="math inline">\(\mu\)</span> mediante el promedio de esa muestra (estadístico muestral): <span class="math display">\[ \hat{\mu}=\bar{X}\]</span>. Es importante señalar que podríamos emplear otros estadísticos diferentes.</p>
 <p>Supongamos ahora que se toma una muestra de 10 mediciones de temperatura de dicha solución, obteniendo estos valores:</p>
 <div class="cell">
@@ -1151,11 +1103,7 @@ Ejemplo. Diferencia entre parámetro y estadístico
 <p>Repetimos el primer experimento <span class="math inline">\(100\)</span> días consecutivos. Es decir, tomamos <span class="math inline">\(10\)</span> muestras de tamaño 10 y estimamos, para cada muestra el valor del parámetro <span class="math inline">\(\mu\)</span> mediante la media muestral. El siguiente gráfico muestra los valores de esas <span class="math inline">\(100\)</span> muestras:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="intro_files/figure-html/sample3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="intro_files/figure-html/sample3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>¿Cuál es, a tu juicio, un buen valor del estimador del parámetro? Supongamos que tu profesor ha simulado estos datos. Es decir, tu profesor <em>conoce</em> realmente el <em>verdadero</em> valor del parámetro. En ese caso, te propone el siguiente reto: Dame dos valores (uno bajo y otro alto) entre los cuales crees que está el verdadero valor que solo yo (el profesor) conozco. ¿Qué valores darías? Te propone un reto mayor: ¿Qué valores darías si quisieras estar seguro al <span class="math inline">\(100\%\)</span> de acertar? Es decir, que la probabilidad de fallo sea <span class="math inline">\(0\)</span>.</p>
@@ -1169,18 +1117,18 @@ Ejemplo. Diferencia entre parámetro y estadístico
 <p>Tal y como hemos visto hasta ahora, el objetivo general de la inferencia es obtener información acerca de la distribución de una variable aleatoria <span class="math inline">\(X\)</span> mediante la observación de una muestra <span class="math inline">\((X_1,\ldots,X_n)\)</span>. En este curso vamos a tratar con dos tipos de herramientas para realizar inferencia estadística: la estadística paramétrica y la no paramétrica. Veamos sus semejanzas y diferencias:</p>
 <p><strong>Estadística Paramétrica</strong></p>
 <p>La estadística paramétrica se basa en la suposición de que los datos siguen una distribución conocida, como la distribución normal, binomial, Poisson, etc. Estas suposiciones (o hipótesis) deben ser comprobadas para dar validez a este tipo de pruebas. Los parámetros de estas distribuciones, como la media y la varianza, se utilizan para resumir la información de los datos y realizar inferencias.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Familias paramétricas">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Familias paramétricas
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-28" class="callout-28-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Familias paramétricas">
 <p>Se tiene una variable aleatoria <span class="math inline">\(X\)</span> cuya distribución se supone perteneciente a una cierta familia paramétrica {<span class="math inline">\(f_\theta\)</span>} donde <span class="math inline">\(\theta \in \Theta\)</span>.</p>
 <p>La distribución de <span class="math inline">\(X\)</span> es conocida excepto por el valor del parámetro <span class="math inline">\(\theta\)</span>, del cual lo único que se conoce es su rango de posibles valores, <span class="math inline">\(\Theta\)</span>, denominado espacio paramétrico.</p>
 <p><strong>Ejemplos de familias paramétricas</strong></p>
@@ -1193,9 +1141,9 @@ Familias paramétricas
 </div>
 </div>
 <p>Por tanto, el objeto de los métodos paramétricos es obtener información sobre el parámetro de interés mediante la obtención de muestras de la variable aleatoria.</p>
-<p>Los métodos paramétricos son más potentes que los no paramétricos (es decir, tienen una mayor probabilidad de detectar un efecto verdadero) si las suposiciones son correctas. Ejemplos de pruebas paramétricas incluyen la prueba <em>t de Student</em>, el <em>análisis de varianza (ANOVA)</em>, que estudiaremos en el <a href="anova.html" class="quarto-xref"><span>Capítulo 5</span></a> y la <em>regresión lineal</em> que veréis en el segundo cuatrimestre.</p>
+<p>Los métodos paramétricos son más potentes que los no paramétricos (es decir, tienen una mayor probabilidad de detectar un efecto verdadero) si las suposiciones son correctas. Ejemplos de pruebas paramétricas incluyen la prueba <em>t de Student</em>, el <em>análisis de varianza (ANOVA)</em>, que estudiaremos en el <a href="anova.html"><span>Capítulo&nbsp;5</span></a> y la <em>regresión lineal</em> que veréis en el segundo cuatrimestre.</p>
 <p><strong>Estadística no paramétrica</strong></p>
-<p>La estadística no paramétrica no hace suposiciones fuertes sobre la distribución de los datos. Estos métodos son más flexibles y robustos a las violaciones de las suposiciones, pero pueden ser menos potentes si las suposiciones de los métodos paramétricos son verdaderas. Los métodos no paramétricos a menudo se basan en el orden de los datos, en lugar de sus valores exactos. Ejemplos de pruebas no paramétricas incluyen la prueba de <em>Mann-Whitney U</em>, la prueba de <em>Kruskal-Wallis</em> y la prueba de <em>Chi-cuadrado</em>. Tendremos un capítulo (<a href="nopara.html" class="quarto-xref"><span>Capítulo 4</span></a>), dedicado a este tipo de herramientas.</p>
+<p>La estadística no paramétrica no hace suposiciones fuertes sobre la distribución de los datos. Estos métodos son más flexibles y robustos a las violaciones de las suposiciones, pero pueden ser menos potentes si las suposiciones de los métodos paramétricos son verdaderas. Los métodos no paramétricos a menudo se basan en el orden de los datos, en lugar de sus valores exactos. Ejemplos de pruebas no paramétricas incluyen la prueba de <em>Mann-Whitney U</em>, la prueba de <em>Kruskal-Wallis</em> y la prueba de <em>Chi-cuadrado</em>. Tendremos un capítulo (<a href="nopara.html"><span>Capítulo&nbsp;4</span></a>), dedicado a este tipo de herramientas.</p>
 <p>La elección entre métodos paramétricos y no paramétricos depende de la naturaleza de tus datos y de las suposiciones que estés dispuesto a hacer. Si tus datos cumplen con las suposiciones de una prueba paramétrica, esa prueba puede ser la opción más potente. Si no, una prueba no paramétrica puede ser más apropiada.</p>
 </section>
 <section id="frecuentistas-vs-bayesianos" class="level2" data-number="1.7">
@@ -1203,7 +1151,7 @@ Familias paramétricas
 <p>En el campo de la estadística existen dos enfoques diferentes que han de ser comentados, la inferencia clásica (o frecuentista) y la inferencia Bayesiana.</p>
 <p><strong>Enfoque Frecuentista</strong></p>
 <p>Los frecuentistas interpretan la probabilidad como la frecuencia relativa de un evento en un número infinito de repeticiones del experimento. Se obtienen datos a través de una muestra y con técnicas estadísticas se extrae información de los mismos mediante, los llamados, estimadores. En base a esas estimaciones se toman decisiones en el dominio de aplicación.</p>
-<p>Los métodos frecuentistas son ampliamente utilizados y son la base de muchas técnicas estadísticas clásicas. Los parámetros son considerados como valores fijos y desconocidos que se estiman a partir de los datos. Los intervalos de confianza, que veremos más adelante en el <a href="para.html" class="quarto-xref"><span>Capítulo 3</span></a>, se interpretan en términos de repetibilidad: si se repite el experimento muchas veces, el intervalo de confianza capturará el verdadero parámetro en un porcentaje dado de las repeticiones. Esta interpretación es un poco <em>extraña</em> para el no iniciado y trataremos de explicarlo en detalle en capítulos posteriores.</p>
+<p>Los métodos frecuentistas son ampliamente utilizados y son la base de muchas técnicas estadísticas clásicas. Los parámetros son considerados como valores fijos y desconocidos que se estiman a partir de los datos. Los intervalos de confianza, que veremos más adelante en el <a href="para.html"><span>Capítulo&nbsp;3</span></a>, se interpretan en términos de repetibilidad: si se repite el experimento muchas veces, el intervalo de confianza capturará el verdadero parámetro en un porcentaje dado de las repeticiones. Esta interpretación es un poco <em>extraña</em> para el no iniciado y trataremos de explicarlo en detalle en capítulos posteriores.</p>
 <p><strong>Enfoque Bayesiano</strong></p>
 <p>La inferencia Bayesiana tiene su fundamento en el teorema de Bayes. El teorema de Bayes, también conocido como regla de Bayes, es un principio fundamental en la teoría de la probabilidad que describe la forma de actualizar las probabilidades de una hipótesis basándose en nueva evidencia o información. Fue formulado por el matemático británico Thomas Bayes en el siglo XVIII. Es posible que hayas estudiado este teorema en asignaturas anteriores del grado. En cualquier caso, es sencillo y dice así:</p>
 <p><span class="math display">\[
@@ -1217,18 +1165,18 @@ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
 <li><span class="math inline">\(P(B)\)</span> es la probabilidad de que ocurra el evento <span class="math inline">\(B\)</span> bajo todas las posibles hipótesis. Esta es conocida como la <strong>probabilidad marginal</strong> de <span class="math inline">\(B\)</span>.</li>
 </ul>
 <p>Vemos que el teorema de Bayes permite actualizar la probabilidad de una hipótesis <span class="math inline">\(A\)</span> a la luz de nueva evidencia <span class="math inline">\(B\)</span>. Básicamente, proporciona una forma de ajustar nuestras creencias iniciales (probabilidad a priori) en base a la nueva información disponible (evidencia).</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo. Teorema de Bayes.">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Ejemplo. Teorema de Bayes.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-29" class="callout-29-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Ejemplo. Teorema de Bayes.">
 <p>Imaginemos que estamos tratando de diagnosticar una enfermedad rara que afecta al <span class="math inline">\(1\%\)</span> de la población (es decir, <span class="math inline">\(P(\text{Enfermedad}) = 0.01\)</span>). Ademas, se sabe que existe una prueba para esta enfermedad que es <span class="math inline">\(99\%\)</span> precisa:</p>
 <ul>
 <li>Si una persona tiene la enfermedad, la prueba es positiva el <span class="math inline">\(99\%\)</span> de las veces, es decir <span class="math inline">\(P(\text{Positivo}|\text{Enfermedad}) = 0.99\)</span>.</li>
@@ -1242,7 +1190,9 @@ P(\text{Enfermedad}|\text{Positivo}) = \frac{P(\text{Positivo}|\text{Enfermedad}
 <p>Primero, calculamos <span class="math inline">\(P(\text{Positivo})\)</span>, la probabilidad total de que la prueba sea positiva:</p>
 <p><span class="math display">\[
 P(\text{Positivo}) = P(\text{Positivo}|\text{Enfermedad}) \cdot P(\text{Enfermedad}) +
-\]</span> <span class="math display">\[P(\text{Positivo}|\text{No Enfermedad}) \cdot P(\text{No Enfermedad})
+\]</span></p>
+<p><span class="math display">\[
+P(\text{Positivo}|\text{No Enfermedad}) \cdot P(\text{No Enfermedad})
 \]</span></p>
 <p><span class="math display">\[
 P(\text{Positivo}) = (0.99 \times 0.01) + (0.01 \times 0.99) = 0.0099 + 0.0099 = 0.0198
@@ -1283,12 +1233,12 @@ P(\text{Enfermedad}|\text{Positivo}) = \frac{0.99 \times 0.01}{0.0198} = \frac{0
 <section id="métodos-numéricos" class="level3" data-number="1.9.1">
 <h3 data-number="1.9.1" class="anchored" data-anchor-id="métodos-numéricos"><span class="header-section-number">1.9.1</span> Métodos numéricos</h3>
 <p>Tal y como hemos indicado anteriormente, los métodos numéricos de inferencia estadística son técnicas y procedimientos utilizados para analizar datos y hacer inferencias sobre una población a partir de una muestra. Estos métodos se apoyan en herramientas matemáticas y computacionales para estimar parámetros, evaluar hipótesis y tomar decisiones informadas. A continuación, se describen los principales métodos numéricos en la inferencia estadística. No tienes que aprenderlos ahora puesto que vamos a trabajar con estos métodos a lo largo de todo el curso. Los veremos con mayor detalle en los próximos capítulos.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Estimación puntual
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1304,12 +1254,12 @@ Estimación puntual
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Estimación por intervalo
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1330,12 +1280,12 @@ Estimación por intervalo
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Contraste de hipótesis
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1366,12 +1316,12 @@ Contraste de hipótesis
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Métodos de resampling
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1386,12 +1336,12 @@ Métodos de resampling
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Métodos bayesianos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1406,12 +1356,12 @@ Métodos bayesianos
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Pruebas no paramétricas
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1432,12 +1382,12 @@ Pruebas no paramétricas
 <section id="métodos-gráficos" class="level3" data-number="1.9.2">
 <h3 data-number="1.9.2" class="anchored" data-anchor-id="métodos-gráficos"><span class="header-section-number">1.9.2</span> Métodos gráficos</h3>
 <p>A lo largo del curso usaremos numerosos métodos gráficos para explorar los datos dentro del contexto de la inferencia estadística. Algunas de los métodos básicos son:</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Histogramas
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1448,12 +1398,12 @@ Histogramas
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Gráficos de caja (boxplots)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1464,12 +1414,12 @@ Gráficos de caja (boxplots)
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Gráficos de dispersión (scatterplots)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1487,31 +1437,31 @@ Gráficos de dispersión (scatterplots)
 <p>El Teorema Central del Límite (TCL) es uno de los principios más fundamentales en la estadística y la probabilidad. Establece que, bajo ciertas condiciones, la distribución de la suma (o el promedio) de un gran número de variables aleatorias independientes e identicamente distribuidas tiende a seguir una distribución Normal, independientemente de la distribución original de las variables.</p>
 <p>Formalmente, el TCL establece que si, <span class="math inline">\(X_1,X_2,\ldots,X_n\)</span> son variables aleatorias independientes e idénticamente distribuidas, con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2&lt;\infty\)</span>, entonces, para <span class="math inline">\(n\)</span> suficientemente grande se verifica:</p>
 <p><span class="math display">\[\bar{X} \approx N \left ( \mu,\frac{\sigma^2}{n}\right )\]</span> Este resultado es válido tanto para variables discretas como continuas, sean simétricas o asimétricas, unimodales o multimodales.</p>
-<div class="justify callout callout-style-default callout-important callout-titled" title="Para recordar">
+<div class="callout-important justify callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Para recordar
 </div>
 </div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Para recordar">
 <p>El Teorema Central del Límite asegura que con muestas suficientemente grandes se pueden utilizar estimaciones basadas en la distribución Normal independientemente del tipo de distribución que siga la variable que nos interesa.</p>
 </div>
 </div>
-<div class="justify callout callout-style-default callout-tip callout-titled" title="Ejemplo. Teorema Central del Límite">
+<div class="callout-tip justify callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Ejemplo. Teorema Central del Límite
+<div class="callout-caption-container flex-fill">
+Ejemplo. Teorema Central del Límite.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-40" class="callout-40-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div class="callout-body-container callout-body" title="Ejemplo. Teorema Central del Límite">
 <p>Acabamos de ver que el TCL establece que, para una gran cantidad de muestras aleatorias tomadas de una población con una distribución cualquiera (con una media y una varianza finitas), la distribución de las medias muestrales tiende a ser Normal, independientemente de la forma de la distribución original.</p>
 <p>Aquí tienes un ejemplo en R que ilustra el Teorema Central del Límite. Vamos a tomar muestras de una distribución no normal (por ejemplo, una distribución uniforme). Calcularemos las medias de estas muestras y observaremos cómo las medias muestrales se aproximan a una distribución normal.</p>
 <div class="cell">
@@ -1542,11 +1492,7 @@ Ejemplo. Teorema Central del Límite
 <span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">mean</span>(sample_means), <span class="at">y =</span> <span class="fu">max</span>(<span class="fu">density</span>(sample_means)<span class="sc">$</span>y) <span class="sc">/</span> <span class="dv">2</span>,</span>
 <span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Distribución Normal"</span>, <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="intro_files/figure-html/TCL-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="intro_files/figure-html/TCL-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Para visualizar el resultado, graficamos un histograma de las medias muestrales. Luego, superponemos una curva de densidad de una distribución normal con la misma media y desviación estándar que las medias muestrales para observar cómo se ajusta a una distribución normal.</p>
@@ -1556,26 +1502,26 @@ Ejemplo. Teorema Central del Límite
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-hao2019machine" class="csl-entry" role="listitem">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-hao2019machine" class="csl-entry" role="doc-biblioentry">
 Hao, Jiangang, y Tin Kam Ho. 2019. <span>«Machine learning made easy: a review of scikit-learn package in python programming language»</span>. <em>Journal of Educational and Behavioral Statistics</em> 44 (3): 348-61.
 </div>
-<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+<div id="ref-hastie2009elements" class="csl-entry" role="doc-biblioentry">
 Hastie, Trevor, Robert Tibshirani, Jerome H Friedman, y Jerome H Friedman. 2009. <em>The elements of statistical learning: data mining, inference, and prediction</em>. Vol. 2. Springer.
 </div>
-<div id="ref-james2013introduction" class="csl-entry" role="listitem">
+<div id="ref-james2013introduction" class="csl-entry" role="doc-biblioentry">
 James, Gareth, Daniela Witten, Trevor Hastie, Robert Tibshirani, et&nbsp;al. 2013. <em>An introduction to statistical learning</em>. Vol. 112. Springer.
 </div>
-<div id="ref-kelleher2020fundamentals" class="csl-entry" role="listitem">
+<div id="ref-kelleher2020fundamentals" class="csl-entry" role="doc-biblioentry">
 Kelleher, John D, Brian Mac Namee, y Aoife D’arcy. 2020. <em>Fundamentals of machine learning for predictive data analytics: algorithms, worked examples, and case studies</em>. MIT press.
 </div>
-<div id="ref-osmani2012learning" class="csl-entry" role="listitem">
+<div id="ref-osmani2012learning" class="csl-entry" role="doc-biblioentry">
 Osmani, Addy. 2012. <em>Learning JavaScript Design Patterns: A JavaScript and jQuery Developer’s Guide</em>. " O’Reilly Media, Inc.".
 </div>
-<div id="ref-oualline2003practical" class="csl-entry" role="listitem">
+<div id="ref-oualline2003practical" class="csl-entry" role="doc-biblioentry">
 Oualline, Steve. 2003. <em>Practical C++ programming</em>. " O’Reilly Media, Inc.".
 </div>
-<div id="ref-wirth2000crisp" class="csl-entry" role="listitem">
+<div id="ref-wirth2000crisp" class="csl-entry" role="doc-biblioentry">
 Wirth, Rüdiger, y Jochen Hipp. 2000. <span>«CRISP-DM: Towards a standard process model for data mining»</span>. En <em>Proceedings of the 4th international conference on the practical applications of knowledge discovery and data mining</em>, 1:29-39. Manchester.
 </div>
 </div>
@@ -1609,15 +1555,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1625,74 +1568,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiado");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiado");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
+    button.setAttribute("title", "Copiada");
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1702,320 +1589,55 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Prefacio">
+      <a href="./index.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prefacio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./eda.html" class="pagination-link" aria-label="Análisis Exploratorio de Datos">
+      <a href="./eda.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 

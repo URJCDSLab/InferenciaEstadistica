@@ -9,6 +9,8 @@ Recordemos los aspectos más fundamentales de la Ciencia de Datos. Probablemente
 La última revolución asociada a la IA ha estado enmarcada por el crecimiento en el uso del Aprenzaje Automático dentro del contexto de la ciencia de datos [@kelleher2020fundamentals].
 
 ::: {.callout-tip title="Ciencia de datos"}
+# Ciencia de datos
+
 La ciencia de datos es un área interdisciplinar que abarca un conjunto de principios, problemas, definiciones, algoritmos y procesos cuyo objetivo es extraer conocimiento no obvio y útil a partir de un conjunto de datos.
 :::
 
@@ -203,6 +205,8 @@ as.tibble(iris)
 ```
 
 ::: {.callout-caution title="Práctica"}
+# Práctica
+
 Es importante que realices algún ejercicio en R, leyendo datos de diferentes fuentes y familiarizándote con las diferentes estructuras de datos que R proporciona.
 :::
 
@@ -265,6 +269,8 @@ Variables de entrada:
 17 - y: ¿ha suscrito el cliente un depósito a plazo? (variable binaria: "sí", "no")
 
 ::: {.callout-important .justify title="Para recordar"}
+# Para recordar
+
 A veces (muchas veces) la descripción que encontramos en una primera etapa no coincide al completo con los datos que luego nos entrega el cliente.
 
 En otras ocasiones no se dispone de la descripción de las variables. En ese caso, ¡hay que hacer lo imposible por conseguirla!
@@ -332,6 +338,8 @@ La **población** es el conjunto completo de todos los elementos o individuos qu
 Dado que es a menudo impráctico o imposible estudiar toda la población, se selecciona una muestra, que es un subconjunto de la población. El estudio de las observaciones de una población podría implicar destruir dichas observaciones (vida útil del componente). El coste del estudio de las características de las observaciones podría ser muy elevado (experimentos biológicos). A veces el tamaño de la población es tan elevado (*very big data!*) que es obligatorio utilizar métodos de muestreo. Eso sí, es importante que la muestra sea representativa para que las conclusiones que se extraen de ella sean válidas para la población completa.
 
 ::: {.callout-tip collapse="true" title="Ejemplo. Sondeo Electoral de 1936"}
+# Ejemplo. Sondeo Electoral de 1936
+
 El caso del sondeo electoral de 1936, realizado por la revista "Literary Digest" en Estados Unidos, es un ejemplo clásico que ilustra la importancia de la representatividad de una muestra en la investigación estadística y en particular en la realización de encuestas.
 
 En 1936, la revista "Literary Digest" llevó a cabo un sondeo para predecir el resultado de la elección presidencial entre el candidato demócrata Franklin D. Roosevelt y el candidato republicano Alf Landon. La revista enviaba millones de encuestas a sus lectores y a otras listas de individuos, como propietarios de automóviles y personas que aparecían en directorios telefónicos. En ese año, "Literary Digest" envió unos 10 millones de encuestas y recibió alrededor de 2.4 millones de respuestas, lo que constituía una muestra enorme para los estándares de la época.
@@ -460,38 +468,52 @@ Por ejemplo, sea $(X_1,\ldots,X_n)$ una muestra aletoria de una población $X$ c
 -   **Media Muestral** ($\bar{X}$): Utilizada para estimar la media poblacional. $$
     \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
     $$
+
 -   **Varianza Muestral** ($V$): Utilizada para estimar la varianza poblacional. $$
     V=\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2
     $$
+
 -   **Cuasivarianza muestral** ($S^2$) $$
     S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2=\frac{1}{n-1}\left [ \sum_{i=1}^nX_i^2-n\bar{X}^2\right]
     $$ Entonces se tienen las siguientes propiedades:
 
+$$E(\bar{X})=\mu$$
+
 $$
-E(\bar{X})=\mu
-$$ $$
-Var(\bar{X})=\frac{\sigma^2}{n}
+Var(\bar{X})=\frac{\sigma^{2}}{n}
 $$
 
 $$
-E(V)=\frac{n-1}{n}\sigma^2
-$$ $$
-E(S^2)=\sigma^2
+E(V)=\frac{n-1}{n}\sigma^{2}
+$$
+
+$$
+E(S^{2})=\sigma^{2}
 $$
 
 ### Uso de la muestra
 
-Supongamos que queremos estudiar una característica de cierta población. Esta característica se representa mediante una variable aleatoria $X$ y el estudio se centra en su valor medio $E[X]$. Para ello, se decide tomar una muestra y se obtiene un estadístico, la *media muestral*, que se utiliza para estimar el valor de $E[X]$: $$
-\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
-$$ Fíjate que este estadístico $\bar{X}$ es una variable aleatoria. Una vez tomada una muestra particular $(x_1,\ldots,x_n)$ de la variable aleatoria $X$ se obtiene un valor numérico particular para la variable aleatoria $\bar{X}$: $$
-\bar{x}=\frac{1}{n}\sum_{i=1}^nx_i
+Supongamos que queremos estudiar una característica de cierta población. Esta característica se representa mediante una variable aleatoria $X$ y el estudio se centra en su valor medio $E[X]$. Para ello, se decide tomar una muestra y se obtiene un estadístico, la *media muestral*, que se utiliza para estimar el valor de $E[X]$:
+
+$$
+\bar{X}=\frac{1}{n}\sum_{i=1}^{n} X_i
+$$
+
+Fíjate que este estadístico $\bar{X}$ es una variable aleatoria. Una vez tomada una muestra particular $(x_1,\ldots,x_n)$ de la variable aleatoria $X$ se obtiene un valor numérico particular para la variable aleatoria $\bar{X}$:
+
+$$
+\bar{x}=\frac{1}{n}\sum_{i=1}^{n} x_i
 $$
 
 ::: {.callout-important title="Para recordar"}
+# Para recordar
+
 $$\bar{X}\neq\bar{x}$$
 :::
 
 ::: {.callout-tip collapse="true" title="Ejemplo. Diferencia entre parámetro y estadístico"}
+# Ejemplo. Diferencia entre parámetro y estadístico
+
 Se quiere estudiar la temperatura de una solución líquida en un laboratorio y estimar el valor medio $\mu$ (parámetro de la población), que es desconocido. Se supone que la temperatura se puede aproximar mediante una variable aleatoria de la que se desconoce su distribución. Una opción razonable para estimarla sería escoger una muestra de la solución, medir su temperatura, y estimar $\mu$ mediante el promedio de esa muestra (estadístico muestral): $$ \hat{\mu}=\bar{X}$$. Es importante señalar que podríamos emplear otros estadísticos diferentes.
 
 Supongamos ahora que se toma una muestra de 10 mediciones de temperatura de dicha solución, obteniendo estos valores:
@@ -541,6 +563,8 @@ Tal y como hemos visto hasta ahora, el objetivo general de la inferencia es obte
 La estadística paramétrica se basa en la suposición de que los datos siguen una distribución conocida, como la distribución normal, binomial, Poisson, etc. Estas suposiciones (o hipótesis) deben ser comprobadas para dar validez a este tipo de pruebas. Los parámetros de estas distribuciones, como la media y la varianza, se utilizan para resumir la información de los datos y realizar inferencias.
 
 ::: {.callout-tip collapse="true" title="Familias paramétricas"}
+# Familias paramétricas
+
 Se tiene una variable aleatoria $X$ cuya distribución se supone perteneciente a una cierta familia paramétrica {$f_\theta$} donde $\theta \in \Theta$.
 
 La distribución de $X$ es conocida excepto por el valor del parámetro $\theta$, del cual lo único que se conoce es su rango de posibles valores, $\Theta$, denominado espacio paramétrico.
@@ -590,6 +614,8 @@ donde:
 Vemos que el teorema de Bayes permite actualizar la probabilidad de una hipótesis $A$ a la luz de nueva evidencia $B$. Básicamente, proporciona una forma de ajustar nuestras creencias iniciales (probabilidad a priori) en base a la nueva información disponible (evidencia).
 
 ::: {.callout-tip title="Ejemplo. Teorema de Bayes." collapse="true"}
+# Ejemplo. Teorema de Bayes.
+
 Imaginemos que estamos tratando de diagnosticar una enfermedad rara que afecta al $1\%$ de la población (es decir, $P(\text{Enfermedad}) = 0.01$). Ademas, se sabe que existe una prueba para esta enfermedad que es $99\%$ precisa:
 
 -   Si una persona tiene la enfermedad, la prueba es positiva el $99\%$ de las veces, es decir $P(\text{Positivo}|\text{Enfermedad}) = 0.99$.
@@ -607,7 +633,10 @@ Primero, calculamos $P(\text{Positivo})$, la probabilidad total de que la prueba
 
 $$
 P(\text{Positivo}) = P(\text{Positivo}|\text{Enfermedad}) \cdot P(\text{Enfermedad}) +
-$$ $$P(\text{Positivo}|\text{No Enfermedad}) \cdot P(\text{No Enfermedad})
+$$
+
+$$
+P(\text{Positivo}|\text{No Enfermedad}) \cdot P(\text{No Enfermedad})
 $$
 
 $$
@@ -774,10 +803,14 @@ Formalmente, el TCL establece que si, $X_1,X_2,\ldots,X_n$ son variables aleator
 $$\bar{X} \approx N \left ( \mu,\frac{\sigma^2}{n}\right )$$ Este resultado es válido tanto para variables discretas como continuas, sean simétricas o asimétricas, unimodales o multimodales.
 
 ::: {.callout-important .justify title="Para recordar"}
+# Para recordar
+
 El Teorema Central del Límite asegura que con muestas suficientemente grandes se pueden utilizar estimaciones basadas en la distribución Normal independientemente del tipo de distribución que siga la variable que nos interesa.
 :::
 
 ::: {.callout-tip .justify collapse="true" title="Ejemplo. Teorema Central del Límite"}
+# Ejemplo. Teorema Central del Límite.
+
 Acabamos de ver que el TCL establece que, para una gran cantidad de muestras aleatorias tomadas de una población con una distribución cualquiera (con una media y una varianza finitas), la distribución de las medias muestrales tiende a ser Normal, independientemente de la forma de la distribución original.
 
 Aquí tienes un ejemplo en R que ilustra el Teorema Central del Límite. Vamos a tomar muestras de una distribución no normal (por ejemplo, una distribución uniforme). Calcularemos las medias de estas muestras y observaremos cómo las medias muestrales se aproximan a una distribución normal.
