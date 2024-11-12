@@ -644,11 +644,11 @@ Determinar el tamaño adecuado de una muestra es crucial en la inferencia estad�
 
 Los factores clave para determinar el **tamaño muestral** son:
 
-1.  **Nivel de confianza ($1-\alpha$)**:
+1.  **Nivel de confianza (**$1-\alpha$):
     -   El nivel de confianza indica el grado de certeza de que el intervalo de confianza contiene el parámetro poblacional. Tal y como hemos indicado anteriormente, niveles de confianza comunes son $90\%$, $95\%$ y $99\%$. Un nivel de confianza más alto requiere una muestra más grande para asegurar la misma precisión.
 2.  **Margen de error (E)**:
     -   El margen de error es la máxima diferencia tolerable entre la estimación muestral y el valor real del parámetro poblacional. Un margen de error más pequeño requiere una muestra más grande para asegurar una estimación precisa.
-3.  **Variabilidad poblacional ($\sigma$)**:
+3.  **Variabilidad poblacional (**$\sigma$):
     -   La variabilidad en la población, medida por la desviación estándar, afecta directamente al tamaño muestral. Una mayor variabilidad requiere una muestra más grande para obtener una estimación precisa.
 
 A continuación mostramos algunos ejemplos del cálculo del tamaño muestral para diferentes situaciones.
@@ -663,16 +663,14 @@ $$
 
 donde:
 
-- $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado. 
-- $\sigma$ es la desviación estándar de la población (si es desconocida, se puede usar la desviación estándar de la muestra $s$).
+-   $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado.
+-   $\sigma$ es la desviación estándar de la población (si es desconocida, se puede usar la desviación estándar de la muestra $s$).
 
 Efectivamente, teníamos que el intervalo de confianza para la media se obtenía mediante la fórmula: $$
 \left ( \bar{x} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}} \right )
 $$ Y buscamos el $n$ tal que la desviación respecto a la media sea menor que $E$, es decir: $$
  z_{\alpha/2}\frac{\sigma}{\sqrt{n}}  < E
-$$ 
-Esto es:
-$$
+$$ Esto es: $$
 n >  \left ( \frac{z_{\alpha/2} \sigma}{\sqrt{n}} \right )^2
 $$
 
@@ -694,10 +692,10 @@ $$
 n = \frac{z_{\alpha/2}^2 \cdot p \cdot (1 - p)}{E^2}
 $$
 
-donde: 
+donde:
 
-- $p$ es la proporción esperada (si no se conoce, se usa $p = 0.5$ para maximizar el tamaño muestral). 
-- $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado.
+-   $p$ es la proporción esperada (si no se conoce, se usa $p = 0.5$ para maximizar el tamaño muestral).
+-   $z_{\alpha/2}$ es el valor crítico del estadístico $z$ correspondiente al nivel de confianza deseado.
 
 ::: {.callout-tip collapse="true" title="Ejemplo. Tamaño muestral para la estimación de una proporción"}
 Supongamos que deseamos estimar la proporción de personas que aprueban una nueva ley con un nivel de confianza del $95\%$, un margen de error del $3\%$ $(0.03)$ y se estima que la proporción esperada es $p = 0.5$. El valor crítico $z_{\alpha/2}$ para un nivel de confianza del $95\%$ es aproximadamente $1.96$.
@@ -767,7 +765,7 @@ Supongamos que el rectorado de la URJC afirma que menos del $20\%$ de los estudi
 5.  **Tomar una decisión**:
     -   La regla de decisión de un contraste de hipótesis se basa en la "distancia" entre los datos muestrales y los valores esperados si $H_0$ es cierta. Esta distancia se calcula a partir de un estadístico del contraste y se considera "grande" o no, en base a la distribución del mismo y a la probabilidad de observar realizaciones "más extremas" de dicho estadístico. Para tomar la decisión, comparamos el valor p con $\alpha$:
     -   Si $p-valor \leq \alpha$, se rechaza $H_0$. Hay suficiente evidencia en la muestra como para rechazar la hipótesis nula. El valor del parámetro establecido en $H_0$ es poco creíble dada la muestra observada.
-    -   Si $p-valor > \alpha$, no se rechaza $H_0$. 
+    -   Si $p-valor > \alpha$, no se rechaza $H_0$.
 
 ::: {.callout-important .justify title="¡Importante!"}
 No rechazar la hipótesis nula no significa que la hipótesis nula sea cierta. La interpretación es que no existe, en la muestra que hemos observado, suficiente evidencia en contra de la hipótesis nula como para recharzarla.
@@ -797,7 +795,7 @@ Dado que $p < 0.05$, rechazamos la hipótesis nula $H_0$. Podemos afirmar que lo
 
 Como hemos visto, una vez especificadas las hipótesis nula y alternativa y recogida la información muestral, se toma una decisión sobre la hipótesis nula (rechazar o no rechazar $H_0$). Sin embargo, existe la posibilidad de llegar a una conclusión equivocada, porque solo se dispone de una muestra aleatoria y no se puede tener la certeza de que $H_0$ sea correcta o no.
 
-En la Inferencia Estadística, cuando realizamos un contraste de hipótesis, hay dos tipos de errores que pueden ocurrir: el **error de tipo I o $\alpha$** y el **error de tipo II o $\beta$**. Entender estos errores es fundamental para interpretar correctamente los resultados de cualquier prueba estadística. El balance entre $\alpha$ y $\beta$, así como el tamaño de la muestra, juegan un papel importante en la fiabilidad de los resultados obtenidos.
+En la Inferencia Estadística, cuando realizamos un contraste de hipótesis, hay dos tipos de errores que pueden ocurrir: el **error de tipo I o** $\alpha$ y el **error de tipo II o** $\beta$. Entender estos errores es fundamental para interpretar correctamente los resultados de cualquier prueba estadística. El balance entre $\alpha$ y $\beta$, así como el tamaño de la muestra, juegan un papel importante en la fiabilidad de los resultados obtenidos.
 
 #### Error de Tipo I $(\alpha)$
 
@@ -811,9 +809,8 @@ Recuerda que establecemos de antemano esta valor, comúnmente $0.05$, $0.01$ o $
 
 Así, por ejemplo, Si $\alpha = 0.05$, esto significa que estamos dispuestos a aceptar un $5\%$ de probabilidad de rechazar $H_0$ cuando es verdadera.
 
-
 ::: {.callout-caution .justify title="Atención"}
-¿Qué relación existe entre el error de tipo I y el $\%$ de un IC? 
+¿Qué relación existe entre el error de tipo I y el $\%$ de un IC?
 :::
 
 #### Error de Tipo II $(\beta)$
@@ -852,11 +849,11 @@ Supongamos que estamos evaluando la efectividad de un nuevo medicamento.
 
 La siguiente tabla refleja la relación entre los dos tipos de errores en relación con la decisión del contraste y la verdadera situación en la población:
 
-|   | **Verdadera situación** |   |
+|                   | **Verdadera situación**    |                                |
 |------------------------|------------------------|------------------------|
-| **Decisión** | $H_0$ correcta | $H_0$ incorrecta |
-| No rechazar $H_0$ | Sin error ($1-\alpha$) | Error de Tipo II ($\beta$) |
-| Rechazar $H_0$ | Error de Tipo I ($\alpha$) | Sin error ($1-\beta$=potencia) |
+| **Decisión**      | $H_0$ correcta             | $H_0$ incorrecta               |
+| No rechazar $H_0$ | Sin error ($1-\alpha$)     | Error de Tipo II ($\beta$)     |
+| Rechazar $H_0$    | Error de Tipo I ($\alpha$) | Sin error ($1-\beta$=potencia) |
 
 Es importante notar que, si todo lo demás no cambia, entonces la potencia del contraste disminuye cuando:
 
@@ -937,7 +934,7 @@ Después calculamos el $p-valor$ como sigue:
 
 -   Contraste unilateral derecho: $p-valor=P(Z\geq z)$
 
--   Contraste unilateral izquierdo:  $p-valor=P(Z\leq z)$
+-   Contraste unilateral izquierdo: $p-valor=P(Z\leq z)$
 
 Si esta probabilidad es menor o igual que el valor de referencia $\alpha$, entonces rechazamos la hipótesis nula en favor de la alternativa.
 
@@ -1032,7 +1029,7 @@ Formulamos las hipótesis:
 Consideramos un nivel de significancia estadística $\alpha$. Típicamente $\alpha=0.05$.
 
 Calculamos el estadístico muestras, en este caso: $$
-t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2}{SE}
+t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2 - \mu_1 - \mu_2}{SE}
 $$ donde: $$
 SE = \sqrt{S^2_p \left( \frac{1}{n₁} + \frac{1}{n₂} \right)}
 $$ siendo $S_p$ la desviación típica combinada: $$
@@ -1068,27 +1065,33 @@ Consideramos un nivel de significancia $\alpha=0.05$.
 Para el Grupo A, se tiene:
 
 -   Tamaño de la muestra ($n_1= 12$)
--   Media ($\bar{\mathbf{x}}_1 = 85.08$)
+-   Media ($\bar{\mathbf{x}}_1 = 84.83$)
 -   Desviación estándar ($s_1=5.33$)
 
 Para el Grupo B:
 
 -   Tamaño de la muestra ($n_2= 10$)
 -   Media ($\bar{\mathbf{x}}_2 = 80.3$)
--   Desviación estándar ($s_2=2.49$)
+-   Desviación estándar ($s_2=2.83$)
 
 Usaremos la prueba t para muestras independientes. Calculamos la varianza combinada: $$
-S^2_p=  \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}=\frac{(12-1)5.33^2 + (10-1)2.49^2}{12+10-2} \approx 18.41419
+S^2_p=  \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}=\frac{(12-1)5.33^2 + (10-1)2.83^2}{12+10-2} \approx 19.288
 $$ El erro estándar combinados: $$
-SE = \sqrt{S^2_p \left( \frac{1}{n₁} + \frac{1}{n₂} \right)}= \sqrt{18.4149 \left( \frac{1}{12} + \frac{1}{10} \right)}\approx 1.84
+SE = \sqrt{S^2_p \left( \frac{1}{n₁} + \frac{1}{n₂} \right)}= \sqrt{19.288 \left( \frac{1}{12} + \frac{1}{10} \right)}\approx 1.88
 $$ Para calcular el estadístico $t$: $$ 
-t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2}{SE}=\frac{85.08-80.3}{1.84}\approx2.60
+t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2}{SE}=\frac{84.83-80.3}{1.88}\approx 2.41
 $$
 
-Para un nivel de significancia $\alpha= 0.05$ y grados de libertad $df = n_1+n_2- 2 = 20$, el valor crítico t de t de Student para una prueba de dos colas es aproximadamente $\pm2.086$.
+Para un nivel de significancia $\alpha= 0.05$ y grados de libertad $df = n_1+n_2- 2 = 20$, el valor crítico t de t de Student para una prueba de dos colas es aproximadamente $\pm 2.086$.
 
-En nuestro caso, $|t| = 2.60$, que es mayor que $2.086$ y por tanto, eechazamos la hipótesis nula ($H_0$). Esto indica que hay evidencia suficiente para afirmar que existe una diferencia significativa en los puntajes de los exámenes de matemáticas entre los dos grupos de estudiantes.
+En nuestro caso, $|t| = 2.41$, que es mayor que $2.086$ y por tanto, eechazamos la hipótesis nula ($H_0$). Esto indica que hay evidencia suficiente para afirmar que existe una diferencia significativa en los puntajes de los exámenes de matemáticas entre los dos grupos de estudiantes.
 :::
+
+En el caso en el que no se pueda asumir que las varianzas son iguales, el test cambia ligeramente. Es decir, cuando se quieren comparar las **medias de dos muestras independientes con varianzas distintas**, el estadístico del contraste bajo la hipótesis nula es
+
+$$
+t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2 - \mu_1 - \mu_2}{\sqrt{\frac{s_{1}^{2}}{n_1}+\frac{s^{2}_2}{n_2}}} \sim t_{q, \alpha/2}
+$$ siendo $$q = \frac{\left(\frac{s_{1}^{2}}{n_1} + \frac{s_{2}^{2}}{n_2}\right)^{2}}{\frac{\frac{s_{1}^{2}}{n_1}}{n_1 -1} + \frac{\frac{s_{2}^{2}}{n_2}}{n_2 -1}} $$ que se calculan mediante la aproximación de Welch-Satterthwaite.
 
 ### Contraste de hipótesis para la diferencia de proporciones
 
@@ -1100,8 +1103,8 @@ Formulamos las hipótesis:
 -   **Hipótesis alternativa (**$H_1$): Las proporciones de las dos poblaciones son diferentes ($p_1 \neq p_2$).
 
 Consideremos dos m.a.s. de tamaño $n_1$ y $n_2$, siendo $\mathbf{x}$ y $\mathbf{y}$ el número de observaciones que cumplen un criterio, de modo que: $$
-\hat{p}_1=\frac{\mathbf{x}}{n_1}, \hat{p}_2=\frac{\mathbf{y}}{n_1}
-$$ son los estimadores de máxima verosimilutd de $p_1$ y $p_2$ respectivamente.
+\hat{p}_1=\frac{\mathbf{x}}{n_1}, \hat{p}_2=\frac{\mathbf{y}}{n_2}
+$$ son los estimadores de máxima verosimilitud de $p_1$ y $p_2$ respectivamente.
 
 Consideramos un nivel de significancia estadística $\alpha$. Típicamente $\alpha=0.05$.
 

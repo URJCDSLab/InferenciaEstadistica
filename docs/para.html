@@ -1020,7 +1020,7 @@ Simulación Intervalo de Confianza
 <p>Determinar el tamaño adecuado de una muestra es crucial en la inferencia estadística, ya que un tamaño muestral adecuado garantiza que los intervalos de confianza sean precisos y que las conclusiones obtenidas sean representativas de la población. Las técnicas para determinar el tamaño muestral están relacionadas directamente con los intervalos de confianza y se basan en varios factores, entre los que se incluyen el nivel de confianza deseado, la precisión (o margen de error) deseada y la variabilidad esperada en la población.</p>
 <p>Los factores clave para determinar el <strong>tamaño muestral</strong> son:</p>
 <ol type="1">
-<li><strong>Nivel de confianza (<span class="math inline">\(1-\alpha\)</span>)</strong>:
+<li><strong>Nivel de confianza (</strong><span class="math inline">\(1-\alpha\)</span>):
 <ul>
 <li>El nivel de confianza indica el grado de certeza de que el intervalo de confianza contiene el parámetro poblacional. Tal y como hemos indicado anteriormente, niveles de confianza comunes son <span class="math inline">\(90\%\)</span>, <span class="math inline">\(95\%\)</span> y <span class="math inline">\(99\%\)</span>. Un nivel de confianza más alto requiere una muestra más grande para asegurar la misma precisión.</li>
 </ul></li>
@@ -1028,7 +1028,7 @@ Simulación Intervalo de Confianza
 <ul>
 <li>El margen de error es la máxima diferencia tolerable entre la estimación muestral y el valor real del parámetro poblacional. Un margen de error más pequeño requiere una muestra más grande para asegurar una estimación precisa.</li>
 </ul></li>
-<li><strong>Variabilidad poblacional (<span class="math inline">\(\sigma\)</span>)</strong>:
+<li><strong>Variabilidad poblacional (</strong><span class="math inline">\(\sigma\)</span>):
 <ul>
 <li>La variabilidad en la población, medida por la desviación estándar, afecta directamente al tamaño muestral. Una mayor variabilidad requiere una muestra más grande para obtener una estimación precisa.</li>
 </ul></li>
@@ -1245,7 +1245,7 @@ Ejemplo Práctico. Contraste de Hipótesis
 <section id="errores-tipo-i-y-tipo-ii.-potencia" class="level3" data-number="3.7.3">
 <h3 data-number="3.7.3" class="anchored" data-anchor-id="errores-tipo-i-y-tipo-ii.-potencia"><span class="header-section-number">3.7.3</span> Errores tipo I y tipo II. Potencia</h3>
 <p>Como hemos visto, una vez especificadas las hipótesis nula y alternativa y recogida la información muestral, se toma una decisión sobre la hipótesis nula (rechazar o no rechazar <span class="math inline">\(H_0\)</span>). Sin embargo, existe la posibilidad de llegar a una conclusión equivocada, porque solo se dispone de una muestra aleatoria y no se puede tener la certeza de que <span class="math inline">\(H_0\)</span> sea correcta o no.</p>
-<p>En la Inferencia Estadística, cuando realizamos un contraste de hipótesis, hay dos tipos de errores que pueden ocurrir: el <strong>error de tipo I o <span class="math inline">\(\alpha\)</span></strong> y el <strong>error de tipo II o <span class="math inline">\(\beta\)</span></strong>. Entender estos errores es fundamental para interpretar correctamente los resultados de cualquier prueba estadística. El balance entre <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span>, así como el tamaño de la muestra, juegan un papel importante en la fiabilidad de los resultados obtenidos.</p>
+<p>En la Inferencia Estadística, cuando realizamos un contraste de hipótesis, hay dos tipos de errores que pueden ocurrir: el <strong>error de tipo I o</strong> <span class="math inline">\(\alpha\)</span> y el <strong>error de tipo II o</strong> <span class="math inline">\(\beta\)</span>. Entender estos errores es fundamental para interpretar correctamente los resultados de cualquier prueba estadística. El balance entre <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span>, así como el tamaño de la muestra, juegan un papel importante en la fiabilidad de los resultados obtenidos.</p>
 <section id="error-de-tipo-i-alpha" class="level4" data-number="3.7.3.1">
 <h4 data-number="3.7.3.1" class="anchored" data-anchor-id="error-de-tipo-i-alpha"><span class="header-section-number">3.7.3.1</span> Error de Tipo I <span class="math inline">\((\alpha)\)</span></h4>
 <p>El error de tipo I ocurre cuando rechazamos la hipótesis nula <span class="math inline">\(H_0\)</span> siendo esta verdadera. En otras palabras, concluimos que hay un efecto o una diferencia cuando, en realidad, no la hay. El nivel de significancia <span class="math inline">\(\alpha\)</span> es la probabilidad de cometer un error de tipo I.</p>
@@ -1555,7 +1555,7 @@ Ejemplo Práctico. Contraste de hipótesis media normal, varianza desconocida
 </ul>
 <p>Consideramos un nivel de significancia estadística <span class="math inline">\(\alpha\)</span>. Típicamente <span class="math inline">\(\alpha=0.05\)</span>.</p>
 <p>Calculamos el estadístico muestras, en este caso: <span class="math display">\[
-t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2}{SE}
+t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2 - \mu_1 - \mu_2}{SE}
 \]</span> donde: <span class="math display">\[
 SE = \sqrt{S^2_p \left( \frac{1}{n₁} + \frac{1}{n₂} \right)}
 \]</span> siendo <span class="math inline">\(S_p\)</span> la desviación típica combinada: <span class="math display">\[
@@ -1602,27 +1602,31 @@ Ejemplo Práctico. Contraste de hipótesis igualdad de medias
 <p>Para el Grupo A, se tiene:</p>
 <ul>
 <li>Tamaño de la muestra (<span class="math inline">\(n_1= 12\)</span>)</li>
-<li>Media (<span class="math inline">\(\bar{\mathbf{x}}_1 = 85.08\)</span>)</li>
+<li>Media (<span class="math inline">\(\bar{\mathbf{x}}_1 = 84.83\)</span>)</li>
 <li>Desviación estándar (<span class="math inline">\(s_1=5.33\)</span>)</li>
 </ul>
 <p>Para el Grupo B:</p>
 <ul>
 <li>Tamaño de la muestra (<span class="math inline">\(n_2= 10\)</span>)</li>
 <li>Media (<span class="math inline">\(\bar{\mathbf{x}}_2 = 80.3\)</span>)</li>
-<li>Desviación estándar (<span class="math inline">\(s_2=2.49\)</span>)</li>
+<li>Desviación estándar (<span class="math inline">\(s_2=2.83\)</span>)</li>
 </ul>
 <p>Usaremos la prueba t para muestras independientes. Calculamos la varianza combinada: <span class="math display">\[
-S^2_p=  \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}=\frac{(12-1)5.33^2 + (10-1)2.49^2}{12+10-2} \approx 18.41419
+S^2_p=  \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}=\frac{(12-1)5.33^2 + (10-1)2.83^2}{12+10-2} \approx 19.288
 \]</span> El erro estándar combinados: <span class="math display">\[
-SE = \sqrt{S^2_p \left( \frac{1}{n₁} + \frac{1}{n₂} \right)}= \sqrt{18.4149 \left( \frac{1}{12} + \frac{1}{10} \right)}\approx 1.84
+SE = \sqrt{S^2_p \left( \frac{1}{n₁} + \frac{1}{n₂} \right)}= \sqrt{19.288 \left( \frac{1}{12} + \frac{1}{10} \right)}\approx 1.88
 \]</span> Para calcular el estadístico <span class="math inline">\(t\)</span>: <span class="math display">\[
-t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2}{SE}=\frac{85.08-80.3}{1.84}\approx2.60
+t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2}{SE}=\frac{84.83-80.3}{1.88}\approx 2.41
 \]</span></p>
-<p>Para un nivel de significancia <span class="math inline">\(\alpha= 0.05\)</span> y grados de libertad <span class="math inline">\(df = n_1+n_2- 2 = 20\)</span>, el valor crítico t de t de Student para una prueba de dos colas es aproximadamente <span class="math inline">\(\pm2.086\)</span>.</p>
-<p>En nuestro caso, <span class="math inline">\(|t| = 2.60\)</span>, que es mayor que <span class="math inline">\(2.086\)</span> y por tanto, eechazamos la hipótesis nula (<span class="math inline">\(H_0\)</span>). Esto indica que hay evidencia suficiente para afirmar que existe una diferencia significativa en los puntajes de los exámenes de matemáticas entre los dos grupos de estudiantes.</p>
+<p>Para un nivel de significancia <span class="math inline">\(\alpha= 0.05\)</span> y grados de libertad <span class="math inline">\(df = n_1+n_2- 2 = 20\)</span>, el valor crítico t de t de Student para una prueba de dos colas es aproximadamente <span class="math inline">\(\pm 2.086\)</span>.</p>
+<p>En nuestro caso, <span class="math inline">\(|t| = 2.41\)</span>, que es mayor que <span class="math inline">\(2.086\)</span> y por tanto, eechazamos la hipótesis nula (<span class="math inline">\(H_0\)</span>). Esto indica que hay evidencia suficiente para afirmar que existe una diferencia significativa en los puntajes de los exámenes de matemáticas entre los dos grupos de estudiantes.</p>
 </div>
 </div>
 </div>
+<p>En el caso en el que no se pueda asumir que las varianzas son iguales, el test cambia ligeramente. Es decir, cuando se quieren comparar las <strong>medias de dos muestras independientes con varianzas distintas</strong>, el estadístico del contraste bajo la hipótesis nula es</p>
+<p><span class="math display">\[
+t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2 - \mu_1 - \mu_2}{\sqrt{\frac{s_{1}^{2}}{n_1}+\frac{s^{2}_2}{n_2}}} \sim t_{q, \alpha/2}
+\]</span> siendo <span class="math display">\[q = \frac{\left(\frac{s_{1}^{2}}{n_1} + \frac{s_{2}^{2}}{n_2}\right)^{2}}{\frac{\frac{s_{1}^{2}}{n_1}}{n_1 -1} + \frac{\frac{s_{2}^{2}}{n_2}}{n_2 -1}} \]</span> que se calculan mediante la aproximación de Welch-Satterthwaite.</p>
 </section>
 <section id="contraste-de-hipótesis-para-la-diferencia-de-proporciones" class="level3" data-number="3.7.7">
 <h3 data-number="3.7.7" class="anchored" data-anchor-id="contraste-de-hipótesis-para-la-diferencia-de-proporciones"><span class="header-section-number">3.7.7</span> Contraste de hipótesis para la diferencia de proporciones</h3>
@@ -1633,8 +1637,8 @@ t = \frac{\bar{\mathbf{x}}_1-\bar{\mathbf{x}}_2}{SE}=\frac{85.08-80.3}{1.84}\app
 <li><strong>Hipótesis alternativa (</strong><span class="math inline">\(H_1\)</span>): Las proporciones de las dos poblaciones son diferentes (<span class="math inline">\(p_1 \neq p_2\)</span>).</li>
 </ul>
 <p>Consideremos dos m.a.s. de tamaño <span class="math inline">\(n_1\)</span> y <span class="math inline">\(n_2\)</span>, siendo <span class="math inline">\(\mathbf{x}\)</span> y <span class="math inline">\(\mathbf{y}\)</span> el número de observaciones que cumplen un criterio, de modo que: <span class="math display">\[
-\hat{p}_1=\frac{\mathbf{x}}{n_1}, \hat{p}_2=\frac{\mathbf{y}}{n_1}
-\]</span> son los estimadores de máxima verosimilutd de <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span> respectivamente.</p>
+\hat{p}_1=\frac{\mathbf{x}}{n_1}, \hat{p}_2=\frac{\mathbf{y}}{n_2}
+\]</span> son los estimadores de máxima verosimilitud de <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span> respectivamente.</p>
 <p>Consideramos un nivel de significancia estadística <span class="math inline">\(\alpha\)</span>. Típicamente <span class="math inline">\(\alpha=0.05\)</span>.</p>
 <p>Calculamos el estadístico muestral, en este caso: <span class="math display">\[
 Z = \frac{\hat{p}_1-\hat{p_2}}{SE}
